@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }} — {{ date }}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0a0a0f;
+            --surface: #12121a;
+            --surface-2: #1a1a25;
+            --border: #252535;
+            --text: #e2e2f0;
+            --text-secondary: #8b8ba7;
+            --accent: #6366f1;
+            --accent-glow: rgba(99, 102, 241, 0.15);
+            --ai: #10b981;
+            --code: #f59e0b;
+            --security: #ef4444;
+            --hardware: #3b82f6;
+            --startup: #ec4899;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        
+        header {
+            padding: 48px 0 32px;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 40px;
+        }
+        
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 14px;
+            background: var(--accent-glow);
+            border: 1px solid var(--accent);
+            border-radius: 100px;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 16px;
+        }
+        
+        .badge::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            background: var(--accent);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
+        
+        h1 {
+            font-size: 36px;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 12px;
+            background: linear-gradient(135deg, var(--text) 0%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .meta {
+            color: var(--text-secondary);
+            font-size: 15px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+        
+        .stats {
+            display: flex;
+            gap: 8px;
+            margin-top: 20px;
+        }
+        
+        .stat {
+            padding: 8px 16px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+        
+        .stat strong {
+            color: var(--text);
+            font-weight: 600;
+        }
+        
+        .section {
+            margin-bottom: 48px;
+        }
+        
+        .section-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .category-artificial_intelligence { --cat-color: var(--ai); }
+        .category-programming { --cat-color: var(--code); }
+        .category-cybersecurity { --cat-color: var(--security); }
+        .category-hardware { --cat-color: var(--hardware); }
+        .category-startup { --cat-color: var(--startup); }
+        
+        .card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 16px;
+            transition: all 0.2s ease;
+        }
+        
+        .card:hover {
+            border-color: var(--cat-color, var(--accent));
+            box-shadow: 0 0 0 3px var(--accent-glow);
+        }
+        
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 10px;
+            gap: 12px;
+        }
+        
+        .card-title {
+            font-size: 16px;
+            font-weight: 600;
+            line-height: 1.4;
+            color: var(--text);
+            text-decoration: none;
+        }
+        
+        .card-title:hover {
+            color: var(--accent);
+        }
+        
+        .card-source {
+            font-size: 11px;
+            padding: 4px 10px;
+            background: var(--surface-2);
+            border-radius: 6px;
+            color: var(--text-secondary);
+            white-space: nowrap;
+            font-family: 'JetBrains Mono', monospace;
+        }
+        
+        .card-summary {
+            color: var(--text-secondary);
+            font-size: 14px;
+            margin-bottom: 12px;
+            line-height: 1.6;
+        }
+        
+        .insight {
+            background: var(--surface-2);
+            border-left: 3px solid var(--cat-color, var(--accent));
+            padding: 12px 16px;
+            border-radius: 0 8px 8px 0;
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+        
+        .insight strong {
+            color: var(--text);
+            font-weight: 600;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            color: var(--text-secondary);
+            font-size: 13px;
+            border-top: 1px solid var(--border);
+            margin-top: 40px;
+        }
+        
+        .empty {
+            text-align: center;
+            padding: 60px 20px;
+            color: var(--text-secondary);
+        }
+        
+        @media (max-width: 640px) {
+            h1 { font-size: 26px; }
+            .card-header { flex-direction: column; }
+            .card-source { align-self: flex-start; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="badge">Live</div>
+            <h1>{{ title }}</h1>
+            <div class="meta">
+                <span>📅 {{ date }}</span>
+                <span>✍️ {{ author }}</span>
+                <span>🌐 Global Tech Intelligence</span>
+            </div>
+            <div class="stats">
+                <div class="stat"><strong>{{ total_items }}</strong> stories</div>
+                <div class="stat"><strong>{{ categories|length }}</strong> categories</div>
+            </div>
+        </header>
+        
+        {% if not categories %}
+        <div class="empty">
+            <p>No tech stories found today. Check back tomorrow!</p>
+        </div>
+        {% endif %}
+        
+        {% for category, items in categories.items() %}
+        <section class="section category-{{ items[0].category if items else 'general' }}">
+            <h2 class="section-title">
+                {% if category == "Artificial Intelligence" %}🤖{% endif %}
+                {% if category == "Programming" %}💻{% endif %}
+                {% if category == "Cybersecurity" %}🔒{% endif %}
+                {% if category == "Hardware" %}🔧{% endif %}
+                {% if category == "Startup" %}🚀{% endif %}
+                {% if category == "Science" %}🔬{% endif %}
+                {{ category }}
+            </h2>
+            
+            {% for item in items %}
+            <article class="card">
+                <div class="card-header">
+                    <a href="{{ item.url }}" target="_blank" rel="noopener" class="card-title">
+                        {{ item.raw_data.get('english_title', item.title) }}
+                    </a>
+                    <span class="card-source">{{ item.source_name }}</span>
+                </div>
+                
+                {% if item.summary %}
+                <p class="card-summary">{{ item.summary }}</p>
+                {% endif %}
+                
+                {% if item.raw_data.get('insight') %}
+                <div class="insight">
+                    <strong>💡 Why it matters:</strong> {{ item.raw_data['insight'] }}
+                </div>
+                {% endif %}
+            </article>
+            {% endfor %}
+        </section>
+        {% endfor %}
+        
+        <footer>
+            <p>Generated by Social Hotspot Daily Bot</p>
+            <p>Curated for IT professionals & AI enthusiasts</p>
+        </footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,95 @@
+# Social Hotspot Daily - Configuration
+# 复制为 config.yaml 并填入你的 API keys
+
+# =============================================================================
+# LLM Provider (OpenRouter) - 用于 AI 分类和摘要
+# =============================================================================
+openrouter:
+  api_key: "${OPENROUTER_API_KEY}"
+  model: "anthropic/claude-sonnet-4"  # 或 openai/gpt-4o-mini 等
+
+# =============================================================================
+# Data Sources - 开关和配置
+# =============================================================================
+sources:
+  twitter:
+    enabled: true
+    bearer_token: "${TWITTER_BEARER_TOKEN}"
+    max_results: 20
+    # 抓取 IT/AI 相关的热门账号推文
+    target_accounts:
+      - "ylecun"
+      - "karpathy"
+      - "sama"
+      - "elonmusk"
+    
+  reddit:
+    enabled: true
+    client_id: "${REDDIT_CLIENT_ID}"
+    client_secret: "${REDDIT_CLIENT_SECRET}"
+    user_agent: "SocialHotspotBot/1.0"
+    subreddits:
+      - "technology"
+      - "artificial"
+      - "MachineLearning"
+      - "programming"
+    limit: 15
+    
+  hackernews:
+    enabled: true
+    top_stories_limit: 20
+    
+  youtube:
+    enabled: true
+    api_key: "${YOUTUBE_API_KEY}"
+    region_code: "US"
+    category_id: "28"  # Science & Technology
+    max_results: 10
+    
+  weibo:
+    enabled: true
+    # 微博热搜不需要 API key，直接爬取
+    
+  zhihu:
+    enabled: true
+    # 知乎热榜不需要 API key，直接爬取
+    
+  rss:
+    enabled: true
+    feeds:
+      - "https://techcrunch.com/feed/"
+      - "https://www.theverge.com/rss/index.xml"
+      - "https://feeds.arstechnica.com/arstechnica/technology"
+      - "https://rsshub.app/36kr/information/technology"
+      - "https://rsshub.app/ithome/it"
+
+# =============================================================================
+# AI Filtering - 只保留 IT/AI/Tech 相关内容
+# =============================================================================
+ai_filter:
+  enabled: true
+  categories: ["artificial_intelligence", "technology", "programming", "science", "startup", "cybersecurity"]
+  min_confidence: 0.6
+  max_items_per_source: 10
+
+# =============================================================================
+# Output Settings
+# =============================================================================
+output:
+  # GitHub Pages 博客设置
+  blog:
+    title: "Tech Hotspot Daily"
+    description: "每日全球科技热点聚合"
+    author: "Social Hotspot Bot"
+    base_url: "https://YOUR_USERNAME.github.io/social-hotspot-daily"
+    
+  # Telegram 推送
+  telegram:
+    enabled: true
+    bot_token: "${TELEGRAM_BOT_TOKEN}"
+    chat_id: "${TELEGRAM_CHAT_ID}"
+    
+  # 本地保存（GitHub Actions 中不需要）
+  local:
+    enabled: false
+    path: "./output"

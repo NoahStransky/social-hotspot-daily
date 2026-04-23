@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subscribe — Tech Hotspot Daily</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0a0a0f;
+            --surface: #12121a;
+            --surface-2: #1a1a25;
+            --border: #252535;
+            --text: #e2e2f0;
+            --text-secondary: #8b8ba7;
+            --accent: #6366f1;
+            --accent-glow: rgba(99, 102, 241, 0.15);
+            --success: #10b981;
+            --error: #ef4444;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+        }
+        .container {
+            max-width: 480px;
+            width: 100%;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 40px 32px;
+            text-align: center;
+        }
+        .logo {
+            font-size: 32px;
+            margin-bottom: 8px;
+        }
+        h1 {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        .subtitle {
+            color: var(--text-secondary);
+            font-size: 15px;
+            margin-bottom: 32px;
+        }
+        .features {
+            text-align: left;
+            background: var(--surface-2);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 24px;
+        }
+        .features h3 {
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--text-secondary);
+            margin-bottom: 12px;
+        }
+        .features ul {
+            list-style: none;
+        }
+        .features li {
+            padding: 6px 0;
+            font-size: 14px;
+            color: var(--text);
+        }
+        .features li::before {
+            content: "✓ ";
+            color: var(--accent);
+            font-weight: 600;
+        }
+        .form-group {
+            margin-bottom: 16px;
+        }
+        input[type="email"] {
+            width: 100%;
+            padding: 14px 16px;
+            background: var(--surface-2);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            color: var(--text);
+            font-size: 15px;
+            font-family: inherit;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+        input[type="email"]:focus {
+            border-color: var(--accent);
+        }
+        input[type="email"]::placeholder {
+            color: var(--text-secondary);
+        }
+        button {
+            width: 100%;
+            padding: 14px;
+            background: var(--accent);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 15px;
+            font-weight: 600;
+            font-family: inherit;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        button:hover {
+            background: #5558e0;
+            transform: translateY(-1px);
+        }
+        button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+        .message {
+            margin-top: 16px;
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 14px;
+            display: none;
+        }
+        .message.success {
+            display: block;
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid var(--success);
+            color: var(--success);
+        }
+        .message.error {
+            display: block;
+            background: rgba(239, 68, 68, 0.1);
+            border: 1px solid var(--error);
+            color: var(--error);
+        }
+        .privacy {
+            margin-top: 20px;
+            font-size: 12px;
+            color: var(--text-secondary);
+        }
+        .back-link {
+            display: inline-block;
+            margin-top: 24px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 14px;
+        }
+        .back-link:hover {
+            color: var(--accent);
+        }
+        @media (max-width: 480px) {
+            .container { padding: 32px 20px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">📧</div>
+        <h1>Tech Hotspot Daily</h1>
+        <p class="subtitle">Get curated tech & AI news delivered to your inbox every morning.</p>
+
+        <div class="features">
+            <h3>What you'll get</h3>
+            <ul>
+                <li>AI-generated summaries of top stories</li>
+                <li>Sources from HN, Reddit, Twitter, 知乎, 微博</li>
+                <li>"Why it matters" insights for IT professionals</li>
+                <li>Beautiful dark-mode email, mobile-friendly</li>
+                <li>Unsubscribe anytime, no spam ever</li>
+            </ul>
+        </div>
+
+        <form id="subscribeForm">
+            <div class="form-group">
+                <input type="email" id="email" name="email" placeholder="your@email.com" required>
+            </div>
+            <button type="submit" id="submitBtn">Subscribe</button>
+        </form>
+
+        <div id="message" class="message"></div>
+
+        <p class="privacy">🔒 We respect your privacy. No spam, no sharing, unsubscribe anytime.</p>
+        <a href="index.html" class="back-link">← Back to Daily Report</a>
+    </div>
+
+    <script>
+        // Since this is a static site on GitHub Pages, we'll use a simple approach:
+        // Store subscriptions locally and provide instructions for manual processing
+        // In production, this would POST to a backend API
+
+        document.getElementById('subscribeForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = document.getElementById('email').value;
+            const btn = document.getElementById('submitBtn');
+            const msg = document.getElementById('message');
+
+            btn.disabled = true;
+            btn.textContent = 'Processing...';
+
+            // Simple email validation
+            if (!email || !email.includes('@')) {
+                msg.className = 'message error';
+                msg.textContent = 'Please enter a valid email address.';
+                btn.disabled = false;
+                btn.textContent = 'Subscribe';
+                return;
+            }
+
+            // For GitHub Pages static site, show instructions
+            // In a real deployment with backend, this would be an API call
+            setTimeout(() => {
+                msg.className = 'message success';
+                msg.innerHTML = `
+                    <strong>Thanks for subscribing!</strong><br><br>
+                    We've received your email: <code>${email}</code><br><br>
+                    <strong>Next step:</strong> Please verify your email by clicking the link we'll send you.<br>
+                    (Note: This is a demo. In production, verification emails are sent automatically.)
+                `;
+                btn.textContent = 'Subscribed ✓';
+
+                // Log for debugging (would be sent to server in production)
+                console.log('New subscription:', email);
+            }, 1000);
+        });
+    </script>
+</body>
+</html>

@@ -75,6 +75,14 @@ class BlogGenerator:
         }
         feed_path.write_text(json.dumps(feed_data, ensure_ascii=False, indent=2), encoding="utf-8")
         
+        # Copy static pages (subscribe, verify, unsubscribe)
+        template_dir = Path(__file__).parent.parent / "templates"
+        for page in ["subscribe.html", "verify.html", "unsubscribe.html"]:
+            src = template_dir / page
+            if src.exists():
+                dst = self.output_dir / page
+                dst.write_text(src.read_text(), encoding="utf-8")
+        
         return str(index_path)
     
     def get_page_url(self) -> str:

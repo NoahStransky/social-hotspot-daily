@@ -219,10 +219,56 @@
             color: var(--text-secondary);
         }
         
+        .subscribe-cta {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 20px 24px;
+            margin-top: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+        
+        .subscribe-text {
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+        
+        .subscribe-text strong {
+            color: var(--text);
+            display: block;
+            font-size: 16px;
+            margin-bottom: 4px;
+        }
+        
+        .subscribe-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            background: var(--accent);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.2s;
+            white-space: nowrap;
+        }
+        
+        .subscribe-btn:hover {
+            background: #5558e0;
+            transform: translateY(-1px);
+        }
+        
         @media (max-width: 640px) {
             h1 { font-size: 26px; }
             .card-header { flex-direction: column; }
             .card-source { align-self: flex-start; }
+            .subscribe-cta { flex-direction: column; text-align: center; }
         }
     </style>
 </head>
@@ -239,6 +285,13 @@
             <div class="stats">
                 <div class="stat"><strong>{{ total_items }}</strong> stories</div>
                 <div class="stat"><strong>{{ categories|length }}</strong> categories</div>
+            </div>
+            <div class="subscribe-cta">
+                <div class="subscribe-text">
+                    <strong>📧 Get this in your inbox</strong>
+                    Daily tech & AI news, curated for IT professionals
+                </div>
+                <a href="subscribe.html" class="subscribe-btn">Subscribe →</a>
             </div>
         </header>
         

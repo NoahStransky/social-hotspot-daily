@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tech Hotspot Daily — {{ date }}</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: #0a0a0f;
+            color: #e2e2f0;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: #12121a;
+            border: 1px solid #252535;
+        }
+        .header {
+            padding: 32px 24px;
+            border-bottom: 1px solid #252535;
+            text-align: center;
+        }
+        .badge {
+            display: inline-block;
+            padding: 4px 12px;
+            background: rgba(99, 102, 241, 0.15);
+            border: 1px solid #6366f1;
+            border-radius: 100px;
+            font-size: 11px;
+            font-weight: 600;
+            color: #6366f1;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 12px;
+        }
+        h1 {
+            font-size: 22px;
+            font-weight: 700;
+            margin: 0 0 8px;
+            color: #e2e2f0;
+        }
+        .date {
+            color: #8b8ba7;
+            font-size: 13px;
+        }
+        .content {
+            padding: 24px;
+        }
+        .category {
+            margin-bottom: 24px;
+        }
+        .category-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: #6366f1;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 12px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #252535;
+        }
+        .item {
+            margin-bottom: 16px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid #1a1a25;
+        }
+        .item:last-child {
+            border-bottom: none;
+        }
+        .item-title {
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+        .item-title a {
+            color: #e2e2f0;
+            text-decoration: none;
+        }
+        .item-title a:hover {
+            color: #6366f1;
+        }
+        .item-summary {
+            font-size: 13px;
+            color: #8b8ba7;
+            line-height: 1.5;
+            margin-bottom: 8px;
+        }
+        .item-insight {
+            font-size: 12px;
+            color: #8b8ba7;
+            background: #1a1a25;
+            padding: 8px 12px;
+            border-left: 2px solid #6366f1;
+            border-radius: 0 6px 6px 0;
+        }
+        .item-source {
+            font-size: 11px;
+            color: #6366f1;
+            margin-top: 6px;
+            font-family: 'JetBrains Mono', monospace;
+        }
+        .footer {
+            padding: 24px;
+            border-top: 1px solid #252535;
+            text-align: center;
+            color: #8b8ba7;
+            font-size: 12px;
+        }
+        .footer a {
+            color: #6366f1;
+            text-decoration: none;
+        }
+        .cta-button {
+            display: inline-block;
+            background: #6366f1;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 13px;
+            margin: 16px 0;
+        }
+        @media (max-width: 480px) {
+            .header { padding: 24px 16px; }
+            .content { padding: 16px; }
+            h1 { font-size: 18px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="badge">Daily Digest</div>
+            <h1>Tech Hotspot Daily</h1>
+            <div class="date">{{ date }}</div>
+        </div>
+
+        <div class="content">
+            {% for item in items %}
+            <div class="item">
+                <div class="item-title">
+                    <a href="{{ item.url }}" target="_blank">{{ item.title }}</a>
+                </div>
+                {% if item.summary %}
+                <div class="item-summary">{{ item.summary }}</div>
+                {% endif %}
+                {% if item.insight %}
+                <div class="item-insight">💡 {{ item.insight }}</div>
+                {% endif %}
+                <div class="item-source">{{ item.source }} · {{ item.category }}</div>
+            </div>
+            {% endfor %}
+
+            <div style="text-align: center; margin-top: 24px;">
+                <a href="{{ base_url }}" class="cta-button">Read Full Report →</a>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>Curated for IT professionals & AI enthusiasts</p>
+            <p>Generated by Social Hotspot Daily Bot</p>
+            <p style="margin-top: 16px;">
+                <a href="{{UNSUBSCRIBE_URL}}">Unsubscribe</a> |
+                <a href="{{ base_url }}">View in Browser</a>
+            </p>
+        </div>
+    </div>
+</body>
+</html>

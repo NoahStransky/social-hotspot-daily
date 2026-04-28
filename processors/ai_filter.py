@@ -89,7 +89,7 @@ class AIFilter:
                 "temperature": 0.3,
                 "max_tokens": 4000,
             },
-            timeout=120
+            timeout=180
         )
         resp.raise_for_status()
         

@@ -76,6 +76,9 @@ jobs:
           git config user.name "Social Hotspot Bot"
           git config user.email "bot@social-hotspot-daily"
 
+          # Try to delete existing remote branch first (in case of retry)
+          git push origin --delete "$BRANCH" 2>/dev/null || true
+
           # Create and switch to feature branch
           git checkout -b "$BRANCH"
 
@@ -111,6 +114,9 @@ jobs:
           # Switch back to main and pull latest
           git checkout main
           git pull origin main
+
+          # Delete the old tag if it exists (from a previous run)
+          git push origin --delete "$TAG" 2>/dev/null || true
 
           # Create a tag
           git tag -a "$TAG" -m "Daily tech news: ${TODAY}"

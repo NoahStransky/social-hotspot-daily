@@ -2,11 +2,11 @@
 # 复制为 config.yaml 并填入你的 API keys
 
 # =============================================================================
-# LLM Provider (OpenRouter) - 用于 AI 分类和摘要
+# LLM Provider (DeepSeek) - 用于 AI 分类和摘要
 # =============================================================================
-openrouter:
-  api_key: "${OPENROUTER_API_KEY}"
-  model: "anthropic/claude-sonnet-4"  # 或 openai/gpt-4o-mini 等
+deepseek:
+  api_key: "${DEEPSEEK_API_KEY}"
+  model: "deepseek-chat"  # 或 deepseek-reasoner
 
 # =============================================================================
 # Data Sources - 开关和配置

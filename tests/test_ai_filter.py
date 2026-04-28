@@ -16,7 +16,7 @@ class TestAIFilterInit:
         f = AIFilter(config)
         assert f.enabled is True
         assert f.api_key == "test-key"
-        assert f.model == "anthropic/claude-sonnet-4"
+        assert f.model == "deepseek-chat"
         assert f.target_categories == []
         assert f.min_confidence == 0.6
         assert f.max_items == 10
@@ -25,13 +25,13 @@ class TestAIFilterInit:
         f = AIFilter(ai_filter_config)
         assert f.enabled is True
         assert f.api_key == "test-api-key"
-        assert f.model == "anthropic/claude-sonnet-4"
+        assert f.model == "deepseek-chat"
         assert f.target_categories == ["artificial_intelligence", "programming"]
         assert f.min_confidence == 0.6
         assert f.max_items == 10
 
     def test_api_key_from_env(self, monkeypatch):
-        monkeypatch.setenv("OPENROUTER_API_KEY", "env-api-key")
+        monkeypatch.setenv("DEEPSEEK_API_KEY", "env-api-key")
         config = {"enabled": True}
         f = AIFilter(config)
         assert f.api_key == "env-api-key"

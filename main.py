@@ -72,8 +72,8 @@ def main():
     
     # 3. AI filtering & enrichment
     ai_config = config.get("ai_filter", {})
-    ai_config["api_key"] = config.get("openrouter", {}).get("api_key", "")
-    ai_config["model"] = config.get("openrouter", {}).get("model", "anthropic/claude-sonnet-4")
+    ai_config["api_key"] = config.get("deepseek", {}).get("api_key", "")
+    ai_config["model"] = config.get("deepseek", {}).get("model", "deepseek-chat")
     
     ai_filter = AIFilter(ai_config)
     filtered_items = ai_filter.process(unique_items)

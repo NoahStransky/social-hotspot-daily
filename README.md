@@ -32,7 +32,7 @@ cp config.yaml config.yaml  # 直接编辑
 
 | 变量 | 用途 | 获取方式 |
 |------|------|---------|
-| `OPENROUTER_API_KEY` | AI 分类摘要 | [openrouter.ai](https://openrouter.ai) |
+| `DEEPSEEK_API_KEY` | AI 分类摘要 | [platform.deepseek.com](https://platform.deepseek.com) |
 | `TWITTER_BEARER_TOKEN` | X/Twitter | [developer.twitter.com](https://developer.twitter.com) |
 | `REDDIT_CLIENT_ID/SECRET` | Reddit | [reddit.com/prefs/apps](https://www.reddit.com/prefs/apps) |
 | `YOUTUBE_API_KEY` | YouTube | [Google Cloud Console](https://console.cloud.google.com) |

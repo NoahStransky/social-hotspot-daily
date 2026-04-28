@@ -55,7 +55,7 @@ class TestMainFlow:
             "sources": {},
             "output": {"blog": {}},
             "ai_filter": {},
-            "openrouter": {},
+            "deepseek": {},
         }
         config_file = tmp_path / "config.yaml"
         config_file.write_text(yaml.safe_dump(config_data))
@@ -75,7 +75,7 @@ class TestMainFlow:
             "sources": {"hackernews": {"enabled": True}},
             "output": {"blog": {}, "telegram": {"bot_token": "test", "chat_id": "test"}},
             "ai_filter": {},
-            "openrouter": {"api_key": "key", "model": "model"},
+            "deepseek": {"api_key": "***", "model": "model"},
         }
         config_file = tmp_path / "config.yaml"
         config_file.write_text(yaml.safe_dump(config_data))

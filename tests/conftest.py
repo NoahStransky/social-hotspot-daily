@@ -80,7 +80,7 @@ def ai_filter_config():
     return {
         "enabled": True,
         "api_key": "test-api-key",
-        "model": "anthropic/claude-sonnet-4",
+        "model": "deepseek-chat",
         "categories": ["artificial_intelligence", "programming"],
         "min_confidence": 0.6,
         "max_items_per_source": 10,

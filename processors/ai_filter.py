@@ -6,6 +6,8 @@ from typing import List
 from collectors.base import NewsItem
 
 
+DEEPSEEK_BASE_URL = "https://api.deepseek.com/v1/chat/completions"
+
 SYSTEM_PROMPT = """You are a tech news curator specializing in AI, software engineering, and technology.
 Your job is to analyze news items and decide if they are highly relevant to IT professionals.
 
@@ -32,8 +34,8 @@ class AIFilter:
     
     def __init__(self, config: dict):
         self.enabled = config.get("enabled", False)
-        self.api_key = config.get("api_key") or os.environ.get("OPENROUTER_API_KEY", "")
-        self.model = config.get("model", "anthropic/claude-sonnet-4")
+        self.api_key = config.get("api_key") or os.environ.get("DEEPSEEK_API_KEY", "")
+        self.model = config.get("model", "deepseek-chat")
         self.target_categories = config.get("categories", [])
         self.min_confidence = config.get("min_confidence", 0.6)
         self.max_items = config.get("max_items_per_source", 10)
@@ -73,11 +75,10 @@ class AIFilter:
         prompt = BATCH_PROMPT_TEMPLATE.format(count=len(items), items=batch_text)
         
         resp = requests.post(
-            "https://openrouter.ai/api/v1/chat/completions",
+            DEEPSEEK_BASE_URL,
             headers={
                 "Authorization": f"Bearer {self.api_key}",
                 "Content-Type": "application/json",
-                "HTTP-Referer": "https://github.com/social-hotspot-daily",
             },
             json={
                 "model": self.model,

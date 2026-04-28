@@ -144,8 +144,15 @@ class BlogGenerator:
         template = self.env.get_template("blog.html")
         html = template.render(**data)
 
+        # Write index.html (today's page at root)
         index_path = self.output_dir / "index.html"
         index_path.write_text(html, encoding="utf-8")
+
+        # Write YYYY-MM-DD/index.html for direct URL access
+        date_dir = self.output_dir / today
+        date_dir.mkdir(parents=True, exist_ok=True)
+        date_page = date_dir / "index.html"
+        date_page.write_text(html, encoding="utf-8")
 
         # Copy static pages
         template_dir = Path(__file__).parent.parent / "templates"

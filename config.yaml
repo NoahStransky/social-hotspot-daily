@@ -6,7 +6,7 @@
 # =============================================================================
 deepseek:
   api_key: "${DEEPSEEK_API_KEY}"
-  model: "deepseek-chat"  # 或 deepseek-reasoner
+  model: "deepseek-v4-flash"
 
 # =============================================================================
 # Data Sources - 开关和配置

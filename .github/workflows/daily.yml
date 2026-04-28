@@ -64,6 +64,8 @@ jobs:
         uses: actions/deploy-pages@v4
 
       - name: Create PR with daily update
+        env:
+          GH_TOKEN: ${{ github.token }}
         shell: bash
         run: |
           TODAY=$(date -u +"%Y-%m-%d")
@@ -77,7 +79,7 @@ jobs:
           git checkout -b "$BRANCH"
 
           # Stage only the generated content
-          git add docs/index.html docs/feed.json docs/subscribe.html docs/verify.html docs/unsubscribe.html
+          git add docs/index.html docs/feed.json docs/archive/ docs/subscribe.html docs/verify.html docs/unsubscribe.html
 
           # Commit if there are changes
           if git diff --cached --quiet; then

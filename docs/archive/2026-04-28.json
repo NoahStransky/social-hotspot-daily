@@ -2,274 +2,274 @@
   "date": "2026-04-28",
   "items": [
     {
-      "title": "Microsoft and OpenAI end their exclusive and revenue-sharing deal",
-      "url": "https://www.bloomberg.com/news/articles/2026-04-27/microsoft-to-stop-sharing-revenue-with-main-ai-partner-openai",
+      "title": "OpenAI models coming to Amazon Bedrock: Interview with OpenAI and AWS CEOs",
+      "url": "https://stratechery.com/2026/an-interview-with-openai-ceo-sam-altman-and-aws-ceo-matt-garman-about-bedrock-managed-agents/",
       "source": "Hacker News",
       "category": "artificial_intelligence",
-      "summary": "Microsoft and OpenAI have ended their exclusive partnership and revenue-sharing arrangement, signaling a major shift in the AI industry landscape.",
-      "insight": "This move could reshape cloud AI offerings and increase competition. Developers relying on OpenAI via Azure should monitor how this affects API pricing, availability, and integration options.",
-      "english_title": "Microsoft and OpenAI end their exclusive and revenue-sharing deal"
+      "summary": "OpenAI models will be available on Amazon Bedrock, as announced by both CEOs, expanding enterprise access to AI.",
+      "insight": "For IT professionals, this means easier integration of state-of-the-art AI models into AWS-centric workflows. It reduces operational overhead of managing separate AI APIs and could accelerate AI adoption in enterprises.",
+      "english_title": "OpenAI models coming to Amazon Bedrock: Interview with OpenAI and AWS CEOs"
     },
     {
-      "title": "4TB of voice samples just stolen from 40k AI contractors at Mercor",
-      "url": "https://app.oravys.com/blog/mercor-breach-2026",
+      "title": "GitHub RCE Vulnerability: CVE-2026-3854 Breakdown",
+      "url": "https://www.wiz.io/blog/github-rce-vulnerability-cve-2026-3854",
       "source": "Hacker News",
       "category": "cybersecurity",
-      "summary": "A data breach at Mercor led to the theft of 4TB of voice samples from 40,000 AI contractors, raising serious privacy and security concerns.",
-      "insight": "Voice data is highly sensitive and can be used for deepfakes or identity theft. Companies handling biometric data must implement robust security and comply with privacy regulations.",
-      "english_title": "4TB of voice samples just stolen from 40k AI contractors at Mercor"
+      "summary": "Analysis of a remote code execution vulnerability (CVE-2026-3854) in GitHub, impacting repositories and workflows.",
+      "insight": "For IT professionals, this is a critical reminder of supply chain security risks. Understanding the vulnerability helps in assessing impact on code repositories and CI/CD pipelines, and emphasizes the need for timely patching.",
+      "english_title": "GitHub RCE Vulnerability: CVE-2026-3854 Breakdown"
     },
     {
-      "title": "GTFOBins",
-      "url": "https://gtfobins.org/",
-      "source": "Hacker News",
-      "category": "cybersecurity",
-      "summary": "GTFOBins is a curated list of Unix binaries that can be exploited to bypass local security restrictions, useful for penetration testing and system hardening.",
-      "insight": "System administrators and security professionals should be aware of these binaries to audit and secure systems against privilege escalation attacks. The list serves as a practical reference for both defenders and offensive testers.",
-      "english_title": "GTFOBins"
-    },
-    {
-      "title": "High Performance Git",
-      "url": "https://gitperf.com/",
+      "title": "Warp is now Open-Source",
+      "url": "https://github.com/warpdotdev/warp",
       "source": "Hacker News",
       "category": "programming",
-      "summary": "High Performance Git provides tips and techniques to optimize Git operations for large repositories and improve developer workflow efficiency.",
-      "insight": "For teams with massive codebases, slow Git commands can be a bottleneck. Applying these performance strategies can save significant time and reduce frustration for developers.",
-      "english_title": "High Performance Git"
+      "summary": "Warp, the AI-powered terminal, has been open-sourced, allowing community contributions and self-hosting.",
+      "insight": "IT professionals who use terminals can benefit from Warp's collaborative and AI features under an open-source model. This move may increase trust and adoption among developers who prefer transparent tools.",
+      "english_title": "Warp is now Open-Source"
     },
     {
-      "title": "DeepMind’s David Silver just raised $1.1B to build an AI that learns without human data",
-      "url": "https://techcrunch.com/2026/04/27/deepminds-david-silver-just-raised-1-1b-to-build-an-ai-that-learns-without-human-data/",
-      "source": "techcrunch.com",
-      "category": "artificial_intelligence",
-      "summary": "DeepMind’s David Silver raises $1.1 billion to develop AI that learns without relying on human-annotated data.",
-      "insight": "If successful, this could dramatically reduce the cost and effort of training AI models, marking a paradigm shift for AI research and engineering.",
-      "english_title": "DeepMind’s David Silver just raised $1.1B to build an AI that learns without human data"
-    },
-    {
-      "title": "OpenAI could be making a phone with AI agents replacing apps",
-      "url": "https://techcrunch.com/2026/04/27/openai-could-be-making-a-phone-with-ai-agents-replacing-apps/",
-      "source": "techcrunch.com",
-      "category": "artificial_intelligence",
-      "summary": "OpenAI is reportedly considering making a phone where AI agents replace traditional apps.",
-      "insight": "If realized, this could fundamentally change mobile computing by shifting from app-based interfaces to agent-driven interactions. Developers and product managers should prepare for a potential paradigm shift in how users engage with software.",
-      "english_title": "OpenAI could be making a phone with AI agents replacing apps"
-    },
-    {
-      "title": "Critical infrastructure giant Itron says it was hacked",
-      "url": "https://techcrunch.com/2026/04/27/critical-infrastructure-giant-itron-says-it-was-hacked/",
-      "source": "techcrunch.com",
-      "category": "cybersecurity",
-      "summary": "Critical infrastructure giant Itron confirmed it was hacked.",
-      "insight": "This breach underscores persistent risks to critical infrastructure and OT systems. IT professionals in industrial sectors must reassess supply chain security and incident response plans.",
-      "english_title": "Critical infrastructure giant Itron says it was hacked"
-    },
-    {
-      "title": "Google is testing AI chatbot search for YouTube",
-      "url": "https://www.theverge.com/streaming/919441/google-ask-youtube-ai-chatbot-search",
-      "source": "www.theverge.com",
-      "category": "artificial_intelligence",
-      "summary": "Google is testing an AI chatbot for searching YouTube.",
-      "insight": "Conversational AI search on YouTube could transform video discovery and user interaction. Developers should consider how such agents might change SEO and content delivery strategies.",
-      "english_title": "Google is testing AI chatbot search for YouTube"
-    },
-    {
-      "title": "Canonical lays out a plan for AI in Ubuntu Linux",
-      "url": "https://www.theverge.com/tech/919411/canonical-ubuntu-linux-ai-features",
-      "source": "www.theverge.com",
-      "category": "artificial_intelligence",
-      "summary": "Canonical announced a plan to integrate AI into Ubuntu Linux.",
-      "insight": "This move could simplify AI/ML deployment on Linux, making it easier for developers and sysadmins to run models locally. IT professionals should monitor for native AI tooling in upcoming Ubuntu releases.",
-      "english_title": "Canonical lays out a plan for AI in Ubuntu Linux"
-    },
-    {
-      "title": "Pgrx: Build Postgres Extensions with Rust",
-      "url": "https://github.com/pgcentralfoundation/pgrx",
+      "title": "Who owns the code Claude Code wrote?",
+      "url": "https://legallayer.substack.com/p/who-owns-the-claude-code-wrote",
       "source": "Hacker News",
       "category": "programming",
-      "summary": "Pgrx is a framework that enables building PostgreSQL extensions using the Rust programming language, combining Rust's safety with database functionality.",
-      "insight": "Using Rust for Postgres extensions allows memory-safe and high-performance database logic. This is valuable for backend developers and DBAs seeking to extend Postgres without C pitfalls.",
-      "english_title": "Pgrx: Build Postgres Extensions with Rust"
+      "summary": "Discusses the legal and ethical questions around ownership of code generated by Claude Code, an AI coding assistant.",
+      "insight": "This is critical for developers using AI assistants to understand intellectual property ownership. It affects code licensing, liability, and corporate policies.",
+      "english_title": "Who owns the code Claude Code wrote?"
     },
     {
-      "title": "WASM is not quite a stack machine",
-      "url": "https://purplesyringa.moe/blog/wasm-is-not-quite-a-stack-machine/",
+      "title": "Ghostty is leaving GitHub",
+      "url": "https://mitchellh.com/writing/ghostty-leaving-github",
       "source": "Hacker News",
       "category": "programming",
-      "summary": "An analysis explaining why WebAssembly is not exactly a pure stack machine, delving into its instruction set and execution model nuances.",
-      "insight": "Compiler engineers and WASM runtime developers need to understand these subtleties for correct optimization and code generation. It also affects debugging and performance analysis.",
-      "english_title": "WASM is not quite a stack machine"
+      "summary": "Ghostty, a terminal emulator, is leaving GitHub, potentially moving to another platform like GitLab or self-hosting.",
+      "insight": "For IT professionals, this reflects growing concerns about vendor lock-in and platform dependency. It highlights the importance of considering decentralized alternatives for code hosting and collaboration.",
+      "english_title": "Ghostty is leaving GitHub"
     },
     {
-      "title": "Three men are facing charges in Toronto SMS Blaster arrests",
-      "url": "https://www.tps.ca/media-centre/stories/unprecedented-sms-blaster-arrests/",
-      "source": "Hacker News",
-      "category": "cybersecurity",
-      "summary": "Three individuals have been charged in Toronto for using SMS blasters to send spam messages, highlighting the persistence of this attack vector.",
-      "insight": "SMS blasting remains a threat for social engineering and spam. Security professionals should educate users and implement SMS filtering or authentication measures.",
-      "english_title": "Three men are facing charges in Toronto SMS Blaster arrests"
-    },
-    {
-      "title": "LingBot-Map: Streaming 3D reconstruction with geometric context transformer",
-      "url": "https://technology.robbyant.com/lingbot-map",
+      "title": "Claude.ai unavailable and elevated errors on the API",
+      "url": "https://status.claude.com/incidents/9l93x2ht4s5w",
       "source": "Hacker News",
       "category": "artificial_intelligence",
-      "summary": "LingBot-Map presents a new method for streaming 3D reconstruction using a geometric context transformer, advancing real-time 3D perception.",
-      "insight": "This research is relevant for autonomous navigation, AR/VR, and robotics. Developers in these fields should watch for practical implementations that enable real-time 3D mapping.",
-      "english_title": "LingBot-Map: Streaming 3D reconstruction with geometric context transformer"
+      "summary": "Claude.ai experienced unavailability and elevated error rates on its API, affecting users and developers.",
+      "insight": "Outages of major AI platforms impact developer productivity and services that depend on the API. This highlights the need for fallback strategies.",
+      "english_title": "Claude.ai unavailable and elevated errors on the API"
     },
     {
-      "title": "The woes of sanitizing SVGs",
-      "url": "https://muffin.ink/blog/scratch-svg-sanitization/",
-      "source": "Hacker News",
-      "category": "cybersecurity",
-      "summary": "The article explores the difficulties and best practices for sanitizing SVG files to prevent security vulnerabilities like XSS.",
-      "insight": "Web developers must understand SVG sanitization pitfalls to build secure applications that handle user-uploaded content safely.",
-      "english_title": "The woes of sanitizing SVGs"
-    },
-    {
-      "title": "OpenAI ends Microsoft legal peril over its $50B Amazon deal",
-      "url": "https://techcrunch.com/2026/04/27/openai-ends-microsoft-legal-peril-over-its-50b-amazon-deal/",
+      "title": "Amazon is already offering new OpenAI products on AWS",
+      "url": "https://techcrunch.com/2026/04/28/amazon-is-already-offering-new-openai-products-on-aws/",
       "source": "techcrunch.com",
       "category": "artificial_intelligence",
-      "summary": "OpenAI resolves a legal dispute with Microsoft related to its $50 billion Amazon deal.",
-      "insight": "This legal resolution clarifies relationships among AI leaders and cloud providers, affecting enterprise decisions on AI infrastructure and partnerships.",
-      "english_title": "OpenAI ends Microsoft legal peril over its $50B Amazon deal"
+      "summary": "Amazon is now offering new OpenAI products on AWS, expanding access to OpenAI technologies through its cloud platform.",
+      "insight": "This deepens the integration between major cloud providers and AI vendors, giving developers more flexibility and competitive options.",
+      "english_title": "Amazon is already offering new OpenAI products on AWS"
     },
     {
-      "title": "Data center demand drives 66% surge in natural gas power plant costs",
-      "url": "https://techcrunch.com/2026/04/27/data-center-demand-drives-66-surge-in-natural-gas-power-plant-costs/",
+      "title": "YouTube is testing an AI-powered search feature that shows guided answers",
+      "url": "https://techcrunch.com/2026/04/28/youtube-is-testing-an-ai-powered-search-feature-that-shows-guided-answers/",
       "source": "techcrunch.com",
-      "category": "hardware",
-      "summary": "Rising data center energy demand drives a 66% increase in natural gas power plant costs.",
-      "insight": "IT infrastructure planners must factor in escalating energy costs and environmental impacts when designing and scaling data centers, pushing for greener solutions.",
-      "english_title": "Data center demand drives 66% surge in natural gas power plant costs"
-    },
-    {
-      "title": "Google employees ask Sundar Pichai to say no to classified military AI use",
-      "url": "https://www.theverge.com/ai-artificial-intelligence/919326/google-ai-pentagon-classified-letter",
-      "source": "www.theverge.com",
       "category": "artificial_intelligence",
-      "summary": "Google employees urged CEO Sundar Pichai to refuse classified military AI projects.",
-      "insight": "This internal pressure reflects the growing ethical debate around military AI. IT professionals should consider how such policies may affect their own work and company reputation.",
-      "english_title": "Google employees ask Sundar Pichai to say no to classified military AI use"
+      "summary": "YouTube is testing an AI feature that provides guided answers in search results, offering direct responses to user queries.",
+      "insight": "This signals a shift toward AI-driven search interfaces. Developers should consider how similar AI summarization and Q&A capabilities can enhance user experience in their own platforms.",
+      "english_title": "YouTube is testing an AI-powered search feature that shows guided answers"
     },
     {
-      "title": "Scraping 241 UK council planning portals – 2.6M decisions so far",
-      "url": "https://news.ycombinator.com/item?id=47931470",
+      "title": "Red Hat’s OpenClaw maintainer just made enterprise Claw deployments a lot safer",
+      "url": "https://techcrunch.com/2026/04/28/red-hats-openclaw-maintainer-just-made-enterprise-claw-deployments-a-lot-safer/",
+      "source": "techcrunch.com",
+      "category": "programming",
+      "summary": "Red Hat's OpenClaw maintainer has introduced changes that significantly improve safety for enterprise Claw deployments, likely reducing risks in automated operations.",
+      "insight": "Security in deployment pipelines is critical. IT ops and DevOps teams should embrace these improvements to prevent configuration drift and misconfigurations in enterprise environments.",
+      "english_title": "Red Hat’s OpenClaw maintainer just made enterprise Claw deployments a lot safer"
+    },
+    {
+      "title": "CJIT: C, Just in Time",
+      "url": "https://dyne.org/cjit/",
       "source": "Hacker News",
       "category": "programming",
-      "summary": "A project scraped 2.6 million planning decisions from 241 UK council websites, demonstrating large-scale data collection from diverse portals.",
-      "insight": "This showcases web scraping at scale, including handling inconsistencies across portals. Developers can learn techniques for aggregating open data and dealing with anti-scraping measures.",
-      "english_title": "Scraping 241 UK council planning portals – 2.6M decisions so far"
+      "summary": "CJIT is a Just-in-Time compiler for C, enabling quick script-like execution of C code.",
+      "insight": "IT professionals who work with C can use CJIT for rapid prototyping and scripting without traditional compile cycles. It bridges the gap between high-level scripting and low-level performance.",
+      "english_title": "CJIT: C, Just in Time"
     },
     {
-      "title": "How I leared what a decoupling capacitor is for, the hard way",
-      "url": "https://nbelakovski.substack.com/p/how-i-learned-what-a-decoupling-capacitor",
+      "title": "Patch applies fake diffs from commit messages",
+      "url": "https://samizdat.dev/phantom-patch/",
       "source": "Hacker News",
-      "category": "hardware",
-      "summary": "A personal account of learning the hard way why decoupling capacitors are critical in circuit design, due to a hardware failure.",
-      "insight": "Decoupling capacitors are essential for stable power delivery in digital circuits. This anecdote reinforces best practices for hardware engineers and hobbyists.",
-      "english_title": "How I leared what a decoupling capacitor is for, the hard way"
+      "category": "programming",
+      "summary": "A tool or technique that generates patches by extracting fake diffs from Git commit messages.",
+      "insight": "This could be a productivity tool for quickly applying changes from descriptions, or a security risk. IT professionals should verify the integrity of patches and be cautious with automated patch generation.",
+      "english_title": "Patch applies fake diffs from commit messages"
     },
     {
-      "title": "The quiet resurgence of RF engineering",
-      "url": "https://atempleton.bearblog.dev/quiet-resurgence-of-rf-engineering/",
-      "source": "Hacker News",
-      "category": "hardware",
-      "summary": "A look at the growing importance of radio frequency engineering in modern wireless technologies like IoT, 5G, and satellite communications.",
-      "insight": "As wireless technologies expand, RF skills are increasingly in demand. Networking and hardware professionals should brush up on RF principles to design and troubleshoot modern systems.",
-      "english_title": "The quiet resurgence of RF engineering"
-    },
-    {
-      "title": "Easyduino: Open Source PCB Devboards for KiCad",
-      "url": "https://github.com/Hanqaqa/Easyduino",
-      "source": "Hacker News",
-      "category": "hardware",
-      "summary": "Easyduino presents open-source PCB development boards designed for use with KiCad.",
-      "insight": "For hardware engineers and hobbyists using KiCad, these open-source boards could accelerate prototyping and foster community-driven design improvements.",
-      "english_title": "Easyduino: Open Source PCB Devboards for KiCad"
-    },
-    {
-      "title": "Consumers lost $2.1B to social media scams in 2025, FTC reports",
-      "url": "https://techcrunch.com/2026/04/27/consumers-lost-2-1-billion-to-social-media-scams-in-2025-ftc-reports/",
-      "source": "techcrunch.com",
-      "category": "cybersecurity",
-      "summary": "The FTC reports that consumers lost $2.1 billion to social media scams in 2025.",
-      "insight": "This underscores the importance of cybersecurity awareness and the need for robust fraud detection technologies, which IT professionals should prioritize in system designs.",
-      "english_title": "Consumers lost $2.1B to social media scams in 2025, FTC reports"
-    },
-    {
-      "title": "What’s behind Europe’s efforts to ditch US software in favor of sovereign tech",
-      "url": "https://techcrunch.com/2026/04/27/whats-behind-europes-efforts-to-ditch-u-s-software-in-favor-of-sovereign-tech/",
-      "source": "techcrunch.com",
-      "category": "cybersecurity",
-      "summary": "Europe pursues sovereign technology alternatives to reduce reliance on US software.",
-      "insight": "IT professionals in Europe should monitor regulatory shifts that may mandate or incentivize the use of local tech stacks, affecting software procurement and compliance strategies.",
-      "english_title": "What’s behind Europe’s efforts to ditch US software in favor of sovereign tech"
-    },
-    {
-      "title": "China blocks Meta’s $2B Manus deal after months-long probe",
-      "url": "https://techcrunch.com/2026/04/27/china-vetoes-metas-2b-manus-deal-after-months-long-probe/",
-      "source": "techcrunch.com",
-      "category": "other",
-      "summary": "China blocked Meta's $2 billion acquisition of Manus after a months-long probe.",
-      "insight": "This deal highlights growing geopolitical tensions in tech acquisition and talent movement. IT professionals should monitor how such blocks affect access to emerging AI technologies and cross-border collaboration.",
-      "english_title": "China blocks Meta’s $2B Manus deal after months-long probe"
-    },
-    {
-      "title": "Mo RAM, Mo Problems (2025)",
-      "url": "https://fabiensanglard.net/curse/",
+      "title": "Localsend: An open-source cross-platform alternative to AirDrop",
+      "url": "https://github.com/localsend/localsend",
       "source": "Hacker News",
       "category": "other",
-      "summary": "A discussion of the problems that arise with large amounts of RAM, including memory management, fragmentation, and software design challenges.",
-      "insight": "Even with abundant memory, inefficiencies in allocation and access patterns can degrade performance. IT pros should still optimize memory usage and consider NUMA effects in high-RAM systems.",
-      "english_title": "Mo RAM, Mo Problems (2025)"
+      "summary": "LocalSend is an open-source, cross-platform alternative to Apple's AirDrop for file sharing between devices.",
+      "insight": "Useful for IT professionals who need a secure, platform-independent file transfer solution without relying on proprietary protocols.",
+      "english_title": "Localsend: An open-source cross-platform alternative to AirDrop"
     },
     {
-      "title": "Networking changes coming in macOS 27",
-      "url": "https://eclecticlight.co/2026/04/23/networking-changes-coming-in-macos-27/",
+      "title": "Google expands Pentagon’s access to its AI after Anthropic’s refusal",
+      "url": "https://techcrunch.com/2026/04/28/google-expands-pentagons-access-to-its-ai-after-anthropics-refusal/",
+      "source": "techcrunch.com",
+      "category": "artificial_intelligence",
+      "summary": "Google expands Pentagon's access to its AI after Anthropic refused similar collaboration, raising ethical concerns.",
+      "insight": "Highlights the ongoing debate about AI ethics and military use. IT professionals should be aware of how corporate policies on AI usage affect their work and public trust.",
+      "english_title": "Google expands Pentagon’s access to its AI after Anthropic’s refusal"
+    },
+    {
+      "title": "Lovable launches its vibe-coding app on iOS and Android",
+      "url": "https://techcrunch.com/2026/04/28/lovable-launches-its-vibe-coding-app-on-ios-and-android/",
+      "source": "techcrunch.com",
+      "category": "programming",
+      "summary": "Lovable releases a 'vibe-coding' app on iOS and Android, enabling coding through a simplified, intuitive interface.",
+      "insight": "Represents the trend of no-code/low-code and AI-assisted coding. Developers may see new tools for rapid prototyping and lowering entry barriers.",
+      "english_title": "Lovable launches its vibe-coding app on iOS and Android"
+    },
+    {
+      "title": "Snapchat brings AI-powered conversational advertising to its app",
+      "url": "https://techcrunch.com/2026/04/28/snapchat-brings-ai-powered-conversational-advertising-to-its-app/",
+      "source": "techcrunch.com",
+      "category": "artificial_intelligence",
+      "summary": "Snapchat is integrating AI-powered conversational advertising into its app, allowing brands to interact with users through chat-based ads.",
+      "insight": "AI in advertising is becoming mainstream; IT professionals working on ad tech should explore conversational AI APIs and natural language processing to stay ahead.",
+      "english_title": "Snapchat brings AI-powered conversational advertising to its app"
+    },
+    {
+      "title": "BCI startup Neurable looks to license its ‘mind-reading’ tech for consumer wearables",
+      "url": "https://techcrunch.com/2026/04/28/bci-startup-neurable-looks-to-license-its-mind-reading-tech-for-consumer-wearables/",
+      "source": "techcrunch.com",
+      "category": "hardware",
+      "summary": "Neurable, a BCI startup, aims to license its mind-reading technology for use in consumer wearables like headphones and AR glasses.",
+      "insight": "Brain-computer interfaces are moving toward consumer products. IT professionals in hardware and accessibility should watch for new input methods and integration opportunities.",
+      "english_title": "BCI startup Neurable looks to license its ‘mind-reading’ tech for consumer wearables"
+    },
+    {
+      "title": "Otter’s new feature lets users search across their enterprise tools",
+      "url": "https://techcrunch.com/2026/04/28/otters-new-feature-lets-users-search-across-their-enterprise-tools/",
+      "source": "techcrunch.com",
+      "category": "artificial_intelligence",
+      "summary": "Otter.ai has launched a feature that allows users to search across multiple enterprise tools like Slack, Zoom, and email from one interface.",
+      "insight": "Cross-tool AI search can dramatically boost productivity. IT professionals should consider integrating similar unified search capabilities into their own enterprise stacks.",
+      "english_title": "Otter’s new feature lets users search across their enterprise tools"
+    },
+    {
+      "title": "Intel Arc Pro B70 Review",
+      "url": "https://www.pugetsystems.com/labs/articles/intel-arc-pro-b70-review/",
       "source": "Hacker News",
       "category": "hardware",
-      "summary": "Upcoming networking changes in macOS 27 are detailed, potentially affecting system administrators and developers.",
-      "insight": "IT professionals managing Mac environments should stay informed to ensure compatibility and adjust network configurations accordingly.",
-      "english_title": "Networking changes coming in macOS 27"
+      "summary": "A review of Intel's Arc Pro B70 graphics card, targeting professional workloads.",
+      "insight": "For IT professionals evaluating hardware for rendering, AI training, or CAD, Intel's Arc Pro series offers an alternative to Nvidia/AMD. This review provides performance benchmarks that inform purchasing decisions.",
+      "english_title": "Intel Arc Pro B70 Review"
     },
     {
-      "title": "Hacker who allegedly carried out cyberattacks for China is extradited to US",
-      "url": "https://techcrunch.com/2026/04/27/hacker-who-allegedly-carried-out-cyberattacks-for-china-is-extradited-to-u-s/",
-      "source": "techcrunch.com",
-      "category": "cybersecurity",
-      "summary": "A hacker accused of conducting cyberattacks on behalf of China is extradited to the United States.",
-      "insight": "This event highlights ongoing state-sponsored cyber threats, reminding IT security teams to stay vigilant against advanced persistent threats and geopolitical risks.",
-      "english_title": "Hacker who allegedly carried out cyberattacks for China is extradited to US"
-    },
-    {
-      "title": "Meta inks deal for solar power at night, beamed from space",
-      "url": "https://techcrunch.com/2026/04/27/meta-inks-deal-for-solar-power-at-night-beamed-from-space/",
-      "source": "techcrunch.com",
-      "category": "other",
-      "summary": "Meta signed a deal to receive solar power at night beamed from space.",
-      "insight": "This novel energy solution could influence how tech companies power their data centers. IT operations teams should watch for scalable space-based solar as a potential future energy source.",
-      "english_title": "Meta inks deal for solar power at night, beamed from space"
-    },
-    {
-      "title": "Talkie: a 13B vintage language model from 1930",
-      "url": "https://talkie-lm.com/introducing-talkie",
+      "title": "Waymo in Portland",
+      "url": "https://waymo.com/blog/shorts/waymo-in-portland/",
       "source": "Hacker News",
       "category": "artificial_intelligence",
-      "summary": "Talkie describes a 13-billion parameter language model built with vintage 1930s technology, blending retro hardware with modern AI concepts.",
-      "insight": "While mostly a thought experiment or artistic project, it highlights the long history of ideas behind large language models. IT professionals might find it inspiring but not directly actionable.",
-      "english_title": "Talkie: a 13B vintage language model from 1930"
+      "summary": "Waymo's autonomous driving service is launching in Portland, Oregon.",
+      "insight": "For IT professionals, this represents real-world deployment of AI systems in complex environments. It shows progress in autonomous vehicles and may influence related infrastructure and data processing needs.",
+      "english_title": "Waymo in Portland"
     },
     {
-      "title": "Investors back Skye’s AI home screen app for iPhone ahead of launch",
-      "url": "https://techcrunch.com/2026/04/27/investors-back-skye-signull-labs-ai-home-screen-app-for-iphone-ahead-of-launch/",
+      "title": "Amazon launches an AI-powered audio Q&A experience on product pages",
+      "url": "https://techcrunch.com/2026/04/28/amazon-launches-an-ai-powered-audio-qa-experience-on-product-pages/",
       "source": "techcrunch.com",
       "category": "artificial_intelligence",
-      "summary": "Skye's AI-powered home screen app for iPhone receives investor backing ahead of its launch.",
-      "insight": "This signals growing interest in AI-enhanced mobile interfaces, which may influence how IT professionals design and optimize user experiences for mobile apps.",
-      "english_title": "Investors back Skye’s AI home screen app for iPhone ahead of launch"
+      "summary": "Amazon introduces an AI-powered audio Q&A experience on product pages to answer customer questions.",
+      "insight": "Demonstrates practical AI application in e-commerce. Developers may need to build similar conversational interfaces into their own platforms.",
+      "english_title": "Amazon launches an AI-powered audio Q&A experience on product pages"
+    },
+    {
+      "title": "Paragon is not collaborating with Italian authorities probing spyware attacks, report says",
+      "url": "https://techcrunch.com/2026/04/28/paragon-is-not-collaborating-with-italian-authorities-probing-spyware-attacks-report-says/",
+      "source": "techcrunch.com",
+      "category": "cybersecurity",
+      "summary": "Paragon refuses to cooperate with Italian authorities investigating spyware attacks, according to a report.",
+      "insight": "Relevant to cybersecurity professionals tracking spyware actors and legal compliance. It underscores challenges in international investigations.",
+      "english_title": "Paragon is not collaborating with Italian authorities probing spyware attacks, report says"
+    },
+    {
+      "title": "Taylor Swift is stepping up the legal war on AI copycats",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/919827/taylor-swift-trademarks-ai-copycats",
+      "source": "www.theverge.com",
+      "category": "artificial_intelligence",
+      "summary": "Taylor Swift is escalating legal actions against AI-generated deepfakes and copycats that mimic her likeness and voice.",
+      "insight": "This highlights growing legal risks around AI-generated content. IT professionals should be aware of intellectual property and deepfake legislation when deploying generative AI.",
+      "english_title": "Taylor Swift is stepping up the legal war on AI copycats"
+    },
+    {
+      "title": "You can get dragged into a police investigation by proximity alone — for now",
+      "url": "https://www.theverge.com/report/919664/chatrie-v-united-states-supreme-court-arguments-fourth-amendment-geofence-warrants",
+      "source": "www.theverge.com",
+      "category": "cybersecurity",
+      "summary": "An article discusses how being near a crime scene can lead to police investigation through digital evidence like cell tower data, and the legal limits on such practices.",
+      "insight": "This underscores digital privacy risks. IT professionals should educate users on location data exposure and advocate for stronger data protection measures.",
+      "english_title": "You can get dragged into a police investigation by proximity alone — for now"
+    },
+    {
+      "title": "Before GitHub",
+      "url": "https://lucumr.pocoo.org/2026/4/28/before-github/",
+      "source": "Hacker News",
+      "category": "programming",
+      "summary": "An article reflecting on version control and collaboration tools used before GitHub's rise.",
+      "insight": "Understanding the evolution of version control helps IT professionals appreciate current tooling and anticipate future trends. It also underscores the importance of adapting to new workflows.",
+      "english_title": "Before GitHub"
+    },
+    {
+      "title": "US Supreme Court appears split over controversial use of ‘geofence’ search warrants",
+      "url": "https://techcrunch.com/2026/04/28/scotus-chatrie-geofence-search-warrant-ruling-arguments/",
+      "source": "techcrunch.com",
+      "category": "cybersecurity",
+      "summary": "The US Supreme Court appears split over the controversial use of 'geofence' search warrants in criminal investigations.",
+      "insight": "Could significantly affect privacy and location data collection practices used by apps and services, impacting how developers handle geolocation data.",
+      "english_title": "US Supreme Court appears split over controversial use of ‘geofence’ search warrants"
+    },
+    {
+      "title": "Apple introduces a cheaper option for App Store subscriptions",
+      "url": "https://techcrunch.com/2026/04/28/apple-introduces-a-cheaper-option-for-app-store-subscriptions/",
+      "source": "techcrunch.com",
+      "category": "other",
+      "summary": "Apple introduces a cheaper subscription option for App Store purchases, giving developers more pricing flexibility.",
+      "insight": "Affects app monetization strategies for iOS developers, who may need to adjust their pricing tiers.",
+      "english_title": "Apple introduces a cheaper option for App Store subscriptions"
+    },
+    {
+      "title": "Google Home makes it easier to understand why devices aren&#8217;t working",
+      "url": "https://www.theverge.com/tech/919787/google-home-instant-account-relinking-update",
+      "source": "www.theverge.com",
+      "category": "hardware",
+      "summary": "Google Home now offers clearer explanations for why smart devices malfunction, improving troubleshooting for users.",
+      "insight": "Improved diagnostics in smart home platforms reduce support overhead. IT professionals managing IoT ecosystems can learn from this approach to error reporting.",
+      "english_title": "Google Home makes it easier to understand why devices aren’t working"
+    },
+    {
+      "title": "Your phone is about to stop being yours",
+      "url": "https://keepandroidopen.org/en/",
+      "source": "Hacker News",
+      "category": "other",
+      "summary": "An article discussing how smartphones are becoming less under user control due to hardware or software changes.",
+      "insight": "IT professionals should be aware of trends in device ownership and control, as it affects mobile device management and security policies. However, this is more consumer-focused.",
+      "english_title": "Your phone is about to stop being yours"
+    },
+    {
+      "title": "APL\\? (1990)",
+      "url": "https://dl.acm.org/doi/epdf/10.1145/97811.97845",
+      "source": "Hacker News",
+      "category": "programming",
+      "summary": "A retrospective or discussion about APL, a programming language known for its concise array-oriented syntax.",
+      "insight": "APL's concepts influence modern array languages and data analysis. IT professionals may appreciate the historical perspective on programming paradigm evolution.",
+      "english_title": "APL\\? (1990)"
+    },
+    {
+      "title": "Australia forces Big Tech firms to pay for news or face a 2.25% tax",
+      "url": "https://techcrunch.com/2026/04/28/australia-forces-big-tech-firms-to-pay-for-news-or-face-a-2-25-tax/",
+      "source": "techcrunch.com",
+      "category": "other",
+      "summary": "Australia forces large technology companies to pay for news content or face a 2.25% tax.",
+      "insight": "This regulatory move may influence how tech companies operate in different markets and could set precedents for other countries.",
+      "english_title": "Australia forces Big Tech firms to pay for news or face a 2.25% tax"
     }
   ]
 }

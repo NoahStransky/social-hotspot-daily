@@ -22,13 +22,9 @@
             --hardware: #3b82f6;
             --startup: #ec4899;
         }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
         body {
             font-family: 'Inter', -apple-system, sans-serif;
             background: var(--bg);
@@ -36,19 +32,19 @@
             line-height: 1.6;
             min-height: 100vh;
         }
-        
+
         .container {
             max-width: 900px;
             margin: 0 auto;
             padding: 0 24px;
         }
-        
+
         header {
             padding: 48px 0 32px;
             border-bottom: 1px solid var(--border);
             margin-bottom: 40px;
         }
-        
+
         .badge {
             display: inline-flex;
             align-items: center;
@@ -64,7 +60,7 @@
             letter-spacing: 0.5px;
             margin-bottom: 16px;
         }
-        
+
         .badge::before {
             content: '';
             width: 6px;
@@ -73,12 +69,12 @@
             border-radius: 50%;
             animation: pulse 2s infinite;
         }
-        
+
         @keyframes pulse {
             0%, 100% { opacity: 1; }
             50% { opacity: 0.4; }
         }
-        
+
         h1 {
             font-size: 36px;
             font-weight: 700;
@@ -88,7 +84,7 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-        
+
         .meta {
             color: var(--text-secondary);
             font-size: 15px;
@@ -97,13 +93,13 @@
             gap: 16px;
             flex-wrap: wrap;
         }
-        
+
         .stats {
             display: flex;
             gap: 8px;
             margin-top: 20px;
         }
-        
+
         .stat {
             padding: 8px 16px;
             background: var(--surface);
@@ -112,16 +108,79 @@
             font-size: 13px;
             color: var(--text-secondary);
         }
-        
-        .stat strong {
-            color: var(--text);
+
+        .stat strong { color: var(--text); font-weight: 600; }
+
+        /* ===== Date Navigation ===== */
+        .date-nav {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            margin: 24px 0 8px;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .date-nav a {
+            color: var(--accent);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            padding: 8px 16px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .date-nav a:hover {
+            background: var(--accent-glow);
+            border-color: var(--accent);
+        }
+
+        .date-nav a.disabled {
+            color: var(--text-secondary);
+            opacity: 0.3;
+            pointer-events: none;
+            cursor: default;
+        }
+
+        .date-nav .current-date {
+            font-size: 15px;
             font-weight: 600;
+            color: var(--text);
+            min-width: 140px;
+            text-align: center;
         }
-        
-        .section {
-            margin-bottom: 48px;
+
+        .date-nav .date-picker {
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
-        
+
+        .date-nav select {
+            background: var(--surface);
+            color: var(--text);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 8px 12px;
+            font-size: 14px;
+            font-family: inherit;
+            cursor: pointer;
+        }
+
+        .date-nav select:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        /* ===== Content ===== */
+        .section { margin-bottom: 48px; }
+
         .section-title {
             font-size: 20px;
             font-weight: 600;
@@ -132,13 +191,13 @@
             align-items: center;
             gap: 10px;
         }
-        
+
         .category-artificial_intelligence { --cat-color: var(--ai); }
         .category-programming { --cat-color: var(--code); }
         .category-cybersecurity { --cat-color: var(--security); }
         .category-hardware { --cat-color: var(--hardware); }
         .category-startup { --cat-color: var(--startup); }
-        
+
         .card {
             background: var(--surface);
             border: 1px solid var(--border);
@@ -147,12 +206,12 @@
             margin-bottom: 16px;
             transition: all 0.2s ease;
         }
-        
+
         .card:hover {
             border-color: var(--cat-color, var(--accent));
             box-shadow: 0 0 0 3px var(--accent-glow);
         }
-        
+
         .card-header {
             display: flex;
             justify-content: space-between;
@@ -160,7 +219,7 @@
             margin-bottom: 10px;
             gap: 12px;
         }
-        
+
         .card-title {
             font-size: 16px;
             font-weight: 600;
@@ -168,11 +227,9 @@
             color: var(--text);
             text-decoration: none;
         }
-        
-        .card-title:hover {
-            color: var(--accent);
-        }
-        
+
+        .card-title:hover { color: var(--accent); }
+
         .card-source {
             font-size: 11px;
             padding: 4px 10px;
@@ -182,14 +239,14 @@
             white-space: nowrap;
             font-family: 'JetBrains Mono', monospace;
         }
-        
+
         .card-summary {
             color: var(--text-secondary);
             font-size: 14px;
             margin-bottom: 12px;
             line-height: 1.6;
         }
-        
+
         .insight {
             background: var(--surface-2);
             border-left: 3px solid var(--cat-color, var(--accent));
@@ -198,12 +255,12 @@
             font-size: 13px;
             color: var(--text-secondary);
         }
-        
+
         .insight strong {
             color: var(--text);
             font-weight: 600;
         }
-        
+
         footer {
             text-align: center;
             padding: 40px 0;
@@ -212,13 +269,29 @@
             border-top: 1px solid var(--border);
             margin-top: 40px;
         }
-        
-        .empty {
+
+        .empty-state {
             text-align: center;
-            padding: 60px 20px;
+            padding: 80px 20px;
             color: var(--text-secondary);
         }
-        
+
+        .empty-state .icon {
+            font-size: 48px;
+            margin-bottom: 16px;
+        }
+
+        .empty-state h2 {
+            color: var(--text);
+            font-size: 24px;
+            margin-bottom: 8px;
+        }
+
+        .empty-state p {
+            font-size: 15px;
+            margin-bottom: 24px;
+        }
+
         .subscribe-cta {
             background: var(--surface);
             border: 1px solid var(--border);
@@ -231,19 +304,19 @@
             gap: 16px;
             flex-wrap: wrap;
         }
-        
+
         .subscribe-text {
             font-size: 14px;
             color: var(--text-secondary);
         }
-        
+
         .subscribe-text strong {
             color: var(--text);
             display: block;
             font-size: 16px;
             margin-bottom: 4px;
         }
-        
+
         .subscribe-btn {
             display: inline-flex;
             align-items: center;
@@ -258,18 +331,21 @@
             transition: all 0.2s;
             white-space: nowrap;
         }
-        
+
         .subscribe-btn:hover {
             background: #5558e0;
             transform: translateY(-1px);
         }
-        
+
         @media (max-width: 640px) {
             h1 { font-size: 26px; }
             .card-header { flex-direction: column; }
             .card-source { align-self: flex-start; }
             .subscribe-cta { flex-direction: column; text-align: center; }
+            .date-nav { flex-wrap: wrap; }
         }
+
+        .hidden { display: none; }
     </style>
 </head>
 <body>
@@ -278,13 +354,12 @@
             <div class="badge">Live</div>
             <h1>{{ title }}</h1>
             <div class="meta">
-                <span>📅 {{ date }}</span>
+                <span>📅 <span id="displayDate">{{ date }}</span></span>
                 <span>✍️ {{ author }}</span>
                 <span>🌐 Global Tech Intelligence</span>
             </div>
             <div class="stats">
-                <div class="stat"><strong>{{ total_items }}</strong> stories</div>
-                <div class="stat"><strong>{{ categories|length }}</strong> categories</div>
+                <div class="stat" id="statItems"><strong>{{ total_items }}</strong> stories</div>
             </div>
             <div class="subscribe-cta">
                 <div class="subscribe-text">
@@ -294,52 +369,214 @@
                 <a href="subscribe.html" class="subscribe-btn">Subscribe →</a>
             </div>
         </header>
-        
-        {% if not categories %}
-        <div class="empty">
-            <p>No tech stories found today. Check back tomorrow!</p>
+
+        <!-- Date Navigation -->
+        <div class="date-nav">
+            <a href="#" id="prevDate" class="disabled">← Previous</a>
+            <div class="date-picker">
+                <span class="current-date" id="currentDate">{{ iso_date }}</span>
+                <select id="dateSelector">
+                    {% for d in available_dates %}
+                    <option value="{{ d }}"{% if d == current_date %} selected{% endif %}>{{ d }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <a href="#" id="nextDate" class="disabled">Next →</a>
         </div>
-        {% endif %}
-        
-        {% for category, items in categories.items() %}
-        <section class="section category-{{ items[0].category if items else 'general' }}">
-            <h2 class="section-title">
-                {% if category == "Artificial Intelligence" %}🤖{% endif %}
-                {% if category == "Programming" %}💻{% endif %}
-                {% if category == "Cybersecurity" %}🔒{% endif %}
-                {% if category == "Hardware" %}🔧{% endif %}
-                {% if category == "Startup" %}🚀{% endif %}
-                {% if category == "Science" %}🔬{% endif %}
-                {{ category }}
-            </h2>
-            
-            {% for item in items %}
-            <article class="card">
-                <div class="card-header">
-                    <a href="{{ item.url }}" target="_blank" rel="noopener" class="card-title">
-                        {{ item.raw_data.get('english_title', item.title) }}
-                    </a>
-                    <span class="card-source">{{ item.source_name }}</span>
-                </div>
-                
-                {% if item.summary %}
-                <p class="card-summary">{{ item.summary }}</p>
-                {% endif %}
-                
-                {% if item.raw_data.get('insight') %}
-                <div class="insight">
-                    <strong>💡 Why it matters:</strong> {{ item.raw_data['insight'] }}
-                </div>
-                {% endif %}
-            </article>
-            {% endfor %}
-        </section>
-        {% endfor %}
-        
+
+        <!-- Content Area -->
+        <div id="contentArea">
+            {% if has_content and categories %}
+                {% for cat_group in categories %}
+                <section class="section category-{{ cat_group.category_slug }}" data-category="{{ cat_group.name }}">
+                    <h2 class="section-title">
+                        {% if cat_group.name == "Artificial Intelligence" %}🤖{% endif %}
+                        {% if cat_group.name == "Programming" %}💻{% endif %}
+                        {% if cat_group.name == "Cybersecurity" %}🔒{% endif %}
+                        {% if cat_group.name == "Hardware" %}🔧{% endif %}
+                        {% if cat_group.name == "Startup" %}🚀{% endif %}
+                        {% if cat_group.name == "Science" %}🔬{% endif %}
+                        {{ cat_group.name }}
+                    </h2>
+                    {% for item in cat_group.article_list %}
+                    <article class="card">
+                        <div class="card-header">
+                            <a href="{{ item.url }}" target="_blank" rel="noopener" class="card-title">{{ item.english_title }}</a>
+                            <span class="card-source">{{ item.source_name }}</span>
+                        </div>
+                        {% if item.summary %}
+                        <p class="card-summary">{{ item.summary }}</p>
+                        {% endif %}
+                        {% if item.insight %}
+                        <div class="insight">
+                            <strong>💡 Why it matters:</strong> {{ item.insight }}
+                        </div>
+                        {% endif %}
+                    </article>
+                    {% endfor %}
+                </section>
+                {% endfor %}
+            {% else %}
+            <div class="empty-state" id="emptyState">
+                <div class="icon">📭</div>
+                <h2>No content for this date</h2>
+                <p>No tech stories were found for <span id="emptyDate">{{ iso_date }}</span>. Check another date above!</p>
+            </div>
+            {% endif %}
+        </div>
+
         <footer>
             <p>Generated by Social Hotspot Daily Bot</p>
             <p>Curated for IT professionals & AI enthusiasts</p>
         </footer>
     </div>
+
+    <script>
+        // Pass server data to JavaScript
+        const ARCHIVE_BASE = '{{ base_url }}/archive';
+        const AVAILABLE_DATES = {{ available_dates | tojson | safe }};
+        const TODAY = '{{ current_date }}';
+        const MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+
+        let currentDate = TODAY;
+
+        function formatDate(iso) {
+            const [y, m, d] = iso.split('-');
+            return `${MONTHS[parseInt(m)-1]} ${parseInt(d)}, ${y}`;
+        }
+
+        function renderEmptyState(date) {
+            return `
+                <div class="empty-state">
+                    <div class="icon">📭</div>
+                    <h2>No content for this date</h2>
+                    <p>No tech stories were found for <strong>${formatDate(date)}</strong>. Check another date above!</p>
+                </div>
+            `;
+        }
+
+        function renderItems(items) {
+            // Group by category
+            const cats = {};
+            for (const item of items) {
+                const cat = item.category.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+                if (!cats[cat]) cats[cat] = [];
+                cats[cat].push(item);
+            }
+
+            // Sort by count descending
+            const sorted = Object.entries(cats).sort((a, b) => b[1].length - a[1].length);
+
+            let html = '';
+            for (const [cat, catItems] of sorted) {
+                const catClass = 'category-' + catItems[0].category;
+                let icon = '';
+                if (cat === 'Artificial Intelligence') icon = '🤖';
+                else if (cat === 'Programming') icon = '💻';
+                else if (cat === 'Cybersecurity') icon = '🔒';
+                else if (cat === 'Hardware') icon = '🔧';
+                else if (cat === 'Startup') icon = '🚀';
+                else if (cat === 'Science') icon = '🔬';
+
+                html += `<section class="section ${catClass}" data-category="${cat}">`;
+                html += `<h2 class="section-title">${icon} ${cat}</h2>`;
+
+                for (const item of catItems) {
+                    html += `<article class="card">`;
+                    html += `<div class="card-header"><a href="${item.url}" target="_blank" rel="noopener" class="card-title">${item.english_title || item.title}</a><span class="card-source">${item.source_name}</span></div>`;
+                    if (item.summary) html += `<p class="card-summary">${item.summary}</p>`;
+                    if (item.insight) html += `<div class="insight"><strong>💡 Why it matters:</strong> ${item.insight}</div>`;
+                    html += `</article>`;
+                }
+
+                html += `</section>`;
+            }
+            return html;
+        }
+
+        async function loadDate(date) {
+            currentDate = date;
+
+            // Update nav
+            document.getElementById('displayDate').textContent = formatDate(date);
+            document.getElementById('currentDate').textContent = date;
+            document.getElementById('dateSelector').value = date;
+
+            // Prev/Next
+            const idx = AVAILABLE_DATES.indexOf(date);
+            const prevLink = document.getElementById('prevDate');
+            const nextLink = document.getElementById('nextDate');
+
+            if (idx > 0) {
+                prevLink.href = '?date=' + AVAILABLE_DATES[idx - 1];
+                prevLink.className = '';
+                prevLink.onclick = (e) => { e.preventDefault(); loadDate(AVAILABLE_DATES[idx - 1]); };
+            } else {
+                prevLink.className = 'disabled';
+            }
+
+            if (idx >= 0 && idx < AVAILABLE_DATES.length - 1) {
+                nextLink.href = '?date=' + AVAILABLE_DATES[idx + 1];
+                nextLink.className = '';
+                nextLink.onclick = (e) => { e.preventDefault(); loadDate(AVAILABLE_DATES[idx + 1]); };
+            } else {
+                nextLink.className = 'disabled';
+            }
+
+            // Update URL without reload
+            const url = new URL(window.location);
+            if (date === TODAY) {
+                url.searchParams.delete('date');
+            } else {
+                url.searchParams.set('date', date);
+            }
+            window.history.replaceState({}, '', url);
+
+            // Load content
+            const contentArea = document.getElementById('contentArea');
+            const statItems = document.getElementById('statItems');
+
+            if (date === TODAY) {
+                // Today's data is already rendered in the HTML — just show it
+                // (we could reload from archive too, but for today it's inline)
+                return;
+            }
+
+            // Fetch archive
+            try {
+                const resp = await fetch(`${ARCHIVE_BASE}/${date}.json`);
+                if (!resp.ok) throw new Error('Not found');
+
+                const data = await resp.json();
+                const items = data.items || [];
+
+                if (items.length === 0) {
+                    contentArea.innerHTML = renderEmptyState(date);
+                    statItems.innerHTML = '<strong>0</strong> stories';
+                } else {
+                    contentArea.innerHTML = renderItems(items);
+                    statItems.innerHTML = `<strong>${items.length}</strong> stories`;
+                }
+            } catch {
+                contentArea.innerHTML = renderEmptyState(date);
+                statItems.innerHTML = '<strong>0</strong> stories';
+            }
+        }
+
+        // Init: check URL param
+        document.addEventListener('DOMContentLoaded', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const dateParam = urlParams.get('date');
+
+            if (dateParam && AVAILABLE_DATES.includes(dateParam) && dateParam !== TODAY) {
+                loadDate(dateParam);
+            }
+
+            // Date selector change
+            document.getElementById('dateSelector').addEventListener('change', function(e) {
+                loadDate(e.target.value);
+            });
+        });
+    </script>
 </body>
 </html>

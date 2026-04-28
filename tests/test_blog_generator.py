@@ -50,10 +50,11 @@ class TestBlogGeneratorGenerate:
         assert feed_path.exists()
 
         data = json.loads(feed_path.read_text())
-        assert "date" in data
-        assert len(data["items"]) == 1
-        assert data["items"][0]["title"] == "Test"
-        assert data["items"][0]["insight"] == "Important"
+        # feed.json is now a dict of date -> metadata
+        assert "2026-04-28" in data or any(key.startswith("202") for key in data)
+        today_key = [k for k in data if k.startswith("202")][0]
+        assert data[today_key]["title"] == "Test Hotspot Daily"
+        assert data[today_key]["total_items"] == 1
 
     def test_groups_by_category(self, tmp_path, blog_config):
         bg = BlogGenerator(blog_config, output_dir=str(tmp_path))
@@ -77,7 +78,14 @@ class TestBlogGeneratorGenerate:
 
         feed_path = tmp_path / "feed.json"
         data = json.loads(feed_path.read_text())
-        assert data["items"] == []
+        # feed.json: dict of date -> metadata, archive has the items
+        today_key = [k for k in data if k.startswith("202")][0]
+        assert data[today_key]["total_items"] == 0
+
+        # Archive JSON should have items
+        archive_path = tmp_path / "archive"
+        archive_files = list(archive_path.glob("*.json"))
+        assert len(archive_files) >= 1
 
     def test_copies_static_pages(self, tmp_path, blog_config):
         # Only test if templates exist

@@ -1,0 +1,275 @@
+{
+  "date": "2026-05-02",
+  "items": [
+    {
+      "title": "Pentagon inks deals with Nvidia, Microsoft, and AWS to deploy AI on classified networks",
+      "url": "https://techcrunch.com/2026/05/01/pentagon-inks-deals-with-nvidia-microsoft-and-aws-to-deploy-ai-on-classified-networks/",
+      "source": "techcrunch.com",
+      "category": "artificial_intelligence",
+      "summary": "The Pentagon has signed deals with Nvidia, Microsoft, and AWS to deploy AI on classified networks, highlighting government adoption of AI technologies.",
+      "insight": "This signals a major push for AI in defense and intelligence, creating opportunities for IT professionals with security clearances and expertise in AI deployment on secure infrastructure.",
+      "english_title": "Pentagon inks deals with Nvidia, Microsoft, and AWS to deploy AI on classified networks"
+    },
+    {
+      "title": "Show HN: State of the Art of Coding Models, According to Hacker News Commenters",
+      "url": "https://hnup.date/hn-sota",
+      "source": "Hacker News",
+      "category": "artificial_intelligence",
+      "summary": "A community-driven analysis compiles Hacker News commenters' opinions on the current state-of-the-art coding AI models.",
+      "insight": "This crowdsourced evaluation provides practical insights into which coding AI models developers find most effective. It helps IT professionals make informed choices about adopting AI pair programming tools.",
+      "english_title": "Show HN: State of the Art of Coding Models, According to Hacker News Commenters"
+    },
+    {
+      "title": "Barman – Backup and Recovery Manager for PostgreSQL",
+      "url": "https://github.com/EnterpriseDB/barman",
+      "source": "Hacker News",
+      "category": "programming",
+      "summary": "Barman is a tool for managing backup and recovery of PostgreSQL databases.",
+      "insight": "Essential for database reliability. Barman provides robust backup strategies, ensuring data integrity and disaster recovery for PostgreSQL in production.",
+      "english_title": "Barman – Backup and Recovery Manager for PostgreSQL"
+    },
+    {
+      "title": "Flue is a TypeScript framework for building the next generation of agents",
+      "url": "https://flueframework.com/",
+      "source": "Hacker News",
+      "category": "artificial_intelligence",
+      "summary": "Flue is a TypeScript framework designed to build advanced AI agents.",
+      "insight": "Signals the rise of agentic AI frameworks. IT professionals should evaluate Flue for creating automated, intelligent systems with TypeScript.",
+      "english_title": "Flue is a TypeScript framework for building the next generation of agents"
+    },
+    {
+      "title": "Replit’s Amjad Masad on the Cursor deal, fighting Apple, and why he’d rather not sell",
+      "url": "https://techcrunch.com/2026/05/01/replits-amjad-masad-on-the-cursor-deal-fighting-apple-and-why-hed-rather-not-sell/",
+      "source": "techcrunch.com",
+      "category": "programming",
+      "summary": "Interview with Replit CEO discussing Cursor acquisition, competition with Apple, and independence.",
+      "insight": "Key insights into AI-assisted coding platforms. Affects tool choices and competitive landscape for developers.",
+      "english_title": "Replit’s Amjad Masad on the Cursor deal, fighting Apple, and why he’d rather not sell"
+    },
+    {
+      "title": "Meta buys robotics startup to bolster its humanoid AI ambitions",
+      "url": "https://techcrunch.com/2026/05/01/meta-buys-robotics-startup-to-bolster-its-humanoid-ai-ambitions/",
+      "source": "techcrunch.com",
+      "category": "artificial_intelligence",
+      "summary": "Meta acquires a robotics company to advance humanoid AI.",
+      "insight": "Meta's push into physical AI signals major investment in robotics. Relevant for AI and hardware professionals.",
+      "english_title": "Meta buys robotics startup to bolster its humanoid AI ambitions"
+    },
+    {
+      "title": "Coatue has a plan to buy up land for data centers, possibly for Anthropic",
+      "url": "https://techcrunch.com/2026/05/01/coatue-has-a-plan-to-buy-up-land-for-data-centers-possibly-for-anthropic/",
+      "source": "techcrunch.com",
+      "category": "artificial_intelligence",
+      "summary": "Coatue plans to acquire land for data centers, potentially for AI company Anthropic.",
+      "insight": "Demonstrates massive infrastructure demands for AI. Critical for IT professionals involved in data center planning and cloud operations.",
+      "english_title": "Coatue has a plan to buy up land for data centers, possibly for Anthropic"
+    },
+    {
+      "title": "Ubuntu services hit by outages after DDoS attack",
+      "url": "https://techcrunch.com/2026/05/01/ubuntu-services-hit-by-outages-after-ddos-attack/",
+      "source": "techcrunch.com",
+      "category": "cybersecurity",
+      "summary": "Ubuntu services experienced outages due to a DDoS attack, affecting users relying on the popular Linux distribution.",
+      "insight": "This incident underscores the vulnerability of critical infrastructure even for major open-source projects, reminding IT pros to implement robust DDoS mitigation and redundancy for cloud-based services.",
+      "english_title": "Ubuntu services hit by outages after DDoS attack"
+    },
+    {
+      "title": "VS Code inserting 'Co-Authored-by Copilot' into commits regardless of usage",
+      "url": "https://github.com/microsoft/vscode/pull/310226",
+      "source": "Hacker News",
+      "category": "programming",
+      "summary": "VS Code is inserting 'Co-Authored-by Copilot' into git commits even when Copilot wasn't used, causing confusion among developers.",
+      "insight": "This highlights a flaw in AI attribution features that can pollute commit history and misrepresent contributions. IT professionals should carefully review and potentially disable automatic co-author tags to maintain accurate version control records.",
+      "english_title": "VS Code inserting 'Co-Authored-by Copilot' into commits regardless of usage"
+    },
+    {
+      "title": "The agent harness belongs outside the sandbox",
+      "url": "https://www.mendral.com/blog/agent-harness-belongs-outside-sandbox",
+      "source": "Hacker News",
+      "category": "artificial_intelligence",
+      "summary": "The article argues that the harness controlling AI agents should be placed outside the sandbox environment for better safety and oversight.",
+      "insight": "This is a critical architectural consideration for building secure and controllable AI agents. IT pros designing agent systems should place control logic externally to avoid sandbox escapes and maintain a clear separation of powers.",
+      "english_title": "The agent harness belongs outside the sandbox"
+    },
+    {
+      "title": "How fast is a macOS VM, and how small could it be?",
+      "url": "https://eclecticlight.co/2026/05/02/how-fast-is-a-macos-vm-and-how-small-could-it-be/",
+      "source": "Hacker News",
+      "category": "other",
+      "summary": "Exploring performance and size optimization of macOS virtual machines.",
+      "insight": "Relevant for developers using macOS in CI/CD or testing. Understanding VM efficiency can reduce infrastructure costs and improve deployment speed.",
+      "english_title": "How fast is a macOS VM, and how small could it be?"
+    },
+    {
+      "title": "Beyond Lovable and Mistral: 21 European startups to watch",
+      "url": "https://techcrunch.com/2026/05/02/beyond-lovable-and-mistral-21-european-startups-to-watch/",
+      "source": "techcrunch.com",
+      "category": "startup",
+      "summary": "List of notable European startups beyond well-known names.",
+      "insight": "Helps identify emerging tech players in Europe. Valuable for networking, investment, and trend spotting in AI and SaaS.",
+      "english_title": "Beyond Lovable and Mistral: 21 European startups to watch"
+    },
+    {
+      "title": "Uber wants to turn its millions of drivers into a sensor grid for self-driving companies",
+      "url": "https://techcrunch.com/2026/05/01/uber-wants-to-turn-its-millions-of-drivers-into-a-sensor-grid-for-self-driving-companies/",
+      "source": "techcrunch.com",
+      "category": "artificial_intelligence",
+      "summary": "Uber plans to use drivers' vehicles as mobile sensor networks for autonomous driving data.",
+      "insight": "Innovative data collection model for autonomous vehicles. Raises privacy and infrastructure questions for IT professionals in mobility.",
+      "english_title": "Uber wants to turn its millions of drivers into a sensor grid for self-driving companies"
+    },
+    {
+      "title": "Musk v. Altman is just getting started",
+      "url": "https://techcrunch.com/video/musk-v-altman-is-just-getting-started/",
+      "source": "techcrunch.com",
+      "category": "artificial_intelligence",
+      "summary": "The legal battle between Elon Musk and Sam Altman is only intensifying, with significant implications for the AI industry.",
+      "insight": "This ongoing dispute could shape the future governance and direction of leading AI organizations, potentially affecting partnerships, talent movement, and regulatory landscapes that IT professionals should monitor.",
+      "english_title": "Musk v. Altman is just getting started"
+    },
+    {
+      "title": "Microsoft tests redesigned Windows 11 Run menu with dark mode and more",
+      "url": "https://www.theverge.com/tech/922531/microsoft-windows-11-run-menu-redesign-test",
+      "source": "www.theverge.com",
+      "category": "other",
+      "summary": "Microsoft is testing a redesigned Run menu for Windows 11 that includes dark mode and additional features.",
+      "insight": "Updates to core OS utilities like the Run menu matter for IT administrators managing Windows environments, improving user experience and accessibility.",
+      "english_title": "Microsoft tests redesigned Windows 11 Run menu with dark mode and more"
+    },
+    {
+      "title": "All the evidence revealed so far in Musk v. Altman",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/920775/evidence-exhibits-elon-musk-sam-altman-openai-trial",
+      "source": "www.theverge.com",
+      "category": "artificial_intelligence",
+      "summary": "More evidence has been revealed in the legal case between Musk and Altman, providing insights into the dispute.",
+      "insight": "The revelations in this high-profile case could influence the control and direction of OpenAI, affecting AI development ecosystems and partnerships that IT professionals rely on.",
+      "english_title": "All the evidence revealed so far in Musk v. Altman"
+    },
+    {
+      "title": "This Month in Ladybird - April 2026",
+      "url": "https://ladybird.org/newsletter/2026-04-30/",
+      "source": "Hacker News",
+      "category": "programming",
+      "summary": "The April 2026 development update for the Ladybird browser engine reports on recent progress and features.",
+      "insight": "Ladybird is a promising independent browser engine that aims for web standards compatibility without relying on Chromium or WebKit. Progress here is important for web diversity and open-source infrastructure.",
+      "english_title": "This Month in Ladybird - April 2026"
+    },
+    {
+      "title": "California to begin ticketing driverless cars that violate traffic laws",
+      "url": "https://www.bbc.com/news/articles/clypjx3rg2go",
+      "source": "Hacker News",
+      "category": "artificial_intelligence",
+      "summary": "California announces plans to start issuing traffic tickets to driverless cars that violate traffic laws, marking a regulatory step for autonomous vehicles.",
+      "insight": "This sets a precedent for holding autonomous vehicle operators accountable for infractions. IT professionals in AI and robotics should track such regulations as they impact liability, testing, and deployment strategies.",
+      "english_title": "California to begin ticketing driverless cars that violate traffic laws"
+    },
+    {
+      "title": "The best AI dictation apps, tested and ranked",
+      "url": "https://techcrunch.com/2026/05/02/the-best-ai-powered-dictation-apps-of-2025/",
+      "source": "techcrunch.com",
+      "category": "artificial_intelligence",
+      "summary": "Review and ranking of AI dictation applications.",
+      "insight": "Useful for productivity enhancement. Speech-to-text technology can improve documentation and accessibility for developers.",
+      "english_title": "The best AI dictation apps, tested and ranked"
+    },
+    {
+      "title": "ChatGPT Images 2.0 is a hit in India, but not a big winner elsewhere, yet",
+      "url": "https://techcrunch.com/2026/04/30/chatgpt-images-2-0-is-a-hit-in-india-but-not-a-big-winner-elsewhere-yet/",
+      "source": "techcrunch.com",
+      "category": "artificial_intelligence",
+      "summary": "ChatGPT Images 2.0 has gained popularity in India but has not seen similar success globally yet.",
+      "insight": "Regional adoption patterns for AI tools matter for developers targeting global markets, and understanding these trends can inform feature prioritization and localization strategies.",
+      "english_title": "ChatGPT Images 2.0 is a hit in India, but not a big winner elsewhere, yet"
+    },
+    {
+      "title": "AI-generated actors and scripts are now ineligible for Oscars",
+      "url": "https://techcrunch.com/2026/05/02/ai-generated-actors-and-scripts-are-now-ineligible-for-oscars/",
+      "source": "techcrunch.com",
+      "category": "artificial_intelligence",
+      "summary": "Academy rules that AI-generated content is not eligible for Oscars.",
+      "insight": "Indicates industry pushback against AI in creative works. Relevant for AI ethics and content authenticity discussions.",
+      "english_title": "AI-generated actors and scripts are now ineligible for Oscars"
+    },
+    {
+      "title": "Meta&#8217;s historic loss in court could cost a lot more than $375 million",
+      "url": "https://www.theverge.com/policy/922380/new-mexico-meta-public-nuisance-trial-kids-safety",
+      "source": "www.theverge.com",
+      "category": "other",
+      "summary": "Meta suffered a significant legal loss that could result in costs far exceeding the initial $375 million penalty.",
+      "insight": "This legal outcome may set precedents for data privacy and antitrust cases, impacting how IT professionals handle user data and compliance in large-scale platforms.",
+      "english_title": "Meta&#8217;s historic loss in court could cost a lot more than $375 million"
+    },
+    {
+      "title": "Apple raises the Mac Mini&#8217;s starting price",
+      "url": "https://www.theverge.com/tech/922572/apple-mac-mini-256-model",
+      "source": "www.theverge.com",
+      "category": "hardware",
+      "summary": "Apple has increased the starting price of the Mac Mini, affecting budget-conscious buyers and IT procurement.",
+      "insight": "Price changes impact IT hardware budgets and purchasing decisions, especially for teams using Mac Minis for development or server purposes.",
+      "english_title": "Apple raises the Mac Mini&#8217;s starting price"
+    },
+    {
+      "title": "Do_not_track",
+      "url": "https://donottrack.sh/",
+      "source": "Hacker News",
+      "category": "cybersecurity",
+      "summary": "Discusses the Do Not Track HTTP header, its history, effectiveness, and current status in privacy discourse.",
+      "insight": "While DNT is largely deprecated, understanding privacy headers and their limitations remains relevant for web developers and cybersecurity professionals dealing with tracking and consent.",
+      "english_title": "Do_not_track"
+    },
+    {
+      "title": "Clojurists Together – Q2 2026 Open Source Funding Announcement",
+      "url": "https://www.clojuriststogether.org/news/q2-2026-funding-announcement/",
+      "source": "Hacker News",
+      "category": "programming",
+      "summary": "Clojurists Together announces funding for open source projects in the Clojure ecosystem for the second quarter of 2026.",
+      "insight": "This shows continued community investment in Clojure, a language valued for its concurrency and functional programming. It matters for developers who rely on Clojure libraries or are considering the language for new projects.",
+      "english_title": "Clojurists Together – Q2 2026 Open Source Funding Announcement"
+    },
+    {
+      "title": "A Physics Engine with Incremental Rollback for Multiplayer Games",
+      "url": "https://easel.games/blog/2026-rollback-physics",
+      "source": "Hacker News",
+      "category": "programming",
+      "summary": "Describes a physics engine designed for multiplayer games that implements incremental rollback to handle network latency and determinism.",
+      "insight": "Rollback netcode is a key technique for smooth multiplayer experiences. This is relevant to game developers and anyone interested in distributed systems or deterministic simulation.",
+      "english_title": "A Physics Engine with Incremental Rollback for Multiplayer Games"
+    },
+    {
+      "title": "Welcome to Hell Developer",
+      "url": "https://noahclements.com/Wahoo-Bolt-Hidden-Debug-Mode/",
+      "source": "Hacker News",
+      "category": "programming",
+      "summary": "A critical or humorous take on the challenges faced by developers.",
+      "insight": "Reflects common developer frustrations. Useful for understanding workplace culture and burnout factors in software engineering.",
+      "english_title": "Welcome to Hell Developer"
+    },
+    {
+      "title": "Musely secures $360M from General Catalyst without giving up equity",
+      "url": "https://techcrunch.com/2026/05/01/musely-secures-360m-from-general-catalyst-without-giving-up-equity/",
+      "source": "techcrunch.com",
+      "category": "startup",
+      "summary": "Musely raised $360M in non-dilutive funding from General Catalyst.",
+      "insight": "Non-dilutive funding model is noteworthy for founders. Shows alternative financing routes in tech.",
+      "english_title": "Musely secures $360M from General Catalyst without giving up equity"
+    },
+    {
+      "title": "Six Years Perfecting Maps on WatchOS",
+      "url": "https://www.david-smith.org/blog/2026/04/29/maps-on-watchos/",
+      "source": "Hacker News",
+      "category": "other",
+      "summary": "A developer shares six years of experience and lessons learned from building a map application specifically for WatchOS.",
+      "insight": "While niche, this provides insights into optimization for constrained wearable devices, which is valuable for developers targeting Apple Watch or similar platforms.",
+      "english_title": "Six Years Perfecting Maps on WatchOS"
+    },
+    {
+      "title": "Inventions for battery reuse and recycling increase seven-fold in last decade",
+      "url": "https://www.epo.org/en/news-events/news/inventions-battery-reuse-and-recycling-increase-more-seven-fold-last-decade",
+      "source": "Hacker News",
+      "category": "hardware",
+      "summary": "Patent filings for battery reuse and recycling technologies have increased sevenfold over the past decade, indicating growing innovation in sustainable energy storage.",
+      "insight": "For IT professionals managing data centers or device fleets, advances in battery recycling and reuse can lower environmental impact and reduce e-waste costs.",
+      "english_title": "Inventions for battery reuse and recycling increase seven-fold in last decade"
+    }
+  ]
+}

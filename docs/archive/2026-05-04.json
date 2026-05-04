@@ -1,0 +1,275 @@
+{
+  "date": "2026-05-04",
+  "items": [
+    {
+      "title": "How OpenAI delivers low-latency voice AI at scale",
+      "url": "https://openai.com/index/delivering-low-latency-voice-ai-at-scale/",
+      "source": "Hacker News",
+      "category": "artificial_intelligence",
+      "summary": "OpenAI's approach to delivering low-latency voice AI at scale.",
+      "insight": "Understanding latency optimization in real-time AI voice systems is crucial for building responsive applications. IT professionals can learn about scalable infrastructure and efficient model serving techniques.",
+      "english_title": "How OpenAI delivers low-latency voice AI at scale"
+    },
+    {
+      "title": "U.S. government warns of severe CopyFail bug affecting major versions of Linux",
+      "url": "https://techcrunch.com/2026/05/04/u-s-government-warns-of-severe-copyfail-bug-affecting-major-versions-of-linux/",
+      "source": "techcrunch.com",
+      "category": "cybersecurity",
+      "summary": "U.S. government warns of a severe CopyFail bug in Linux that allows privilege escalation via file overwrite.",
+      "insight": "System administrators must urgently patch this critical Linux vulnerability to prevent unauthorized access and system compromise.",
+      "english_title": "U.S. government warns of severe CopyFail bug affecting major versions of Linux"
+    },
+    {
+      "title": "Hackers are mass-exploiting the cPanel bug to gain control of thousands of websites",
+      "url": "https://techcrunch.com/2026/05/04/hackers-are-still-exploiting-the-cpanel-bug-to-gain-control-of-thousands-of-websites/",
+      "source": "techcrunch.com",
+      "category": "cybersecurity",
+      "summary": "Hackers are mass-exploiting a cPanel vulnerability to take control of thousands of websites.",
+      "insight": "Web hosting providers and site administrators must patch cPanel immediately to prevent widespread compromise and data breaches.",
+      "english_title": "Hackers are mass-exploiting the cPanel bug to gain control of thousands of websites"
+    },
+    {
+      "title": "Securing a DoD contractor: Finding a multi-tenant authorization vulnerability",
+      "url": "https://www.strix.ai/blog/how-strix-found-zero-auth-vulnerability-dod-backed-startup",
+      "source": "Hacker News",
+      "category": "cybersecurity",
+      "summary": "Discovery of a multi-tenant authorization vulnerability in a Department of Defense contractor's system.",
+      "insight": "Highlights the critical need for thorough authorization checks in multi-tenant architectures. IT security professionals should review access control models to prevent similar flaws.",
+      "english_title": "Securing a DoD contractor: Finding a multi-tenant authorization vulnerability"
+    },
+    {
+      "title": "Microsoft Edge stores all passwords in memory in clear text, even when unused",
+      "url": "https://twitter.com/L1v1ng0ffTh3L4N/status/2051308329880719730",
+      "source": "Hacker News",
+      "category": "cybersecurity",
+      "summary": "Microsoft Edge stores all passwords in plaintext in memory, even when the passwords are not in use.",
+      "insight": "A serious security flaw; IT professionals should advise users to disable Edge's password manager and consider alternative solutions until patched.",
+      "english_title": "Microsoft Edge stores all passwords in memory in clear text, even when unused"
+    },
+    {
+      "title": "Let's talk about LLMs",
+      "url": "https://www.b-list.org/weblog/2026/apr/09/llms/",
+      "source": "Hacker News",
+      "category": "artificial_intelligence",
+      "summary": "A discussion or article about Large Language Models, their capabilities, and implications.",
+      "insight": "LLMs are central to modern AI development. Understanding their strengths and limitations is crucial for building effective applications.",
+      "english_title": "Let's talk about LLMs"
+    },
+    {
+      "title": "Anthropic and OpenAI are both launching joint ventures for enterprise AI services",
+      "url": "https://techcrunch.com/2026/05/04/anthropic-and-openai-are-both-launching-joint-ventures-for-enterprise-ai-services/",
+      "source": "techcrunch.com",
+      "category": "artificial_intelligence",
+      "summary": "Both Anthropic and OpenAI are launching joint ventures to offer enterprise AI services.",
+      "insight": "Enterprises will have more competitive AI service options, driving innovation and potentially better pricing and compliance features.",
+      "english_title": "Anthropic and OpenAI are both launching joint ventures for enterprise AI services"
+    },
+    {
+      "title": "Live updates from Elon Musk and Sam Altman’s court battle over the future of OpenAI",
+      "url": "https://www.theverge.com/tech/917225/sam-altman-elon-musk-openai-lawsuit",
+      "source": "www.theverge.com",
+      "category": "artificial_intelligence",
+      "summary": "Live updates from Elon Musk and Sam Altman’s court battle over the future of OpenAI.",
+      "insight": "Critical for IT professionals following AI governance, open-source vs. closed-source models, and the power dynamics shaping the AI industry. The outcome could have significant implications for AI development and accessibility.",
+      "english_title": "Live updates from Elon Musk and Sam Altman’s court battle over the future of OpenAI"
+    },
+    {
+      "title": "Dara Khosrowshahi on replacing Uber drivers — and himself — with AI",
+      "url": "https://www.theverge.com/podcast/922909/dara-khosrowshahi-uber-drivers-ai-hotels-service",
+      "source": "www.theverge.com",
+      "category": "artificial_intelligence",
+      "summary": "Dara Khosrowshahi on replacing Uber drivers — and himself — with AI.",
+      "insight": "Provocative perspective on AI's role in displacing jobs, including executive functions. Relevant for IT strategy and discussions on automation's societal impact.",
+      "english_title": "Dara Khosrowshahi on replacing Uber drivers — and himself — with AI"
+    },
+    {
+      "title": "OpenAI’s cozy partner Cerebras is on track for a blockbuster IPO",
+      "url": "https://techcrunch.com/2026/05/04/openais-cozy-partner-cerebras-is-on-track-for-a-blockbuster-ipo/",
+      "source": "techcrunch.com",
+      "category": "startup",
+      "summary": "Cerebras, an AI hardware company partnered with OpenAI, is preparing for a major IPO.",
+      "insight": "The IPO indicates strong market confidence in specialized AI hardware and strategic partnerships, signaling growth in the AI infrastructure sector.",
+      "english_title": "OpenAI’s cozy partner Cerebras is on track for a blockbuster IPO"
+    },
+    {
+      "title": "Sierra raises $950M as the race to own enterprise AI gets serious",
+      "url": "https://techcrunch.com/2026/05/04/sierra-raises-950m-as-the-race-to-own-enterprise-ai-gets-serious/",
+      "source": "techcrunch.com",
+      "category": "artificial_intelligence",
+      "summary": "Enterprise AI company Sierra raised $950 million, signaling the serious competition in the space.",
+      "insight": "Massive funding rounds indicate enterprise AI is a high-growth market. IT leaders should evaluate AI solutions for their organizations.",
+      "english_title": "Sierra raises $950M as the race to own enterprise AI gets serious"
+    },
+    {
+      "title": "I am worried about Bun",
+      "url": "https://wwj.dev/posts/i-am-worried-about-bun/",
+      "source": "Hacker News",
+      "category": "programming",
+      "summary": "Concerns about the Bun JavaScript runtime and its future.",
+      "insight": "Bun's rise impacts the Node.js ecosystem; IT pros should monitor its stability, performance, and compatibility for potential production use in backend development.",
+      "english_title": "I am worried about Bun"
+    },
+    {
+      "title": "Formatting a 25M-line codebase overnight",
+      "url": "https://stripe.dev/blog/formatting-an-entire-25-million-line-codebase-overnight-the-rubyfmt-story",
+      "source": "Hacker News",
+      "category": "programming",
+      "summary": "Experience of formatting a 25 million-line codebase overnight.",
+      "insight": "Demonstrates techniques for large-scale automated code formatting. Relevant for DevOps and engineers managing code quality at scale.",
+      "english_title": "Formatting a 25M-line codebase overnight"
+    },
+    {
+      "title": "US healthcare marketplaces shared citizenship and race data with ad tech giants",
+      "url": "https://techcrunch.com/2026/05/04/us-healthcare-marketplaces-shared-citizenship-and-race-data-with-ad-tech-giants/",
+      "source": "Hacker News",
+      "category": "cybersecurity",
+      "summary": "US healthcare marketplaces shared sensitive citizenship and race data with advertising technology companies.",
+      "insight": "Highlights serious privacy and compliance risks. IT professionals in healthcare must ensure data governance and third-party audits to prevent similar breaches.",
+      "english_title": "US healthcare marketplaces shared citizenship and race data with ad tech giants"
+    },
+    {
+      "title": "Image AI models now drive app growth, beating chatbot upgrades",
+      "url": "https://techcrunch.com/2026/05/04/image-ai-models-now-drive-app-growth-beating-chatbot-upgrades/",
+      "source": "techcrunch.com",
+      "category": "artificial_intelligence",
+      "summary": "Image AI models are now driving app growth more effectively than chatbot upgrades.",
+      "insight": "Developers should consider integrating image generation AI to enhance user engagement and product value, as visual features currently outperform conversational ones.",
+      "english_title": "Image AI models now drive app growth, beating chatbot upgrades"
+    },
+    {
+      "title": "DoorDash adds AI tools to speed up merchant onboarding, edit photos of dishes",
+      "url": "https://techcrunch.com/2026/05/04/doordash-adds-ai-tools-to-speed-up-merchant-onboarding-edit-photos-of-dishes/",
+      "source": "techcrunch.com",
+      "category": "artificial_intelligence",
+      "summary": "DoorDash adds AI tools to speed up merchant onboarding, edit photos of dishes.",
+      "insight": "This demonstrates a practical application of AI in business operations, relevant for developers building AI features for automation and image processing.",
+      "english_title": "DoorDash adds AI tools to speed up merchant onboarding, edit photos of dishes"
+    },
+    {
+      "title": "Amazon&#8217;s trying to turn its massive shipping operation into another AWS",
+      "url": "https://www.theverge.com/tech/923013/amazon-supply-chain-services",
+      "source": "www.theverge.com",
+      "category": "other",
+      "summary": "Amazon is trying to turn its massive shipping operation into another AWS.",
+      "insight": "Demonstrates a platformization strategy that could open new integration points for developers. IT pros should monitor Amazon's logistics APIs and services for potential business opportunities.",
+      "english_title": "Amazon is trying to turn its massive shipping operation into another AWS"
+    },
+    {
+      "title": "Tesla hits Musk’s threshold for ‘safe unsupervised’ driving",
+      "url": "https://www.theverge.com/transportation/922900/tesla-10-billion-miles-unsupervised-fsd-robotaxi-elon-musk",
+      "source": "www.theverge.com",
+      "category": "artificial_intelligence",
+      "summary": "Tesla hits Musk’s threshold for ‘safe unsupervised’ driving.",
+      "insight": "Signals progress in autonomous driving technology, relevant for AI and automotive software engineers. It also impacts regulatory and safety discussions in self-driving systems.",
+      "english_title": "Tesla hits Musk’s threshold for ‘safe unsupervised’ driving"
+    },
+    {
+      "title": "Elon Musk’s only AI expert witness at the OpenAI trial fears an AGI arms race",
+      "url": "https://techcrunch.com/2026/05/04/elon-musks-only-expert-witness-at-the-openai-trial-fears-an-agi-arms-race/",
+      "source": "techcrunch.com",
+      "category": "artificial_intelligence",
+      "summary": "An expert witness in the OpenAI-Musk trial warns about the risks of an AGI arms race.",
+      "insight": "The trial and testimony highlight ongoing concerns about AGI safety, regulation, and the competitive dynamics among AI leaders.",
+      "english_title": "Elon Musk’s only AI expert witness at the OpenAI trial fears an AGI arms race"
+    },
+    {
+      "title": "Redis array: short story of a long development process",
+      "url": "https://antirez.com/news/164",
+      "source": "Hacker News",
+      "category": "programming",
+      "summary": "The development story of the Redis array data structure, from conception to production.",
+      "insight": "Provides insight into Redis' internal development and data structure optimization. Backend engineers can learn about performance considerations and feature evolution.",
+      "english_title": "Redis array: short story of a long development process"
+    },
+    {
+      "title": "What do we lose when AI does our work?",
+      "url": "https://rickyyean.com/2026/05/04/what-do-we-lose-when-ai-does-our-work/",
+      "source": "Hacker News",
+      "category": "artificial_intelligence",
+      "summary": "Reflection on potential losses to human skills and creativity as AI takes over more tasks.",
+      "insight": "Important for IT professionals to consider the human impact of AI adoption, including skill erosion and the need for deliberate practice alongside automation.",
+      "english_title": "What do we lose when AI does our work?"
+    },
+    {
+      "title": "Agent Skills",
+      "url": "https://addyosmani.com/blog/agent-skills/",
+      "source": "Hacker News",
+      "category": "artificial_intelligence",
+      "summary": "Discussion about the skills and capabilities of AI agents.",
+      "insight": "As AI agents become more autonomous, defining and managing their skills is key for enterprise automation and reliable task execution.",
+      "english_title": "Agent Skills"
+    },
+    {
+      "title": "How Monero’s proof of work works",
+      "url": "https://blog.alcazarsec.com/tech/posts/how-moneros-proof-of-work-works",
+      "source": "Hacker News",
+      "category": "other",
+      "summary": "Explanation of Monero's proof-of-work algorithm and its mechanisms.",
+      "insight": "Relevant for blockchain developers and those interested in privacy-focused cryptocurrencies, but not mainstream IT infrastructure.",
+      "english_title": "How Monero’s proof of work works"
+    },
+    {
+      "title": "Stop big tech from making users behave in ways they don't want to",
+      "url": "https://economist.com/by-invitation/2026/04/29/stop-big-tech-from-making-users-behave-in-ways-they-dont-want-to",
+      "source": "Hacker News",
+      "category": "other",
+      "summary": "A call to prevent big tech companies from using manipulative design to control user behavior.",
+      "insight": "IT professionals should prioritize ethical design and transparency to build trust and avoid dark patterns that harm user experience.",
+      "english_title": "Stop big tech from making users behave in ways they don't want to"
+    },
+    {
+      "title": "The Pixel 11 could be the next victim of the RAM shortage",
+      "url": "https://www.theverge.com/tech/923252/google-pixel-11-spec-leak-lower-ram",
+      "source": "www.theverge.com",
+      "category": "hardware",
+      "summary": "The Pixel 11 could be the next victim of the RAM shortage.",
+      "insight": "Highlights ongoing supply chain issues affecting hardware availability; IT professionals should factor such constraints into product planning and procurement.",
+      "english_title": "The Pixel 11 could be the next victim of the RAM shortage"
+    },
+    {
+      "title": "1966 Ford Mustang Converted into a Tesla with Working 'Full Self-Driving'",
+      "url": "https://electrek.co/2026/05/02/tesla-1966-mustang-ev-conversion-full-self-driving/",
+      "source": "Hacker News",
+      "category": "hardware",
+      "summary": "A 1966 Ford Mustang was converted to electric with Tesla's Full Self-Driving system.",
+      "insight": "Highlights the integration of modern EV and autonomous driving tech into classic vehicles, showcasing hardware and software retrofit possibilities.",
+      "english_title": "1966 Ford Mustang Converted into a Tesla with Working 'Full Self-Driving'"
+    },
+    {
+      "title": "Amazon opens up its global logistics network to all businesses",
+      "url": "https://techcrunch.com/2026/05/04/amazon-opens-up-its-global-logistics-network-to-all-businesses/",
+      "source": "techcrunch.com",
+      "category": "other",
+      "summary": "Amazon opens up its global logistics network to all businesses.",
+      "insight": "For IT professionals, this expansion means new integration opportunities via APIs and potential competition for logistics software providers. It could also signal a shift toward platform-based logistics services.",
+      "english_title": "Amazon opens up its global logistics network to all businesses"
+    },
+    {
+      "title": "The creator of Roomba is back with a furry robot companion",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/922947/roomba-creator-new-robot-familiar-machines-magic-ai-launch",
+      "source": "www.theverge.com",
+      "category": "hardware",
+      "summary": "The creator of Roomba is back with a furry robot companion.",
+      "insight": "Reflects trends in social robotics and AI-driven interaction; IT professionals may be interested in the embedded systems and human-robot interaction design.",
+      "english_title": "The creator of Roomba is back with a furry robot companion"
+    },
+    {
+      "title": "Testing macOS on the Apple Network Server 2.0 ROMs",
+      "url": "http://oldvcr.blogspot.com/2026/05/testing-macos-on-apple-network-server.html",
+      "source": "Hacker News",
+      "category": "hardware",
+      "summary": "Testing macOS on the Apple Network Server 2.0 ROMs, a vintage hardware project.",
+      "insight": "Interesting for retro computing enthusiasts but not directly applicable to modern IT infrastructure.",
+      "english_title": "Testing macOS on the Apple Network Server 2.0 ROMs"
+    },
+    {
+      "title": "As X shuts down Communities, Acorn debuts an alternative that puts creators in control",
+      "url": "https://techcrunch.com/2026/05/04/as-x-shuts-down-communities-acorn-debuts-an-alternative-that-puts-creators-in-control/",
+      "source": "techcrunch.com",
+      "category": "other",
+      "summary": "As X shuts down Communities, Acorn launches an alternative that gives creators more control.",
+      "insight": "Social platform changes may affect community management tools, but impact on IT professionals is limited unless they rely on these platforms.",
+      "english_title": "As X shuts down Communities, Acorn debuts an alternative that puts creators in control"
+    }
+  ]
+}

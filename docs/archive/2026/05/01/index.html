@@ -924,9 +924,10 @@
     </div>
 
     <script>
-        // Pass server data to JavaScript
-        const ARCHIVE_BASE = '/social-hotspot-daily/archive';
-        const BASE_URL = '/social-hotspot-daily';
+        // Use current location to derive paths — works on any GitHub Pages deployment
+        const BASE_PATH = window.location.pathname.replace(/\/$/, '') || '';
+        const ARCHIVE_BASE = BASE_PATH + '/archive';
+        const BASE_URL = BASE_PATH;
         const AVAILABLE_DATES = ["2026-05-06", "2026-05-05", "2026-05-04", "2026-05-03", "2026-05-02", "2026-05-01", "2026-04-30", "2026-04-29", "2026-04-28"];
         const TODAY = '2026-05-01';
         const MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];
@@ -953,7 +954,6 @@
         }
 
         function renderItems(items) {
-            // Group by category
             const cats = {};
             for (const item of items) {
                 const cat = item.category.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
@@ -961,7 +961,6 @@
                 cats[cat].push(item);
             }
 
-            // Sort by count descending
             const sorted = Object.entries(cats).sort((a, b) => b[1].length - a[1].length);
 
             let html = '';
@@ -999,10 +998,8 @@
         function updateNav(date) {
             const idx = AVAILABLE_DATES.indexOf(date);
 
-            // Display date
             document.getElementById('displayDate').textContent = formatDate(date);
 
-            // Date picker
             const picker = document.getElementById('datePicker');
             picker.value = date;
 
@@ -1038,9 +1035,9 @@
 
         function updateUrl(date) {
             if (date === TODAY) {
-                window.history.replaceState({}, '', '/');
+                window.history.replaceState({}, '', BASE_PATH + '/');
             } else {
-                window.history.replaceState({}, '', `/date/${date}/`);
+                window.history.replaceState({}, '', BASE_PATH + `/date/${date}/`);
             }
         }
 
@@ -1051,12 +1048,10 @@
             updateUrl(date);
 
             if (date === TODAY) {
-                // Restore server-rendered TODAY content from snapshot
                 setContent(TODAY_HTML, TODAY_COUNT);
                 return;
             }
 
-            // Fetch archive
             try {
                 const [y, m, d] = date.split('-');
                 let resp = await fetch(`${ARCHIVE_BASE}/${y}/${m}/${d}/index.json`);
@@ -1081,8 +1076,6 @@
         // Init
         document.addEventListener('DOMContentLoaded', function() {
             const path = window.location.pathname;
-
-            // Detect /date/YYYY-MM-DD/ from URL path
             const dateMatch = path.match(/\/date\/(\d{4}-\d{2}-\d{2})\/?$/);
             let initialDate = TODAY;
 
@@ -1090,7 +1083,6 @@
                 initialDate = dateMatch[1];
             }
 
-            // Set date picker bounds
             const picker = document.getElementById('datePicker');
             picker.min = AVAILABLE_DATES[AVAILABLE_DATES.length - 1];
             picker.max = AVAILABLE_DATES[0];
@@ -1102,14 +1094,12 @@
                 updateUrl(TODAY);
             }
 
-            // Date picker change — load any selected date
             picker.addEventListener('change', function(e) {
                 const val = e.target.value;
                 if (!val) return;
                 if (AVAILABLE_DATES.includes(val)) {
                     loadDate(val);
                 } else {
-                    // Date exists but no data — show empty
                     setContent(renderEmptyState(val), 0);
                     updateNav(val);
                     updateUrl(val);

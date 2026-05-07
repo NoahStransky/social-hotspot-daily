@@ -148,21 +148,7 @@
             cursor: default;
         }
 
-        .date-nav .current-date {
-            font-size: 15px;
-            font-weight: 600;
-            color: var(--text);
-            min-width: 140px;
-            text-align: center;
-        }
-
-        .date-nav .date-picker {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .date-nav select {
+        .date-nav input[type="date"] {
             background: var(--surface);
             color: var(--text);
             border: 1px solid var(--border);
@@ -171,19 +157,17 @@
             font-size: 14px;
             font-family: inherit;
             cursor: pointer;
+            color-scheme: dark;
         }
 
-        .date-nav select:focus {
+        .date-nav input[type="date"]:focus {
             outline: none;
             border-color: var(--accent);
         }
 
-        .date-nav .page-indicator {
-            font-size: 13px;
-            color: var(--text-secondary);
-            min-width: 100px;
-            text-align: center;
-            white-space: nowrap;
+        .date-nav input[type="date"]::-webkit-calendar-picker-indicator {
+            filter: invert(0.7);
+            cursor: pointer;
         }
 
         /* ===== Content ===== */
@@ -381,31 +365,7 @@
         <!-- Date Navigation -->
         <div class="date-nav">
             <a href="#" id="prevDate" class="disabled">← Previous</a>
-            <div class="date-picker">
-                <span class="current-date" id="currentDate">2026-05-03</span>
-                <select id="dateSelector">
-                    
-                    <option value="2026-05-06">2026-05-06</option>
-                    
-                    <option value="2026-05-05">2026-05-05</option>
-                    
-                    <option value="2026-05-04">2026-05-04</option>
-                    
-                    <option value="2026-05-03" selected>2026-05-03</option>
-                    
-                    <option value="2026-05-02">2026-05-02</option>
-                    
-                    <option value="2026-05-01">2026-05-01</option>
-                    
-                    <option value="2026-04-30">2026-04-30</option>
-                    
-                    <option value="2026-04-29">2026-04-29</option>
-                    
-                    <option value="2026-04-28">2026-04-28</option>
-                    
-                </select>
-            </div>
-            <span class="page-indicator" id="pageIndicator">Day 1 of 9</span>
+            <input type="date" id="datePicker">
             <a href="#" id="nextDate" class="disabled">Next →</a>
         </div>
 
@@ -966,6 +926,7 @@
     <script>
         // Pass server data to JavaScript
         const ARCHIVE_BASE = 'https://YOUR_USERNAME.github.io/social-hotspot-daily/archive';
+        const BASE_URL = 'https://YOUR_USERNAME.github.io/social-hotspot-daily';
         const AVAILABLE_DATES = ["2026-05-06", "2026-05-05", "2026-05-04", "2026-05-03", "2026-05-02", "2026-05-01", "2026-04-30", "2026-04-29", "2026-04-28"];
         const TODAY = '2026-05-03';
         const MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];
@@ -976,6 +937,10 @@
             const [y, m, d] = iso.split('-');
             return `${MONTHS[parseInt(m)-1]} ${parseInt(d)}, ${y}`;
         }
+
+        // ── Snapshot the server-rendered TODAY content ──
+        const TODAY_HTML = document.getElementById('contentArea').innerHTML;
+        const TODAY_COUNT = parseInt((document.getElementById('statItems').textContent.match(/\d+/) || ['0'])[0], 10);
 
         function renderEmptyState(date) {
             return `
@@ -1026,46 +991,30 @@
             return html;
         }
 
-        // ── Inline HTML content (rendered by server for TODAY) ──
-        const INLINE_HTML = document.getElementById('contentArea').innerHTML;
-
-        function getInlineContent() {
-            return INLINE_HTML;
-        }
-
-        function updatePagination(date) {
-            const idx = AVAILABLE_DATES.indexOf(date);
-            const total = AVAILABLE_DATES.length;
-            const pageEl = document.getElementById('pageIndicator');
-            if (idx !== -1) {
-                pageEl.textContent = `Day ${idx + 1} of ${total}`;
-            } else {
-                pageEl.textContent = '';
-            }
-        }
-
-        function setContent(html, itemCount) {
-            const contentArea = document.getElementById('contentArea');
-            const statItems = document.getElementById('statItems');
-            contentArea.innerHTML = html;
-            statItems.innerHTML = `<strong>${itemCount}</strong> stories`;
+        function setContent(html, count) {
+            document.getElementById('contentArea').innerHTML = html;
+            document.getElementById('statItems').innerHTML = `<strong>${count}</strong> stories`;
         }
 
         function updateNav(date) {
-            document.getElementById('displayDate').textContent = formatDate(date);
-            document.getElementById('currentDate').textContent = date;
-            document.getElementById('dateSelector').value = date;
-
             const idx = AVAILABLE_DATES.indexOf(date);
+
+            // Display date
+            document.getElementById('displayDate').textContent = formatDate(date);
+
+            // Date picker
+            const picker = document.getElementById('datePicker');
+            picker.value = date;
+
+            // Prev/Next
             const prevLink = document.getElementById('prevDate');
             const nextLink = document.getElementById('nextDate');
 
-            // Remove old onclick handlers to prevent stale closures
             prevLink.onclick = null;
             nextLink.onclick = null;
 
             if (idx > 0) {
-                prevLink.href = '?date=' + AVAILABLE_DATES[idx - 1];
+                prevLink.href = `${BASE_URL}/date/${AVAILABLE_DATES[idx - 1]}/`;
                 prevLink.className = '';
                 prevLink.onclick = (e) => { e.preventDefault(); loadDate(AVAILABLE_DATES[idx - 1]); };
             } else {
@@ -1074,25 +1023,21 @@
             }
 
             if (idx !== -1 && idx < AVAILABLE_DATES.length - 1) {
-                nextLink.href = '?date=' + AVAILABLE_DATES[idx + 1];
+                nextLink.href = `${BASE_URL}/date/${AVAILABLE_DATES[idx + 1]}/`;
                 nextLink.className = '';
                 nextLink.onclick = (e) => { e.preventDefault(); loadDate(AVAILABLE_DATES[idx + 1]); };
             } else {
                 nextLink.href = '#';
                 nextLink.className = 'disabled';
             }
-
-            updatePagination(date);
         }
 
         function updateUrl(date) {
-            const url = new URL(window.location);
             if (date === TODAY) {
-                url.searchParams.delete('date');
+                window.history.replaceState({}, '', BASE_URL || '/');
             } else {
-                url.searchParams.set('date', date);
+                window.history.replaceState({}, '', `${BASE_URL}/date/${date}/`);
             }
-            window.history.replaceState({}, '', url);
         }
 
         async function loadDate(date) {
@@ -1101,19 +1046,17 @@
             updateNav(date);
             updateUrl(date);
 
-            // Load content
             if (date === TODAY) {
-                // Today's data is embedded in the HTML — restore it
-                setContent(getInlineContent(), parseInt(document.getElementById('statItems').getAttribute('data-count') || '0'));
+                // Restore server-rendered TODAY content from snapshot
+                setContent(TODAY_HTML, TODAY_COUNT);
                 return;
             }
 
-            // Fetch archive with fallback: index.json → old flat format
+            // Fetch archive
             try {
                 const [y, m, d] = date.split('-');
                 let resp = await fetch(`${ARCHIVE_BASE}/${y}/${m}/${d}/index.json`);
                 if (!resp.ok) {
-                    // Fallback: old flat YYYY-MM-DD.json
                     resp = await fetch(`${ARCHIVE_BASE}/${date}.json`);
                 }
                 if (!resp.ok) throw new Error('Not found');
@@ -1131,28 +1074,31 @@
             }
         }
 
-        // Init: check URL param
+        // Init
         document.addEventListener('DOMContentLoaded', function() {
-            // Save the TODAY inline content count for restoration later
-            const statEl = document.getElementById('statItems');
-            const countMatch = statEl.textContent.match(/(\d+)/);
-            if (countMatch) {
-                statEl.setAttribute('data-count', countMatch[1]);
+            const path = window.location.pathname;
+
+            // Detect /date/YYYY-MM-DD/ from URL path
+            const dateMatch = path.match(/\/date\/(\d{4}-\d{2}-\d{2})\/?$/);
+            let initialDate = TODAY;
+
+            if (dateMatch && AVAILABLE_DATES.includes(dateMatch[1])) {
+                initialDate = dateMatch[1];
             }
 
-            const urlParams = new URLSearchParams(window.location.search);
-            const dateParam = urlParams.get('date');
-
-            if (dateParam && AVAILABLE_DATES.includes(dateParam) && dateParam !== TODAY) {
-                loadDate(dateParam);
+            if (initialDate !== TODAY) {
+                loadDate(initialDate);
             } else {
-                // Ensure navigation and pagination state for today on initial load
                 updateNav(TODAY);
+                updateUrl(TODAY);
             }
 
-            // Date selector change
-            document.getElementById('dateSelector').addEventListener('change', function(e) {
-                loadDate(e.target.value);
+            // Date picker change
+            document.getElementById('datePicker').addEventListener('change', function(e) {
+                const val = e.target.value;
+                if (AVAILABLE_DATES.includes(val)) {
+                    loadDate(val);
+                }
             });
         });
     </script>

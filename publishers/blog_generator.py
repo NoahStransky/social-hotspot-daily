@@ -168,6 +168,12 @@ class BlogGenerator:
         archive_html_path = archive_page_dir / "index.html"
         archive_html_path.write_text(html, encoding="utf-8")
 
+        # Write date/YYYY-MM-DD/index.html for /date/YYYY-MM-DD/ direct URL access
+        date_page_dir = self.output_dir / "date" / today
+        date_page_dir.mkdir(parents=True, exist_ok=True)
+        date_html_path = date_page_dir / "index.html"
+        date_html_path.write_text(html, encoding="utf-8")
+
         # Copy static pages
         template_dir = Path(__file__).parent.parent / "templates"
         for page in ["subscribe.html", "verify.html", "unsubscribe.html"]:

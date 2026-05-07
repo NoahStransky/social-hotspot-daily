@@ -178,6 +178,14 @@
             border-color: var(--accent);
         }
 
+        .date-nav .page-indicator {
+            font-size: 13px;
+            color: var(--text-secondary);
+            min-width: 100px;
+            text-align: center;
+            white-space: nowrap;
+        }
+
         /* ===== Content ===== */
         .section { margin-bottom: 48px; }
 
@@ -381,6 +389,7 @@
                     {% endfor %}
                 </select>
             </div>
+            <span class="page-indicator" id="pageIndicator">Day 1 of 9</span>
             <a href="#" id="nextDate" class="disabled">Next →</a>
         </div>
 
@@ -494,36 +503,66 @@
             return html;
         }
 
-        async function loadDate(date) {
-            currentDate = date;
+        // ── Inline HTML content (rendered by server for TODAY) ──
+        const INLINE_HTML = document.getElementById('contentArea').innerHTML;
 
-            // Update nav
+        function getInlineContent() {
+            return INLINE_HTML;
+        }
+
+        function updatePagination(date) {
+            const idx = AVAILABLE_DATES.indexOf(date);
+            const total = AVAILABLE_DATES.length;
+            const pageEl = document.getElementById('pageIndicator');
+            if (idx !== -1) {
+                pageEl.textContent = `Day ${idx + 1} of ${total}`;
+            } else {
+                pageEl.textContent = '';
+            }
+        }
+
+        function setContent(html, itemCount) {
+            const contentArea = document.getElementById('contentArea');
+            const statItems = document.getElementById('statItems');
+            contentArea.innerHTML = html;
+            statItems.innerHTML = `<strong>${itemCount}</strong> stories`;
+        }
+
+        function updateNav(date) {
             document.getElementById('displayDate').textContent = formatDate(date);
             document.getElementById('currentDate').textContent = date;
             document.getElementById('dateSelector').value = date;
 
-            // Prev/Next
             const idx = AVAILABLE_DATES.indexOf(date);
             const prevLink = document.getElementById('prevDate');
             const nextLink = document.getElementById('nextDate');
+
+            // Remove old onclick handlers to prevent stale closures
+            prevLink.onclick = null;
+            nextLink.onclick = null;
 
             if (idx > 0) {
                 prevLink.href = '?date=' + AVAILABLE_DATES[idx - 1];
                 prevLink.className = '';
                 prevLink.onclick = (e) => { e.preventDefault(); loadDate(AVAILABLE_DATES[idx - 1]); };
             } else {
+                prevLink.href = '#';
                 prevLink.className = 'disabled';
             }
 
-            if (idx >= 0 && idx < AVAILABLE_DATES.length - 1) {
+            if (idx !== -1 && idx < AVAILABLE_DATES.length - 1) {
                 nextLink.href = '?date=' + AVAILABLE_DATES[idx + 1];
                 nextLink.className = '';
                 nextLink.onclick = (e) => { e.preventDefault(); loadDate(AVAILABLE_DATES[idx + 1]); };
             } else {
+                nextLink.href = '#';
                 nextLink.className = 'disabled';
             }
 
-            // Update URL without reload
+            updatePagination(date);
+        }
+
+        function updateUrl(date) {
             const url = new URL(window.location);
             if (date === TODAY) {
                 url.searchParams.delete('date');
@@ -531,14 +570,18 @@
                 url.searchParams.set('date', date);
             }
             window.history.replaceState({}, '', url);
+        }
+
+        async function loadDate(date) {
+            currentDate = date;
+
+            updateNav(date);
+            updateUrl(date);
 
             // Load content
-            const contentArea = document.getElementById('contentArea');
-            const statItems = document.getElementById('statItems');
-
             if (date === TODAY) {
-                // Today's data is already rendered in the HTML — just show it
-                // (we could reload from archive too, but for today it's inline)
+                // Today's data is embedded in the HTML — restore it
+                setContent(getInlineContent(), parseInt(document.getElementById('statItems').getAttribute('data-count') || '0'));
                 return;
             }
 
@@ -556,25 +599,32 @@
                 const items = data.items || [];
 
                 if (items.length === 0) {
-                    contentArea.innerHTML = renderEmptyState(date);
-                    statItems.innerHTML = '<strong>0</strong> stories';
+                    setContent(renderEmptyState(date), 0);
                 } else {
-                    contentArea.innerHTML = renderItems(items);
-                    statItems.innerHTML = `<strong>${items.length}</strong> stories`;
+                    setContent(renderItems(items), items.length);
                 }
             } catch {
-                contentArea.innerHTML = renderEmptyState(date);
-                statItems.innerHTML = '<strong>0</strong> stories';
+                setContent(renderEmptyState(date), 0);
             }
         }
 
         // Init: check URL param
         document.addEventListener('DOMContentLoaded', function() {
+            // Save the TODAY inline content count for restoration later
+            const statEl = document.getElementById('statItems');
+            const countMatch = statEl.textContent.match(/(\d+)/);
+            if (countMatch) {
+                statEl.setAttribute('data-count', countMatch[1]);
+            }
+
             const urlParams = new URLSearchParams(window.location.search);
             const dateParam = urlParams.get('date');
 
             if (dateParam && AVAILABLE_DATES.includes(dateParam) && dateParam !== TODAY) {
                 loadDate(dateParam);
+            } else {
+                // Ensure navigation and pagination state for today on initial load
+                updateNav(TODAY);
             }
 
             // Date selector change

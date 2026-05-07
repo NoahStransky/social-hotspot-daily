@@ -1,0 +1,275 @@
+{
+  "date": "2026-04-30",
+  "items": [
+    {
+      "title": "Hackers are actively exploiting a bug in cPanel, used by millions of websites",
+      "url": "https://techcrunch.com/2026/04/30/hackers-are-actively-exploiting-a-bug-in-cpanel-used-by-millions-of-websites/",
+      "source": "techcrunch.com",
+      "category": "cybersecurity",
+      "summary": "Hackers are actively exploiting a vulnerability in cPanel, a control panel used by millions of websites.",
+      "insight": "Critical alert for web hosting administrators and IT ops teams; immediate patching and system review are necessary to prevent breaches.",
+      "english_title": "Hackers are actively exploiting a bug in cPanel, used by millions of websites"
+    },
+    {
+      "title": "Shai-Hulud Themed Malware Found in the PyTorch Lightning AI Training Library",
+      "url": "https://semgrep.dev/blog/2026/malicious-dependency-in-pytorch-lightning-used-for-ai-training/",
+      "source": "Hacker News",
+      "category": "artificial_intelligence",
+      "summary": "Un malware nommé Shai-Hulud a été découvert dans la bibliothèque d'entraînement IA PyTorch Lightning.",
+      "insight": "This supply-chain attack on an AI library underscores the need for rigorous dependency verification in machine learning pipelines.",
+      "english_title": "Shai-Hulud Themed Malware Found in the PyTorch Lightning AI Training Library"
+    },
+    {
+      "title": "Does Postgres Scale?",
+      "url": "https://www.dbos.dev/blog/benchmarking-workflow-execution-scalability-on-postgres",
+      "source": "Hacker News",
+      "category": "programming",
+      "summary": "Explores PostgreSQL's scalability capabilities and limitations for high‑load applications.",
+      "insight": "Crucial for architects designing data‑intensive systems; understanding Postgres scaling patterns helps in making informed database decisions.",
+      "english_title": "Does Postgres Scale?"
+    },
+    {
+      "title": "OpenAI announces new advanced security for ChatGPT accounts, including a partnership with Yubico",
+      "url": "https://techcrunch.com/2026/04/30/openai-announces-new-advanced-security-for-chatgpt-accounts-including-a-partnership-with-yubico/",
+      "source": "techcrunch.com",
+      "category": "cybersecurity",
+      "summary": "OpenAI announces enhanced security for ChatGPT accounts, including a partnership with hardware security key provider Yubico.",
+      "insight": "Important for enterprise users requiring strong authentication; adopting hardware keys can mitigate account takeover risks for AI services.",
+      "english_title": "OpenAI announces new advanced security for ChatGPT accounts, including a partnership with Yubico"
+    },
+    {
+      "title": "Stripe introduces Link, a digital wallet that autonomous AI agents can use, too",
+      "url": "https://techcrunch.com/2026/04/30/stripe-link-digital-wallet-ai-agents-shopping/",
+      "source": "techcrunch.com",
+      "category": "artificial_intelligence",
+      "summary": "Stripe's digital wallet Link can now be used by autonomous AI agents to make payments.",
+      "insight": "Enabling AI agents to transact autonomously is a significant step for automation and commerce, opening new possibilities for developers building AI-driven services.",
+      "english_title": "Stripe introduces Link, a digital wallet that autonomous AI agents can use, too"
+    },
+    {
+      "title": "All the evidence unveiled so far in Musk v. Altman",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/920775/evidence-exhibits-elon-musk-sam-altman-openai-trial",
+      "source": "www.theverge.com",
+      "category": "artificial_intelligence",
+      "summary": "New evidence has been presented in the lawsuit between Elon Musk and Sam Altman, revealing details about their dispute over OpenAI's direction.",
+      "insight": "This legal battle touches on the core governance and mission of a leading AI company, making it highly relevant for anyone following AI industry power dynamics and ethics.",
+      "english_title": "All the evidence unveiled so far in Musk v. Altman"
+    },
+    {
+      "title": "Durable queues, streams, pub/sub, and a cron scheduler – inside your SQLite file",
+      "url": "https://honker.dev/",
+      "source": "Hacker News",
+      "category": "programming",
+      "summary": "Files d'attente durables, streams, pub/sub et un planificateur cron à l'intérieur de votre fichier SQLite.",
+      "insight": "Extending SQLite with message queue patterns enables lightweight, embedded infrastructure. Highly relevant for backend and edge computing.",
+      "english_title": "Durable queues, streams, pub/sub, and a cron scheduler – inside your SQLite file"
+    },
+    {
+      "title": "Mozilla's opposition to Chrome's Prompt API",
+      "url": "https://github.com/mozilla/standards-positions/issues/1213#issuecomment-4347988313",
+      "source": "Hacker News",
+      "category": "programming",
+      "summary": "Mozilla opposes Chrome's Prompt API, citing concerns over user control and browser neutrality.",
+      "insight": "Web developers must track cross-browser API support; Mozilla's stance may influence future standards and implementation choices.",
+      "english_title": "Mozilla's opposition to Chrome's Prompt API"
+    },
+    {
+      "title": "Apple was surprised by AI-driven demand for Macs",
+      "url": "https://techcrunch.com/2026/04/30/apple-was-surprised-by-ai-driven-demand-for-macs/",
+      "source": "techcrunch.com",
+      "category": "hardware",
+      "summary": "Apple was surprised by strong demand for Macs driven by AI workloads, highlighting a market shift.",
+      "insight": "Indicates rising need for powerful consumer hardware for local AI inference; IT procurement may need to budget for high‑performance Macs.",
+      "english_title": "Apple was surprised by AI-driven demand for Macs"
+    },
+    {
+      "title": "Legal AI startup Legora hits $5.6B valuation and its battle with Harvey just got hotter",
+      "url": "https://techcrunch.com/2026/04/30/legal-ai-startup-legora-hits-5-6-valuation-and-its-battle-with-harvey-just-got-hotter/",
+      "source": "techcrunch.com",
+      "category": "artificial_intelligence",
+      "summary": "Legal AI startup Legora reaches a $5.6B valuation amid intensifying competition with Harvey.",
+      "insight": "Highlights rapid investment in AI‑powered legal tools; IT professionals in legal tech should monitor these platforms for integration opportunities.",
+      "english_title": "Legal AI startup Legora hits $5.6B valuation and its battle with Harvey just got hotter"
+    },
+    {
+      "title": "Elon Musk testifies that xAI trained Grok on OpenAI models",
+      "url": "https://techcrunch.com/2026/04/30/elon-musk-testifies-that-xai-trained-grok-on-openai-models/",
+      "source": "techcrunch.com",
+      "category": "artificial_intelligence",
+      "summary": "Elon Musk testifies that xAI trained its Grok model on OpenAI models, raising legal and ethical questions.",
+      "insight": "Highlights the blurred lines in AI model training; IT professionals should consider licensing and data usage policies when building on top of existing models.",
+      "english_title": "Elon Musk testifies that xAI trained Grok on OpenAI models"
+    },
+    {
+      "title": "Salesforce is crowdsourcing its AI roadmap — with customers",
+      "url": "https://techcrunch.com/2026/04/30/salesforce-is-crowdsourcing-its-ai-roadmap-with-customers/",
+      "source": "techcrunch.com",
+      "category": "artificial_intelligence",
+      "summary": "Salesforce is involving customers in shaping its artificial intelligence product roadmap.",
+      "insight": "This highlights a trend towards customer-driven AI development, meaning IT professionals may need to engage more closely with end-users to prioritize features.",
+      "english_title": "Salesforce is crowdsourcing its AI roadmap — with customers"
+    },
+    {
+      "title": "LinkedIn scans for 6,278 extensions and encrypts the results into every request",
+      "url": "https://404privacy.com/blog/linkedin-is-scanning-your-browser-extensions-this-is-how-they-use-the-data/",
+      "source": "Hacker News",
+      "category": "cybersecurity",
+      "summary": "LinkedIn scanne 6,278 extensions et chiffre les résultats dans chaque requête.",
+      "insight": "This raises significant privacy concerns about browser extension tracking at scale. IT pros should audit extension usage and consider implications for corporate security.",
+      "english_title": "LinkedIn scans for 6,278 extensions and encrypts the results into every request"
+    },
+    {
+      "title": "Claude Code refuses requests or charges extra if your commits mention \"OpenClaw\"",
+      "url": "https://twitter.com/theo/status/2049645973350363168",
+      "source": "Hacker News",
+      "category": "artificial_intelligence",
+      "summary": "Claude Code refuse des requêtes ou facture un supplément si vos commits mentionnent \"OpenClaw\".",
+      "insight": "Reveals potential hidden behaviors in AI coding assistants; developers should be aware of arbitrary restrictions that could impact workflow.",
+      "english_title": "Claude Code refuses requests or charges extra if your commits mention 'OpenClaw'"
+    },
+    {
+      "title": "The upsell game – Vercel upselling tactics revealed",
+      "url": "https://theupsellgame.com/",
+      "source": "Hacker News",
+      "category": "other",
+      "summary": "Reveals upselling tactics used by Vercel, potentially affecting developer costs and vendor relationships.",
+      "insight": "IT professionals should be mindful of vendor pricing strategies and consider alternatives to avoid unexpected costs.",
+      "english_title": "The upsell game – Vercel upselling tactics revealed"
+    },
+    {
+      "title": "After dissing Anthropic for limiting Mythos, OpenAI restricts access to Cyber, too",
+      "url": "https://techcrunch.com/2026/04/30/after-dissing-anthropic-for-limiting-mythos-openai-restricts-access-to-cyber-too/",
+      "source": "techcrunch.com",
+      "category": "artificial_intelligence",
+      "summary": "After criticizing Anthropic for limiting Mythos, OpenAI now restricts access to Cyber, showing inconsistent AI safety policies.",
+      "insight": "Reflects ongoing tension between AI safety and open access; IT professionals evaluating AI APIs need to watch for access restrictions.",
+      "english_title": "After dissing Anthropic for limiting Mythos, OpenAI restricts access to Cyber, too"
+    },
+    {
+      "title": "FDA approval, fundraising, and the reality of building in healthcare according to BioticsAI founder",
+      "url": "https://techcrunch.com/2026/04/30/fda-approval-fundraising-and-the-reality-of-building-in-healthcare-according-to-bioticsai-founder/",
+      "source": "techcrunch.com",
+      "category": "artificial_intelligence",
+      "summary": "BioticsAI founder discusses FDA approval, fundraising hurdles, and the realities of building AI in healthcare.",
+      "insight": "Relevant for IT teams in health tech; regulatory compliance and funding challenges are critical factors for AI deployment in medical contexts.",
+      "english_title": "FDA approval, fundraising, and the reality of building in healthcare according to BioticsAI founder"
+    },
+    {
+      "title": "Google’s Gemini AI assistant is hitting the road in millions of vehicles",
+      "url": "https://techcrunch.com/2026/04/30/googles-gemini-ai-assistant-is-hitting-the-road-in-millions-of-vehicles/",
+      "source": "techcrunch.com",
+      "category": "artificial_intelligence",
+      "summary": "Google’s Gemini AI assistant will be integrated into millions of vehicles, expanding its reach.",
+      "insight": "Signals the growing trend of AI assistants in automotive; IT professionals in automotive software and IoT should prepare for integration and support challenges.",
+      "english_title": "Google’s Gemini AI assistant is hitting the road in millions of vehicles"
+    },
+    {
+      "title": "Uber taps Hertz to clean, charge, and fix its Lucid Motors robotaxis",
+      "url": "https://techcrunch.com/2026/04/30/uber-taps-hertz-to-clean-charge-and-fix-its-lucid-motors-robotaxis/",
+      "source": "techcrunch.com",
+      "category": "artificial_intelligence",
+      "summary": "Uber is partnering with Hertz to handle cleaning, charging, and repairs for its fleet of Lucid Motors robotaxis.",
+      "insight": "Scaling autonomous vehicle operations requires robust logistics partnerships, a key consideration for IT and operations teams in mobility tech.",
+      "english_title": "Uber taps Hertz to clean, charge, and fix its Lucid Motors robotaxis"
+    },
+    {
+      "title": "CopyFail was not disclosed to Gentoo developer",
+      "url": "https://www.openwall.com/lists/oss-security/2026/04/30/10",
+      "source": "Hacker News",
+      "category": "cybersecurity",
+      "summary": "CopyFail n'a pas été divulgué au développeur Gentoo.",
+      "insight": "Highlights issues in vulnerability disclosure processes within open source communities, relevant for security researchers and maintainers.",
+      "english_title": "CopyFail was not disclosed to Gentoo developer"
+    },
+    {
+      "title": "Full-Text Search with DuckDB",
+      "url": "https://peterdohertys.website/blog-posts/full-text-search-w-duckdb.html",
+      "source": "Hacker News",
+      "category": "programming",
+      "summary": "Recherche en texte intégral avec DuckDB.",
+      "insight": "DuckDB's full-text search capabilities are useful for embedded analytics and local data processing, relevant for data engineers.",
+      "english_title": "Full-Text Search with DuckDB"
+    },
+    {
+      "title": "Apple&#8217;s iPhone revenue jumps to $57 billion despite chip shortages",
+      "url": "https://www.theverge.com/tech/921527/apple-iphone-revenue-q2-2026-earnings",
+      "source": "www.theverge.com",
+      "category": "hardware",
+      "summary": "Apple's iPhone revenue reached $57 billion in the quarter despite ongoing chip shortages.",
+      "insight": "Apple's supply chain resilience is a key case study for hardware professionals, showing how premium pricing and vendor relationships can mitigate shortages.",
+      "english_title": "Apple’s iPhone revenue jumps to $57 billion despite chip shortages"
+    },
+    {
+      "title": "How Mark Klein told the EFF about Room 641A [book excerpt]",
+      "url": "https://thereader.mitpress.mit.edu/the-whistleblower-who-uncovered-the-nsas-big-brother-machine/",
+      "source": "Hacker News",
+      "category": "cybersecurity",
+      "summary": "Extrait de livre sur la façon dont Mark Klein a informé l'EFF de la salle 641A.",
+      "insight": "Historical perspective on NSA surveillance is a reminder for IT professionals about the importance of transparency and legal frameworks in data interception.",
+      "english_title": "How Mark Klein told the EFF about Room 641A [book excerpt]"
+    },
+    {
+      "title": "I built a Game Boy emulator in F#",
+      "url": "https://nickkossolapov.github.io/fame-boy/building-a-game-boy-emulator-in-fsharp/",
+      "source": "Hacker News",
+      "category": "programming",
+      "summary": "J'ai construit un émulateur Game Boy en F#.",
+      "insight": "Demonstrates low-level emulation techniques and functional programming, relevant for software engineers interested in systems programming.",
+      "english_title": "I built a Game Boy emulator in F#"
+    },
+    {
+      "title": "You can beat the binary search",
+      "url": "https://lemire.me/blog/2026/04/27/you-can-beat-the-binary-search/",
+      "source": "Hacker News",
+      "category": "programming",
+      "summary": "Vous pouvez battre la recherche binaire.",
+      "insight": "Algorithmic optimization techniques like interpolation search can outperform binary search in certain cases; good for performance-focused developers.",
+      "english_title": "You can beat the binary search"
+    },
+    {
+      "title": "Follow-up to Carrot disclosure: Forgejo",
+      "url": "https://dustri.org/b/follow-up-to-carrot-disclosure-forgejo.html",
+      "source": "Hacker News",
+      "category": "cybersecurity",
+      "summary": "Follow‑up to the Carrot disclosure, focusing on the Forgejo project and its security implications.",
+      "insight": "Relevant for users of self‑hosted Git forges; understanding the disclosure helps in assessing risk and applying patches.",
+      "english_title": "Follow-up to Carrot disclosure: Forgejo"
+    },
+    {
+      "title": "SpaceX backer 137 Ventures raises $700M for two growth-stage funds",
+      "url": "https://techcrunch.com/2026/04/30/spacex-backer-137-ventures-raises-700m-for-two-growth-stage-funds/",
+      "source": "techcrunch.com",
+      "category": "startup",
+      "summary": "137 Ventures, a backer of SpaceX, raised $700 million for two growth-stage venture funds.",
+      "insight": "This signals continued investor appetite for space and deep tech, but for most IT pros it is background market news rather than a direct technical signal.",
+      "english_title": "SpaceX backer 137 Ventures raises $700M for two growth-stage funds"
+    },
+    {
+      "title": "Meta threatens to pull its apps from New Mexico if forced to make ‘technologically impractical’ changes",
+      "url": "https://www.theverge.com/policy/921557/meta-threatens-leaving-new-mexico",
+      "source": "www.theverge.com",
+      "category": "other",
+      "summary": "Meta threatened to remove its apps from New Mexico if forced to make 'technologically impractical' changes.",
+      "insight": "This highlights the tension between state regulation and tech companies; IT professionals should be aware of how legal battles can affect software availability and compliance.",
+      "english_title": "Meta threatens to pull its apps from New Mexico if forced to make ‘technologically impractical’ changes"
+    },
+    {
+      "title": "Rivian allows you to disable all internet connectivity",
+      "url": "https://rivian.com/support/article/can-i-disable-all-data-collection-from-my-vehicle",
+      "source": "Hacker News",
+      "category": "cybersecurity",
+      "summary": "Rivian permet de désactiver toute connectivité Internet.",
+      "insight": "For IT professionals, this highlights the growing trend of user-controlled privacy in IoT devices, though it may limit telemetry and remote diagnostics.",
+      "english_title": "Rivian allows you to disable all internet connectivity"
+    },
+    {
+      "title": "Reverse Engineering SimTower",
+      "url": "https://phulin.me/blog/simtower",
+      "source": "Hacker News",
+      "category": "programming",
+      "summary": "Rétro-ingénierie de SimTower.",
+      "insight": "Interesting for those into retro-gaming reverse engineering; demonstrates analysis of legacy game code.",
+      "english_title": "Reverse Engineering SimTower"
+    }
+  ]
+}

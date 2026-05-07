@@ -542,9 +542,14 @@
                 return;
             }
 
-            // Fetch archive
+            // Fetch archive with fallback: index.json → old flat format
             try {
-                const resp = await fetch(`${ARCHIVE_BASE}/${date}.json`);
+                const [y, m, d] = date.split('-');
+                let resp = await fetch(`${ARCHIVE_BASE}/${y}/${m}/${d}/index.json`);
+                if (!resp.ok) {
+                    // Fallback: old flat YYYY-MM-DD.json
+                    resp = await fetch(`${ARCHIVE_BASE}/${date}.json`);
+                }
                 if (!resp.ok) throw new Error('Not found');
 
                 const data = await resp.json();

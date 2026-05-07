@@ -84,7 +84,8 @@ class TestBlogGeneratorGenerate:
 
         # Archive JSON should have items
         archive_path = tmp_path / "archive"
-        archive_files = list(archive_path.glob("*.json"))
+        # Now stored as archive/YYYY/MM/DD/index.json
+        archive_files = list(archive_path.rglob("index.json"))
         assert len(archive_files) >= 1
 
     def test_copies_static_pages(self, tmp_path, blog_config):

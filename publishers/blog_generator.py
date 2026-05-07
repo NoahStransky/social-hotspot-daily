@@ -1,6 +1,7 @@
 """Generate static blog pages for GitHub Pages with date-based navigation."""
 import os
 import json
+import re
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import List, Dict, Optional
@@ -40,6 +41,11 @@ class BlogGenerator:
 
     def _save_feed(self, feed: dict):
         """Save feed.json atomically."""
+        # Sanitize: remove any non-date keys that may have leaked in
+        DATE_PATTERN = re.compile(r"^\d{4}-\d{2}-\d{2}$")
+        for key in list(feed.keys()):
+            if not DATE_PATTERN.match(key):
+                del feed[key]
         feed_path = self.output_dir / FEED_FILE
         feed_path.write_text(
             json.dumps(feed, ensure_ascii=False, indent=2),
@@ -47,7 +53,7 @@ class BlogGenerator:
         )
 
     def _save_archive(self, today: str, items: List[NewsItem]):
-        """Save today's items as an archive JSON."""
+        """Save today's items as an archive JSON in archive/YYYY/MM/DD/index.json."""
         archive_data = {
             "date": today,
             "items": [
@@ -63,7 +69,10 @@ class BlogGenerator:
                 for item in items
             ]
         }
-        archive_path = self.output_dir / ARCHIVE_DIR / f"{today}.json"
+        y, m, d = today.split("-")
+        archive_dir = self.output_dir / ARCHIVE_DIR / y / m / d
+        archive_dir.mkdir(parents=True, exist_ok=True)
+        archive_path = archive_dir / "index.json"
         archive_path.write_text(
             json.dumps(archive_data, ensure_ascii=False, indent=2),
             encoding="utf-8"
@@ -72,7 +81,11 @@ class BlogGenerator:
     def generate(self, items: List[NewsItem], date_str: Optional[str] = None) -> str:
         """Generate blog page and return the URL path."""
         today = date_str or datetime.now(timezone.utc).strftime("%Y-%m-%d")
-        date_display = datetime.now(timezone.utc).strftime("%B %d, %Y")
+        if date_str:
+            dt = datetime.strptime(date_str, "%Y-%m-%d")
+        else:
+            dt = datetime.now(timezone.utc)
+        date_display = dt.strftime("%B %d, %Y")
 
         # Group today's items by category (sorted by count descending)
         categories_ordered = {}
@@ -148,11 +161,12 @@ class BlogGenerator:
         index_path = self.output_dir / "index.html"
         index_path.write_text(html, encoding="utf-8")
 
-        # Write YYYY-MM-DD/index.html for direct URL access
-        date_dir = self.output_dir / today
-        date_dir.mkdir(parents=True, exist_ok=True)
-        date_page = date_dir / "index.html"
-        date_page.write_text(html, encoding="utf-8")
+        # Write archive/YYYY/MM/DD/index.html for SPA direct URL access
+        y, m, d = today.split("-")
+        archive_page_dir = self.output_dir / ARCHIVE_DIR / y / m / d
+        archive_page_dir.mkdir(parents=True, exist_ok=True)
+        archive_html_path = archive_page_dir / "index.html"
+        archive_html_path.write_text(html, encoding="utf-8")
 
         # Copy static pages
         template_dir = Path(__file__).parent.parent / "templates"

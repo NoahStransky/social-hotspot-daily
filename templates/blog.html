@@ -417,8 +417,32 @@
     </div>
 
     <script>
-        // Use current location to derive paths — works on any GitHub Pages deployment
-        const BASE_PATH = window.location.pathname.replace(/\/$/, '') || '';
+        // Calculate base path reliably — works from any entry point.
+        // GitHub Pages project page: {user}.github.io/{repo}/
+        // Entry could be: /, /social-hotspot-daily/, /social-hotspot-daily/date/..., /date/...
+        // If pathname is just / or starts with /date/, we're on a user/org site or a
+        // SPA-navigated URL. Use document.querySelector('base') href as anchor, or
+        // derive from the fact that GitHub Pages project page URL always starts with /repo/
+        //
+        // Most robust: use <base> tag or extract from full URL path including when
+        // replaceState changed it. Since this script runs at page load BEFORE any
+        // replaceState, pathname is the original page URL.
+        const BASE_PATH = (() => {
+            const p = window.location.pathname;
+            // Handle: /social-hotspot-daily/ → /social-hotspot-daily
+            // Handle: /social-hotspot-daily/date/... → /social-hotspot-daily
+            // Handle: /date/... (SPA page directly visited) → need fallback
+            // Handle: / (user/org page) → ''
+            if (p === '/' || p === '') return '';
+            const segments = p.split('/').filter(Boolean);
+            // segments[0] is either the repo name or 'date'
+            if (segments[0] === 'date') {
+                // We're on a SPA-navigated page loaded as static HTML
+                // The actual repo root is /social-hotspot-daily
+                return '/social-hotspot-daily';
+            }
+            return '/' + segments[0];
+        })();
         const ARCHIVE_BASE = BASE_PATH + '/archive';
         const BASE_URL = BASE_PATH;
         const AVAILABLE_DATES = {{ available_dates | tojson | safe }};

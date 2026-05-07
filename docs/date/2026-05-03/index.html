@@ -1006,26 +1006,30 @@
             const picker = document.getElementById('datePicker');
             picker.value = date;
 
-            // Prev/Next
+            // Prev/Next — AVAILABLE_DATES is newest-first.
+            // "Previous" (←) = older = higher index
+            // "Next" (→) = newer = lower index
             const prevLink = document.getElementById('prevDate');
             const nextLink = document.getElementById('nextDate');
 
             prevLink.onclick = null;
             nextLink.onclick = null;
 
-            if (idx > 0) {
-                prevLink.href = `${BASE_URL}/date/${AVAILABLE_DATES[idx - 1]}/`;
+            if (idx !== -1 && idx < AVAILABLE_DATES.length - 1) {
+                const prevDate = AVAILABLE_DATES[idx + 1];
+                prevLink.href = `${BASE_URL}/date/${prevDate}/`;
                 prevLink.className = '';
-                prevLink.onclick = (e) => { e.preventDefault(); loadDate(AVAILABLE_DATES[idx - 1]); };
+                prevLink.onclick = (e) => { e.preventDefault(); loadDate(prevDate); };
             } else {
                 prevLink.href = '#';
                 prevLink.className = 'disabled';
             }
 
-            if (idx !== -1 && idx < AVAILABLE_DATES.length - 1) {
-                nextLink.href = `${BASE_URL}/date/${AVAILABLE_DATES[idx + 1]}/`;
+            if (idx > 0) {
+                const nextDate = AVAILABLE_DATES[idx - 1];
+                nextLink.href = `${BASE_URL}/date/${nextDate}/`;
                 nextLink.className = '';
-                nextLink.onclick = (e) => { e.preventDefault(); loadDate(AVAILABLE_DATES[idx + 1]); };
+                nextLink.onclick = (e) => { e.preventDefault(); loadDate(nextDate); };
             } else {
                 nextLink.href = '#';
                 nextLink.className = 'disabled';
@@ -1034,9 +1038,9 @@
 
         function updateUrl(date) {
             if (date === TODAY) {
-                window.history.replaceState({}, '', BASE_URL || '/');
+                window.history.replaceState({}, '', '/');
             } else {
-                window.history.replaceState({}, '', `${BASE_URL}/date/${date}/`);
+                window.history.replaceState({}, '', `/date/${date}/`);
             }
         }
 
@@ -1086,6 +1090,11 @@
                 initialDate = dateMatch[1];
             }
 
+            // Set date picker bounds
+            const picker = document.getElementById('datePicker');
+            picker.min = AVAILABLE_DATES[AVAILABLE_DATES.length - 1];
+            picker.max = AVAILABLE_DATES[0];
+
             if (initialDate !== TODAY) {
                 loadDate(initialDate);
             } else {
@@ -1093,11 +1102,17 @@
                 updateUrl(TODAY);
             }
 
-            // Date picker change
-            document.getElementById('datePicker').addEventListener('change', function(e) {
+            // Date picker change — load any selected date
+            picker.addEventListener('change', function(e) {
                 const val = e.target.value;
+                if (!val) return;
                 if (AVAILABLE_DATES.includes(val)) {
                     loadDate(val);
+                } else {
+                    // Date exists but no data — show empty
+                    setContent(renderEmptyState(val), 0);
+                    updateNav(val);
+                    updateUrl(val);
                 }
             });
         });

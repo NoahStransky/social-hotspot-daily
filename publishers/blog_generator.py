@@ -1,6 +1,7 @@
 """Generate static blog pages for GitHub Pages with date-based navigation."""
 import os
 import json
+import re
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import List, Dict, Optional
@@ -10,6 +11,7 @@ from collectors.base import NewsItem
 
 ARCHIVE_DIR = "archive"
 FEED_FILE = "feed.json"
+DATE_PATTERN = re.compile(r"^\d{4}-\d{2}-\d{2}$")
 
 
 class BlogGenerator:
@@ -33,7 +35,9 @@ class BlogGenerator:
         feed_path = self.output_dir / FEED_FILE
         if feed_path.exists():
             try:
-                return json.loads(feed_path.read_text(encoding="utf-8"))
+                feed = json.loads(feed_path.read_text(encoding="utf-8"))
+                # Filter to only valid date keys (YYYY-MM-DD)
+                return {k: v for k, v in feed.items() if DATE_PATTERN.match(k)}
             except (json.JSONDecodeError, Exception):
                 return {}
         return {}
@@ -47,7 +51,7 @@ class BlogGenerator:
         )
 
     def _save_archive(self, today: str, items: List[NewsItem]):
-        """Save today's items as an archive JSON."""
+        """Save today's items as an archive JSON under archive/YYYY/MM/DD.json."""
         archive_data = {
             "date": today,
             "items": [
@@ -63,8 +67,19 @@ class BlogGenerator:
                 for item in items
             ]
         }
-        archive_path = self.output_dir / ARCHIVE_DIR / f"{today}.json"
+        # New structure: archive/YYYY/MM/DD.json
+        y, m, d = today.split("-")
+        archive_dir = self.output_dir / ARCHIVE_DIR / y / m
+        archive_dir.mkdir(parents=True, exist_ok=True)
+        archive_path = archive_dir / f"{d}.json"
         archive_path.write_text(
+            json.dumps(archive_data, ensure_ascii=False, indent=2),
+            encoding="utf-8"
+        )
+        # Also keep old flat format for backward compatibility during transition
+        old_archive_path = self.output_dir / ARCHIVE_DIR / f"{today}.json"
+        old_archive_path.parent.mkdir(parents=True, exist_ok=True)
+        old_archive_path.write_text(
             json.dumps(archive_data, ensure_ascii=False, indent=2),
             encoding="utf-8"
         )
@@ -72,7 +87,9 @@ class BlogGenerator:
     def generate(self, items: List[NewsItem], date_str: Optional[str] = None) -> str:
         """Generate blog page and return the URL path."""
         today = date_str or datetime.now(timezone.utc).strftime("%Y-%m-%d")
-        date_display = datetime.now(timezone.utc).strftime("%B %d, %Y")
+        # Use the archive date for display, not current time
+        dt = datetime.strptime(today, "%Y-%m-%d")
+        date_display = dt.strftime("%B %d, %Y")
 
         # Group today's items by category (sorted by count descending)
         categories_ordered = {}

@@ -377,9 +377,9 @@
                 <span class="current-date" id="currentDate">2026-05-04</span>
                 <select id="dateSelector">
                     
-                    <option value="items">items</option>
+                    <option value="2026-05-06">2026-05-06</option>
                     
-                    <option value="date">date</option>
+                    <option value="2026-05-05">2026-05-05</option>
                     
                     <option value="2026-05-04" selected>2026-05-04</option>
                     
@@ -944,7 +944,7 @@
     <script>
         // Pass server data to JavaScript
         const ARCHIVE_BASE = 'https://YOUR_USERNAME.github.io/social-hotspot-daily/archive';
-        const AVAILABLE_DATES = ["items", "date", "2026-05-04", "2026-05-03", "2026-05-02", "2026-05-01", "2026-04-30", "2026-04-29", "2026-04-28"];
+        const AVAILABLE_DATES = ["2026-05-06", "2026-05-05", "2026-05-04", "2026-05-03", "2026-05-02", "2026-05-01", "2026-04-30", "2026-04-29", "2026-04-28"];
         const TODAY = '2026-05-04';
         const MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];
 
@@ -1012,7 +1012,7 @@
             document.getElementById('currentDate').textContent = date;
             document.getElementById('dateSelector').value = date;
 
-            // Prev/Next
+            // Prev/Next — guard against JavaScript negative array index wrapping
             const idx = AVAILABLE_DATES.indexOf(date);
             const prevLink = document.getElementById('prevDate');
             const nextLink = document.getElementById('nextDate');
@@ -1022,7 +1022,9 @@
                 prevLink.className = '';
                 prevLink.onclick = (e) => { e.preventDefault(); loadDate(AVAILABLE_DATES[idx - 1]); };
             } else {
+                prevLink.href = '#';
                 prevLink.className = 'disabled';
+                prevLink.onclick = null;
             }
 
             if (idx >= 0 && idx < AVAILABLE_DATES.length - 1) {
@@ -1030,7 +1032,9 @@
                 nextLink.className = '';
                 nextLink.onclick = (e) => { e.preventDefault(); loadDate(AVAILABLE_DATES[idx + 1]); };
             } else {
+                nextLink.href = '#';
                 nextLink.className = 'disabled';
+                nextLink.onclick = null;
             }
 
             // Update URL without reload
@@ -1052,9 +1056,15 @@
                 return;
             }
 
-            // Fetch archive
+            // Fetch archive (new path: archive/YYYY/MM/DD.json, fallback: archive/YYYY-MM-DD.json)
             try {
-                const resp = await fetch(`${ARCHIVE_BASE}/${date}.json`);
+                const [y, m, d] = date.split('-');
+                const archivePath = `${ARCHIVE_BASE}/${y}/${m}/${d}.json`;
+                let resp = await fetch(archivePath);
+                if (!resp.ok) {
+                    // Fallback to old flat format
+                    resp = await fetch(`${ARCHIVE_BASE}/${date}.json`);
+                }
                 if (!resp.ok) throw new Error('Not found');
 
                 const data = await resp.json();

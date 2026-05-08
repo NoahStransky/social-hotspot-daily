@@ -91,6 +91,7 @@ class TestMainFlow:
 
         mock_ai_filter = MagicMock()
         mock_ai_filter.process.return_value = sample_news_items
+        mock_ai_filter.trend_analysis = {"top_topic": "AI", "trending_keywords": ["AI", "Tech"]}
 
         mock_blog_gen = MagicMock()
         mock_blog_gen.generate.return_value = "docs/index.html"
@@ -111,5 +112,5 @@ class TestMainFlow:
         mock_collector.collect.assert_called_once()
         mock_dedup.deduplicate.assert_called_once_with(sample_news_items)
         mock_ai_filter.process.assert_called_once_with(sample_news_items)
-        mock_blog_gen.generate.assert_called_once_with(sample_news_items)
+        mock_blog_gen.generate.assert_called_once_with(sample_news_items, trend_analysis={"top_topic": "AI", "trending_keywords": ["AI", "Tech"]})
         mock_tg.publish.assert_called_once()

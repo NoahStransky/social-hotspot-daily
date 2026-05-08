@@ -78,11 +78,16 @@ def main():
     ai_filter = AIFilter(ai_config)
     filtered_items = ai_filter.process(unique_items)
     print(f"🤖 After AI filter: {len(filtered_items)}")
-    
+
+    # Get trend analysis from AI filter
+    trend_analysis = getattr(ai_filter, 'trend_analysis', None)
+    if trend_analysis:
+        print(f"📊 Trend analysis: {trend_analysis.get('top_topic', 'N/A')}")
+
     # 4. Generate blog
     blog_config = config.get("output", {}).get("blog", {})
     generator = BlogGenerator(blog_config, output_dir="docs")
-    page_path = generator.generate(filtered_items)
+    page_path = generator.generate(filtered_items, trend_analysis=trend_analysis)
     blog_url = generator.get_page_url()
     print(f"📝 Blog generated: {page_path}")
     
@@ -119,7 +124,7 @@ def main():
     # 6. Send Telegram notification
     tg_config = config.get("output", {}).get("telegram", {})
     tg = TelegramPublisher(tg_config)
-    tg.publish(filtered_items, blog_url or "https://yourdomain.github.io/social-hotspot-daily/")
+    tg.publish(filtered_items, blog_url or "https://yourdomain.github.io/social-hotspot-daily/", trend_analysis=trend_analysis)
     
     print("\n✅ Done!")
 

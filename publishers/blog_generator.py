@@ -65,7 +65,7 @@ class BlogGenerator:
                     "summary": item.summary,
                     "insight": item.raw_data.get("insight", ""),
                     "english_title": item.raw_data.get("english_title", item.title),
-                    "recommendation": item.raw_data.get("recommendation"),
+                    "recommendation": item.raw_data.get("recommendation", {}),
                 }
                 for item in items
             ]
@@ -119,7 +119,7 @@ class BlogGenerator:
                         "summary": item.summary,
                         "insight": item.raw_data.get("insight", ""),
                         "english_title": item.raw_data.get("english_title", item.title),
-                        "recommendation": item.raw_data.get("recommendation"),
+                        "recommendation": item.raw_data.get("recommendation", {}),
                     }
                     for item in cat_items
                 ]
@@ -149,6 +149,13 @@ class BlogGenerator:
 
         base_url = self.config.get("base_url", "")
 
+        # Derive repo name from base_url for JS fallback
+        repo_name = ""
+        if base_url:
+            match = re.search(r"github\.io/([^/]+)", base_url)
+            if match:
+                repo_name = match.group(1)
+
         # Render index.html (today's page)
         data = {
             "title": self.config.get("title", "Tech Hotspot Daily"),
@@ -159,6 +166,7 @@ class BlogGenerator:
             "categories": categories_list,
             "total_items": len(items),
             "base_url": base_url,
+            "repo_name": repo_name,
             "available_dates": available_dates,
             "current_date": today,
             "prev_date": prev_date,

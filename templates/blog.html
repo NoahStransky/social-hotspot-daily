@@ -618,6 +618,14 @@
     </div>
 
     <script>
+        // ── Escaping helper for XSS prevention ──
+        function esc(str) {
+            if (!str) return '';
+            const div = document.createElement('div');
+            div.appendChild(document.createTextNode(String(str)));
+            return div.innerHTML;
+        }
+
         // Calculate base path reliably — works from any entry point.
         // GitHub Pages project page: {user}.github.io/{repo}/
         // Entry could be: /, /social-hotspot-daily/, /social-hotspot-daily/date/..., /date/...
@@ -628,6 +636,7 @@
         // Most robust: use <base> tag or extract from full URL path including when
         // replaceState changed it. Since this script runs at page load BEFORE any
         // replaceState, pathname is the original page URL.
+        const REPO_NAME = '{{ repo_name }}';
         const BASE_PATH = (() => {
             const p = window.location.pathname;
             // Handle: /social-hotspot-daily/ → /social-hotspot-daily
@@ -639,8 +648,8 @@
             // segments[0] is either the repo name or 'date'
             if (segments[0] === 'date') {
                 // We're on a SPA-navigated page loaded as static HTML
-                // The actual repo root is /social-hotspot-daily
-                return '/social-hotspot-daily';
+                // The actual repo root is derived from REPO_NAME
+                return '/' + REPO_NAME;
             }
             return '/' + segments[0];
         })();
@@ -691,47 +700,47 @@
             const labels = { must_read: 'Must Read', recommended: 'Recommended', notable: 'Notable' };
             const icon = icons[level] || '🔵';
             const label = labels[level] || 'Notable';
-            return `<span class="rec-badge ${level}">${icon} ${label}</span>`;
+            return `<span class="rec-badge ${esc(level)}">${icon} ${esc(label)}</span>`;
         }
 
         function renderTrendPanel(analysis) {
             if (!analysis) return '';
             let html = `<div class="ai-trend-panel" id="trendPanel">`;
             html += `<div class="trend-header"><span class="trend-badge">📊 AI Analysis</span><h2>Today's Trend</h2></div>`;
-            if (analysis.top_topic) html += `<div class="trend-topic">${analysis.top_topic}</div>`;
+            if (analysis.top_topic) html += `<div class="trend-topic">${esc(analysis.top_topic)}</div>`;
             if (analysis.trending_keywords && analysis.trending_keywords.length) {
                 html += `<div class="trend-keywords">`;
                 for (const kw of analysis.trending_keywords) {
-                    html += `<span class="trend-keyword">#${kw}</span>`;
+                    html += `<span class="trend-keyword">#${esc(kw)}</span>`;
                 }
                 html += `</div>`;
             }
             if (analysis.category_breakdown) {
                 html += `<div style="font-size:14px;color:var(--text-secondary);margin-bottom:16px;"><strong style="color:var(--text);">Categories:</strong> `;
                 for (const [cat, count] of Object.entries(analysis.category_breakdown)) {
-                    html += `<span style="display:inline-block;margin-right:12px;">${cat}: <strong>${count}</strong></span>`;
+                    html += `<span style="display:inline-block;margin-right:12px;">${esc(cat)}: <strong>${esc(count)}</strong></span>`;
                 }
                 html += `</div>`;
             }
-            if (analysis.summary) html += `<div class="trend-summary">${analysis.summary}</div>`;
+            if (analysis.summary) html += `<div class="trend-summary">${esc(analysis.summary)}</div>`;
             if (analysis.compared_to_yesterday) {
-                html += `<div class="trend-comparison"><strong>📈 vs Yesterday:</strong> ${analysis.compared_to_yesterday}</div>`;
+                html += `<div class="trend-comparison"><strong>📈 vs Yesterday:</strong> ${esc(analysis.compared_to_yesterday)}</div>`;
             }
             if (analysis.day_over_day) {
                 html += `<div class="trend-day-over-day">`;
                 if (analysis.day_over_day.rising_categories) {
                     for (const rc of analysis.day_over_day.rising_categories) {
-                        html += `<span class="trend-dod-item rising">⬆ ${rc}</span>`;
+                        html += `<span class="trend-dod-item rising">⬆ ${esc(rc)}</span>`;
                     }
                 }
                 if (analysis.day_over_day.falling_categories) {
                     for (const fc of analysis.day_over_day.falling_categories) {
-                        html += `<span class="trend-dod-item falling">⬇ ${fc}</span>`;
+                        html += `<span class="trend-dod-item falling">⬇ ${esc(fc)}</span>`;
                     }
                 }
                 if (analysis.day_over_day.new_trends) {
                     for (const nt of analysis.day_over_day.new_trends) {
-                        html += `<span class="trend-dod-item new">🆕 ${nt}</span>`;
+                        html += `<span class="trend-dod-item new">🆕 ${esc(nt)}</span>`;
                     }
                 }
                 html += `</div>`;
@@ -769,9 +778,9 @@
                     const recLevel = (item.recommendation && item.recommendation.level) || '';
                     const isMustRead = recLevel === 'must_read';
                     html += `<article class="card${isMustRead ? ' must_read-card' : ''}">`;
-                    html += `<div class="card-header"><a href="${item.url}" target="_blank" rel="noopener" class="card-title">${item.english_title || item.title}</a><div style="display:flex;gap:6px;align-items:center;flex-wrap:wrap;flex-shrink:0;">${renderRecBadge(item)}<span class="card-source">${item.source_name}</span></div></div>`;
-                    if (item.summary) html += `<p class="card-summary">${item.summary}</p>`;
-                    if (item.insight) html += `<div class="insight"><strong>💡 Why it matters:</strong> ${item.insight}</div>`;
+                    html += `<div class="card-header"><a href="${item.url}" target="_blank" rel="noopener" class="card-title">${esc(item.english_title || item.title)}</a><div style="display:flex;gap:6px;align-items:center;flex-wrap:wrap;flex-shrink:0;">${renderRecBadge(item)}<span class="card-source">${esc(item.source_name)}</span></div></div>`;
+                    if (item.summary) html += `<p class="card-summary">${esc(item.summary)}</p>`;
+                    if (item.insight) html += `<div class="insight"><strong>💡 Why it matters:</strong> ${esc(item.insight)}</div>`;
                     html += `</article>`;
                 }
 

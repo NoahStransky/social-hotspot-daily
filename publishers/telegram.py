@@ -1,7 +1,7 @@
 """Telegram publisher for notifications."""
 import os
 import requests
-from typing import List
+from typing import List, Optional, Dict
 from collectors.base import NewsItem
 
 
@@ -17,26 +17,36 @@ class TelegramPublisher:
     def is_available(self) -> bool:
         return self.enabled and bool(self.bot_token) and bool(self.chat_id)
     
-    def publish(self, items: List[NewsItem], blog_url: str) -> bool:
+    def publish(self, items: List[NewsItem], blog_url: str, trend_analysis: Optional[Dict] = None) -> bool:
         if not self.is_available():
             print("[Telegram] Not configured, skipping")
             return False
-        
+
         today = __import__("datetime").datetime.now(__import__("datetime").timezone.utc)
         date_str = today.strftime("%Y-%m-%d")
-        
+
         # Build message
-        categories = {}
-        for item in items[:10]:
-            cat = item.category.replace("_", " ").title()
-            categories.setdefault(cat, []).append(item)
-        
         lines = [
             f"📰 <b>Tech Hotspot Daily — {date_str}</b>",
             f"",
             f"🌍 {len(items)} tech stories curated from global platforms",
             f"",
         ]
+
+        # Add trend analysis if available
+        if trend_analysis:
+            top_topic = trend_analysis.get("top_topic", "")
+            keywords = trend_analysis.get("trending_keywords", [])
+            if top_topic:
+                lines.append(f"📊 <b>Today's Trend:</b> {top_topic}")
+            if keywords:
+                lines.append(f"🔑 Keywords: {', '.join(keywords)}")
+            lines.append("")
+
+        categories = {}
+        for item in items[:10]:
+            cat = item.category.replace("_", " ").title()
+            categories.setdefault(cat, []).append(item)
         
         for cat, cat_items in list(categories.items())[:4]:
             lines.append(f"<b>{cat}</b>")

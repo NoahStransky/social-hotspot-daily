@@ -329,12 +329,158 @@
             transform: translateY(-1px);
         }
 
+        .ai-trend-panel {
+            background: linear-gradient(135deg, var(--surface) 0%, rgba(99, 102, 241, 0.08) 100%);
+            border: 1px solid var(--accent);
+            border-radius: 16px;
+            padding: 24px;
+            margin-bottom: 32px;
+        }
+
+        .trend-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .trend-header h2 {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--text);
+            margin: 0;
+        }
+
+        .trend-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 14px;
+            background: var(--accent-glow);
+            border: 1px solid var(--accent);
+            border-radius: 100px;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .trend-topic {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 16px;
+            padding: 12px 16px;
+            background: var(--accent-glow);
+            border: 1px solid var(--accent);
+            border-radius: 12px;
+            display: inline-block;
+        }
+
+        .trend-keywords {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+
+        .trend-keyword {
+            padding: 4px 12px;
+            background: var(--surface-2);
+            border: 1px solid var(--border);
+            border-radius: 100px;
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+
+        .trend-summary {
+            color: var(--text-secondary);
+            font-size: 15px;
+            line-height: 1.7;
+            margin-bottom: 16px;
+        }
+
+        .trend-comparison {
+            font-size: 14px;
+            color: var(--text-secondary);
+            padding: 12px 16px;
+            background: var(--surface-2);
+            border-radius: 8px;
+            border-left: 3px solid var(--accent);
+        }
+
+        .trend-comparison strong {
+            color: var(--accent);
+        }
+
+        .trend-day-over-day {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 16px;
+        }
+
+        .trend-dod-item {
+            padding: 6px 14px;
+            background: var(--surface-2);
+            border-radius: 8px;
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+
+        .trend-dod-item.rising { border-left: 3px solid #10b981; }
+        .trend-dod-item.falling { border-left: 3px solid #ef4444; }
+        .trend-dod-item.new { border-left: 3px solid #f59e0b; }
+
+        /* Recommendation Badges */
+        .rec-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            padding: 3px 10px;
+            border-radius: 100px;
+            font-size: 11px;
+            font-weight: 600;
+            white-space: nowrap;
+            letter-spacing: 0.3px;
+        }
+
+        .rec-badge.must_read {
+            background: rgba(239, 68, 68, 0.15);
+            border: 1px solid #ef4444;
+            color: #ef4444;
+        }
+
+        .rec-badge.recommended {
+            background: rgba(234, 179, 8, 0.15);
+            border: 1px solid #eab308;
+            color: #eab308;
+        }
+
+        .rec-badge.notable {
+            background: rgba(59, 130, 246, 0.15);
+            border: 1px solid #3b82f6;
+            color: #3b82f6;
+        }
+
+        .card.must_read-card {
+            border-color: rgba(239, 68, 68, 0.3);
+            border-width: 1.5px;
+        }
+
+        .card.must_read-card:hover {
+            border-color: #ef4444;
+            box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.15);
+        }
+
         @media (max-width: 640px) {
             h1 { font-size: 26px; }
             .card-header { flex-direction: column; }
             .card-source { align-self: flex-start; }
             .subscribe-cta { flex-direction: column; text-align: center; }
             .date-nav { flex-wrap: wrap; }
+            .trend-topic { font-size: 18px; }
         }
 
         .hidden { display: none; }
@@ -362,6 +508,53 @@
             </div>
         </header>
 
+        <!-- AI Trend Analysis Panel -->
+        {% if trend_analysis %}
+        <div class="ai-trend-panel" id="trendPanel">
+            <div class="trend-header">
+                <span class="trend-badge">📊 AI Analysis</span>
+                <h2>Today's Trend</h2>
+            </div>
+            <div class="trend-topic">{{ trend_analysis.top_topic }}</div>
+            {% if trend_analysis.trending_keywords %}
+            <div class="trend-keywords">
+                {% for kw in trend_analysis.trending_keywords %}
+                <span class="trend-keyword">#{{ kw }}</span>
+                {% endfor %}
+            </div>
+            {% endif %}
+            {% if trend_analysis.category_breakdown %}
+            <div style="font-size: 14px; color: var(--text-secondary); margin-bottom: 16px;">
+                <strong style="color: var(--text);">Categories:</strong>
+                {% for cat, count in trend_analysis.category_breakdown.items() %}
+                <span style="display: inline-block; margin-right: 12px;">{{ cat }}: <strong>{{ count }}</strong></span>
+                {% endfor %}
+            </div>
+            {% endif %}
+            {% if trend_analysis.summary %}
+            <div class="trend-summary">{{ trend_analysis.summary }}</div>
+            {% endif %}
+            {% if trend_analysis.compared_to_yesterday %}
+            <div class="trend-comparison">
+                <strong>📈 vs Yesterday:</strong> {{ trend_analysis.compared_to_yesterday }}
+            </div>
+            {% endif %}
+            {% if trend_analysis.day_over_day %}
+            <div class="trend-day-over-day">
+                {% for rc in trend_analysis.day_over_day.rising_categories %}
+                <span class="trend-dod-item rising">⬆ {{ rc }}</span>
+                {% endfor %}
+                {% for fc in trend_analysis.day_over_day.falling_categories %}
+                <span class="trend-dod-item falling">⬇ {{ fc }}</span>
+                {% endfor %}
+                {% for nt in trend_analysis.day_over_day.new_trends %}
+                <span class="trend-dod-item new">🆕 {{ nt }}</span>
+                {% endfor %}
+            </div>
+            {% endif %}
+        </div>
+        {% endif %}
+
         <!-- Date Navigation -->
         <div class="date-nav">
             <a href="#" id="prevDate" class="disabled">← Previous</a>
@@ -384,10 +577,18 @@
                         {{ cat_group.name }}
                     </h2>
                     {% for item in cat_group.article_list %}
-                    <article class="card">
+                    <article class="card{% if item.recommendation and item.recommendation.level == 'must_read' %} must_read-card{% endif %}">
                         <div class="card-header">
                             <a href="{{ item.url }}" target="_blank" rel="noopener" class="card-title">{{ item.english_title }}</a>
-                            <span class="card-source">{{ item.source_name }}</span>
+                            <div style="display: flex; gap: 6px; align-items: center; flex-wrap: wrap; flex-shrink: 0;">
+                                {% if item.recommendation and item.recommendation.level %}
+                                <span class="rec-badge {{ item.recommendation.level }}">
+                                    {% if item.recommendation.level == 'must_read' %}🔴{% elif item.recommendation.level == 'recommended' %}🟡{% else %}🔵{% endif %}
+                                    {{ item.recommendation.level|replace('_', ' ')|title }}
+                                </span>
+                                {% endif %}
+                                <span class="card-source">{{ item.source_name }}</span>
+                            </div>
                         </div>
                         {% if item.summary %}
                         <p class="card-summary">{{ item.summary }}</p>
@@ -417,6 +618,14 @@
     </div>
 
     <script>
+        // ── Escaping helper for XSS prevention ──
+        function esc(str) {
+            if (!str) return '';
+            const div = document.createElement('div');
+            div.appendChild(document.createTextNode(String(str)));
+            return div.innerHTML;
+        }
+
         // Calculate base path reliably — works from any entry point.
         // GitHub Pages project page: {user}.github.io/{repo}/
         // Entry could be: /, /social-hotspot-daily/, /social-hotspot-daily/date/..., /date/...
@@ -427,6 +636,7 @@
         // Most robust: use <base> tag or extract from full URL path including when
         // replaceState changed it. Since this script runs at page load BEFORE any
         // replaceState, pathname is the original page URL.
+        const REPO_NAME = '{{ repo_name }}';
         const BASE_PATH = (() => {
             const p = window.location.pathname;
             // Handle: /social-hotspot-daily/ → /social-hotspot-daily
@@ -438,8 +648,8 @@
             // segments[0] is either the repo name or 'date'
             if (segments[0] === 'date') {
                 // We're on a SPA-navigated page loaded as static HTML
-                // The actual repo root is /social-hotspot-daily
-                return '/social-hotspot-daily';
+                // The actual repo root is derived from REPO_NAME
+                return '/' + REPO_NAME;
             }
             return '/' + segments[0];
         })();
@@ -459,6 +669,7 @@
         // ── Snapshot the server-rendered TODAY content ──
         const TODAY_HTML = document.getElementById('contentArea').innerHTML;
         const TODAY_COUNT = parseInt((document.getElementById('statItems').textContent.match(/\d+/) || ['0'])[0], 10);
+        const TODAY_TREND_HTML = document.getElementById('trendPanel') ? document.getElementById('trendPanel').outerHTML : '';
 
         function renderEmptyState(date) {
             return `
@@ -470,7 +681,76 @@
             `;
         }
 
+        function sortByRecommendation(items) {
+            const order = { must_read: 0, recommended: 1, notable: 2 };
+            return items.sort((a, b) => {
+                const levelA = (a.recommendation && a.recommendation.level) || 'notable';
+                const levelB = (b.recommendation && b.recommendation.level) || 'notable';
+                const orderA = order[levelA] || 2;
+                const orderB = order[levelB] || 2;
+                if (orderA !== orderB) return orderA - orderB;
+                return (b.relevance_score || 0) - (a.relevance_score || 0);
+            });
+        }
+
+        function renderRecBadge(item) {
+            if (!item.recommendation || !item.recommendation.level) return '';
+            const level = item.recommendation.level;
+            const icons = { must_read: '🔴', recommended: '🟡', notable: '🔵' };
+            const labels = { must_read: 'Must Read', recommended: 'Recommended', notable: 'Notable' };
+            const icon = icons[level] || '🔵';
+            const label = labels[level] || 'Notable';
+            return `<span class="rec-badge ${esc(level)}">${icon} ${esc(label)}</span>`;
+        }
+
+        function renderTrendPanel(analysis) {
+            if (!analysis) return '';
+            let html = `<div class="ai-trend-panel" id="trendPanel">`;
+            html += `<div class="trend-header"><span class="trend-badge">📊 AI Analysis</span><h2>Today's Trend</h2></div>`;
+            if (analysis.top_topic) html += `<div class="trend-topic">${esc(analysis.top_topic)}</div>`;
+            if (analysis.trending_keywords && analysis.trending_keywords.length) {
+                html += `<div class="trend-keywords">`;
+                for (const kw of analysis.trending_keywords) {
+                    html += `<span class="trend-keyword">#${esc(kw)}</span>`;
+                }
+                html += `</div>`;
+            }
+            if (analysis.category_breakdown) {
+                html += `<div style="font-size:14px;color:var(--text-secondary);margin-bottom:16px;"><strong style="color:var(--text);">Categories:</strong> `;
+                for (const [cat, count] of Object.entries(analysis.category_breakdown)) {
+                    html += `<span style="display:inline-block;margin-right:12px;">${esc(cat)}: <strong>${esc(count)}</strong></span>`;
+                }
+                html += `</div>`;
+            }
+            if (analysis.summary) html += `<div class="trend-summary">${esc(analysis.summary)}</div>`;
+            if (analysis.compared_to_yesterday) {
+                html += `<div class="trend-comparison"><strong>📈 vs Yesterday:</strong> ${esc(analysis.compared_to_yesterday)}</div>`;
+            }
+            if (analysis.day_over_day) {
+                html += `<div class="trend-day-over-day">`;
+                if (analysis.day_over_day.rising_categories) {
+                    for (const rc of analysis.day_over_day.rising_categories) {
+                        html += `<span class="trend-dod-item rising">⬆ ${esc(rc)}</span>`;
+                    }
+                }
+                if (analysis.day_over_day.falling_categories) {
+                    for (const fc of analysis.day_over_day.falling_categories) {
+                        html += `<span class="trend-dod-item falling">⬇ ${esc(fc)}</span>`;
+                    }
+                }
+                if (analysis.day_over_day.new_trends) {
+                    for (const nt of analysis.day_over_day.new_trends) {
+                        html += `<span class="trend-dod-item new">🆕 ${esc(nt)}</span>`;
+                    }
+                }
+                html += `</div>`;
+            }
+            html += `</div>`;
+            return html;
+        }
+
         function renderItems(items) {
+            items = sortByRecommendation(items.slice());  // sort by rec level, don't mutate original
             const cats = {};
             for (const item of items) {
                 const cat = item.category.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
@@ -495,10 +775,12 @@
                 html += `<h2 class="section-title">${icon} ${cat}</h2>`;
 
                 for (const item of catItems) {
-                    html += `<article class="card">`;
-                    html += `<div class="card-header"><a href="${item.url}" target="_blank" rel="noopener" class="card-title">${item.english_title || item.title}</a><span class="card-source">${item.source_name}</span></div>`;
-                    if (item.summary) html += `<p class="card-summary">${item.summary}</p>`;
-                    if (item.insight) html += `<div class="insight"><strong>💡 Why it matters:</strong> ${item.insight}</div>`;
+                    const recLevel = (item.recommendation && item.recommendation.level) || '';
+                    const isMustRead = recLevel === 'must_read';
+                    html += `<article class="card${isMustRead ? ' must_read-card' : ''}">`;
+                    html += `<div class="card-header"><a href="${item.url}" target="_blank" rel="noopener" class="card-title">${esc(item.english_title || item.title)}</a><div style="display:flex;gap:6px;align-items:center;flex-wrap:wrap;flex-shrink:0;">${renderRecBadge(item)}<span class="card-source">${esc(item.source_name)}</span></div></div>`;
+                    if (item.summary) html += `<p class="card-summary">${esc(item.summary)}</p>`;
+                    if (item.insight) html += `<div class="insight"><strong>💡 Why it matters:</strong> ${esc(item.insight)}</div>`;
                     html += `</article>`;
                 }
 
@@ -510,6 +792,8 @@
         function setContent(html, count) {
             document.getElementById('contentArea').innerHTML = html;
             document.getElementById('statItems').innerHTML = `<strong>${count}</strong> stories`;
+            // Remove trend panel if it exists but data doesn't have it
+            // (handled in loadDate before calling setContent)
         }
 
         function updateNav(date) {
@@ -566,6 +850,20 @@
 
             if (date === TODAY) {
                 setContent(TODAY_HTML, TODAY_COUNT);
+                // Restore the server-rendered trend panel
+                const existingTrend = document.getElementById('trendPanel');
+                if (TODAY_TREND_HTML) {
+                    if (existingTrend) {
+                        existingTrend.outerHTML = TODAY_TREND_HTML;
+                    } else {
+                        const dateNav = document.querySelector('.date-nav');
+                        if (dateNav) {
+                            dateNav.insertAdjacentHTML('beforebegin', TODAY_TREND_HTML);
+                        }
+                    }
+                } else if (existingTrend) {
+                    existingTrend.remove();
+                }
                 return;
             }
 
@@ -583,6 +881,19 @@
                 if (items.length === 0) {
                     setContent(renderEmptyState(date), 0);
                 } else {
+                    // Render trend panel if available
+                    const trendHtml = renderTrendPanel(data.trend_analysis);
+                    if (trendHtml) {
+                        const existing = document.getElementById('trendPanel');
+                        if (existing) {
+                            existing.outerHTML = trendHtml;
+                        } else {
+                            const dateNav = document.querySelector('.date-nav');
+                            if (dateNav) {
+                                dateNav.insertAdjacentHTML('beforebegin', trendHtml);
+                            }
+                        }
+                    }
                     setContent(renderItems(items), items.length);
                 }
             } catch {

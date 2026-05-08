@@ -52,7 +52,7 @@ class BlogGenerator:
             encoding="utf-8"
         )
 
-    def _save_archive(self, today: str, items: List[NewsItem]):
+    def _save_archive(self, today: str, items: List[NewsItem], trend_analysis: Optional[Dict] = None):
         """Save today's items as an archive JSON in archive/YYYY/MM/DD/index.json."""
         archive_data = {
             "date": today,
@@ -65,10 +65,13 @@ class BlogGenerator:
                     "summary": item.summary,
                     "insight": item.raw_data.get("insight", ""),
                     "english_title": item.raw_data.get("english_title", item.title),
+                    "recommendation": item.raw_data.get("recommendation", {}),
                 }
                 for item in items
             ]
         }
+        if trend_analysis:
+            archive_data["trend_analysis"] = trend_analysis
         y, m, d = today.split("-")
         archive_dir = self.output_dir / ARCHIVE_DIR / y / m / d
         archive_dir.mkdir(parents=True, exist_ok=True)
@@ -78,7 +81,7 @@ class BlogGenerator:
             encoding="utf-8"
         )
 
-    def generate(self, items: List[NewsItem], date_str: Optional[str] = None) -> str:
+    def generate(self, items: List[NewsItem], date_str: Optional[str] = None, trend_analysis: Optional[Dict] = None) -> str:
         """Generate blog page and return the URL path."""
         today = date_str or datetime.now(timezone.utc).strftime("%Y-%m-%d")
         if date_str:
@@ -87,9 +90,16 @@ class BlogGenerator:
             dt = datetime.now(timezone.utc)
         date_display = dt.strftime("%B %d, %Y")
 
+        # Sort items by recommendation level: must_read → recommended → notable
+        def rec_level(item):
+            level = item.raw_data.get("recommendation", {}).get("level", "notable")
+            order = {"must_read": 0, "recommended": 1, "notable": 2}
+            return (order.get(level, 2), -item.hot_score)
+        sorted_items = sorted(items, key=rec_level)
+
         # Group today's items by category (sorted by count descending)
         categories_ordered = {}
-        for item in items:
+        for item in sorted_items:
             cat = item.category.replace("_", " ").title()
             categories_ordered.setdefault(cat, []).append(item)
         categories_ordered = dict(sorted(categories_ordered.items(), key=lambda x: -len(x[1])))
@@ -109,13 +119,14 @@ class BlogGenerator:
                         "summary": item.summary,
                         "insight": item.raw_data.get("insight", ""),
                         "english_title": item.raw_data.get("english_title", item.title),
+                        "recommendation": item.raw_data.get("recommendation", {}),
                     }
                     for item in cat_items
                 ]
             })
 
-        # Save today's archive
-        self._save_archive(today, items)
+        # Save today's archive with trend_analysis
+        self._save_archive(today, sorted_items, trend_analysis=trend_analysis)
 
         # Load and update feed
         feed = self._load_feed()
@@ -138,6 +149,13 @@ class BlogGenerator:
 
         base_url = self.config.get("base_url", "")
 
+        # Derive repo name from base_url for JS fallback
+        repo_name = ""
+        if base_url:
+            match = re.search(r"github\.io/([^/]+)", base_url)
+            if match:
+                repo_name = match.group(1)
+
         # Render index.html (today's page)
         data = {
             "title": self.config.get("title", "Tech Hotspot Daily"),
@@ -148,11 +166,13 @@ class BlogGenerator:
             "categories": categories_list,
             "total_items": len(items),
             "base_url": base_url,
+            "repo_name": repo_name,
             "available_dates": available_dates,
             "current_date": today,
             "prev_date": prev_date,
             "next_date": next_date,
             "has_content": len(items) > 0,
+            "trend_analysis": trend_analysis,
         }
         template = self.env.get_template("blog.html")
         html = template.render(**data)

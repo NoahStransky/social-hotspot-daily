@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tech Hotspot Daily</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background: #0a0a0f;
+            color: #e2e2f0;
+            font-family: -apple-system, 'Inter', sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            flex-direction: column;
+            gap: 24px;
+        }
+        .loader {
+            width: 32px;
+            height: 32px;
+            border: 3px solid #252535;
+            border-top-color: #6366f1;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+        p { color: #8b8ba7; font-size: 14px; }
+        .dates {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            justify-content: center;
+            max-width: 600px;
+        }
+        .dates a {
+            color: #6366f1;
+            text-decoration: none;
+            padding: 8px 16px;
+            border: 1px solid #252535;
+            border-radius: 8px;
+            font-size: 14px;
+            transition: all 0.2s;
+        }
+        .dates a:hover {
+            background: rgba(99, 102, 241, 0.1);
+            border-color: #6366f1;
+        }
+        h1 {
+            font-size: 28px;
+            background: linear-gradient(135deg, #e2e2f0 0%, #6366f1 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body>
+    <h1>Tech Hotspot Daily</h1>
+    <p>Select a date to view daily tech news</p>
+    <div class="dates" id="date-list">
+        <div class="loader"></div>
+    </div>
+    <script>
+        // Fetch the date list and display links
+        fetch('./feed.json')
+            .then(r => r.json())
+            .then(feed => {
+                const dates = Object.keys(feed).sort().reverse();
+                const container = document.getElementById('date-list');
+                container.innerHTML = '';
+                dates.forEach(d => {
+                    const a = document.createElement('a');
+                    a.href = './' + d + '/';
+                    a.textContent = d;
+                    container.appendChild(a);
+                });
+            })
+            .catch(() => {
+                document.getElementById('date-list').innerHTML = '<p>No content yet</p>';
+            });
+    </script>
+</body>
+</html>

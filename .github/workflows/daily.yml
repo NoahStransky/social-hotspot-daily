@@ -75,7 +75,7 @@ jobs:
           git config user.email "bot@social-hotspot-daily"
 
           # Stage generated content
-          git add docs/index.html docs/feed.json docs/archive/ docs/subscribe.html docs/verify.html docs/unsubscribe.html docs/${TODAY}/
+          git add docs/index.html docs/feed.json docs/archive/ docs/subscribe.html docs/verify.html docs/unsubscribe.html docs/date/
 
           # Commit if there are changes
           if git diff --cached --quiet; then

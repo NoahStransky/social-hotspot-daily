@@ -74,12 +74,9 @@ jobs:
           git config user.name "Social Hotspot Bot"
           git config user.email "bot@social-hotspot-daily"
 
-          # Pull latest main FIRST to avoid push rejection
-          # Stash any unstaged changes first, then rebase, then pop
-          git fetch origin main
-          git stash --include-untracked 2>/dev/null || true
-          git rebase origin/main
-          git stash pop 2>/dev/null || true
+          # Pull latest main to avoid push rejection
+          # Use --autostash to handle any unstaged generated files
+          git pull --rebase --autostash origin main
 
           # Stage generated content
           git add docs/index.html docs/feed.json docs/archive/ docs/subscribe.html docs/verify.html docs/unsubscribe.html docs/date/

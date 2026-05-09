@@ -61,6 +61,7 @@ class BlogGenerator:
                     "title": item.title,
                     "url": item.url,
                     "source": item.source_name,
+                    "source_name": item.source_name,
                     "category": item.category,
                     "summary": item.summary,
                     "insight": item.raw_data.get("insight", ""),

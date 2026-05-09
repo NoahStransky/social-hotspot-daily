@@ -783,7 +783,7 @@
                     const recLevel = (item.recommendation && item.recommendation.level) || '';
                     const isMustRead = recLevel === 'must_read';
                     html += `<article class="card${isMustRead ? ' must_read-card' : ''}">`;
-                    html += `<div class="card-header"><a href="${item.url}" target="_blank" rel="noopener" class="card-title">${esc(item.english_title || item.title)}</a><div style="display:flex;gap:6px;align-items:center;flex-wrap:wrap;flex-shrink:0;">${renderRecBadge(item)}<span class="card-source">${esc(item.source_name)}</span></div></div>`;
+                    html += `<div class="card-header"><a href="${item.url}" target="_blank" rel="noopener" class="card-title">${esc(item.english_title || item.title)}</a><div style="display:flex;gap:6px;align-items:center;flex-wrap:wrap;flex-shrink:0;">${renderRecBadge(item)}<span class="card-source">${esc(item.source_name || item.source || '')}</span></div></div>`;
                     if (item.summary) html += `<p class="card-summary">${esc(item.summary)}</p>`;
                     if (item.insight) html += `<div class="insight"><strong>💡 Why it matters:</strong> ${esc(item.insight)}</div>`;
                     html += `</article>`;

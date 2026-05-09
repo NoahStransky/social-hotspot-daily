@@ -74,6 +74,11 @@ jobs:
           git config user.name "Social Hotspot Bot"
           git config user.email "bot@social-hotspot-daily"
 
+          # Pull latest main FIRST to avoid push rejection
+          # Do this BEFORE git add to avoid "index contains uncommitted changes"
+          git fetch origin main
+          git rebase origin/main
+
           # Stage generated content
           git add docs/index.html docs/feed.json docs/archive/ docs/subscribe.html docs/verify.html docs/unsubscribe.html docs/date/
 
@@ -82,10 +87,6 @@ jobs:
             echo "No content changes to commit"
             exit 0
           fi
-
-          # Pull latest main FIRST to avoid push rejection
-          git fetch origin main
-          git rebase origin/main
 
           git commit -m "daily update: ${TODAY}"
 

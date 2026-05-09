@@ -189,6 +189,9 @@
         .category-cybersecurity { --cat-color: var(--security); }
         .category-hardware { --cat-color: var(--hardware); }
         .category-startup { --cat-color: var(--startup); }
+        .category-science { --cat-color: var(--accent); }
+        .category-technology { --cat-color: var(--accent); }
+        .category-other { --cat-color: var(--text-secondary); }
 
         .card {
             background: var(--surface);
@@ -574,6 +577,7 @@
                         {% if cat_group.name == "Hardware" %}🔧{% endif %}
                         {% if cat_group.name == "Startup" %}🚀{% endif %}
                         {% if cat_group.name == "Science" %}🔬{% endif %}
+                        {% if cat_group.name == "Technology" %}🌐{% endif %}
                         {{ cat_group.name }}
                     </h2>
                     {% for item in cat_group.article_list %}
@@ -770,6 +774,7 @@
                 else if (cat === 'Hardware') icon = '🔧';
                 else if (cat === 'Startup') icon = '🚀';
                 else if (cat === 'Science') icon = '🔬';
+                else if (cat === 'Technology') icon = '🌐';
 
                 html += `<section class="section ${catClass}" data-category="${cat}">`;
                 html += `<h2 class="section-title">${icon} ${cat}</h2>`;

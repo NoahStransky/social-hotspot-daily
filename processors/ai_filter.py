@@ -15,7 +15,7 @@ Your job is to analyze news items and decide if they are highly relevant to IT p
 
 For each item, provide:
 1. relevance_score (0-1): How relevant to AI/tech/IT?
-2. category: one of [artificial_intelligence, programming, cybersecurity, hardware, startup, science, other]
+2. category: MUST be exactly one of these: artificial_intelligence, programming, cybersecurity, hardware, startup, science, other. NEVER use "technology" — map it to the closest match from this list.
 3. summary: A concise 1-2 sentence summary in the item's original language
 4. english_title: An English translation of the title (if original is non-English)
 5. insight: A brief "why it matters" insight for IT professionals (2-3 sentences, in English)
@@ -130,7 +130,7 @@ class AIFilter:
                     {"role": "user", "content": prompt}
                 ],
                 "temperature": 0.3,
-                "max_tokens": 4000,
+                "max_tokens": 8192,
             },
             timeout=180
         )

@@ -83,10 +83,11 @@ jobs:
             exit 0
           fi
 
-          git commit -m "daily update: ${TODAY}"
+          # Pull latest main FIRST to avoid push rejection
+          git fetch origin main
+          git rebase origin/main
 
-          # Pull latest main to avoid push rejection
-          git pull origin main --rebase
+          git commit -m "daily update: ${TODAY}"
 
           # Push to main
           git push origin main

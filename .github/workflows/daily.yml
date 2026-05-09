@@ -75,7 +75,8 @@ jobs:
           git config user.email "bot@social-hotspot-daily"
 
           # Pull latest main to avoid push rejection
-          # Use --autostash to handle any unstaged generated files
+          # Remove untracked generated files that would conflict with pulled changes
+          rm -rf docs/archive/2026 docs/date docs/index.html docs/feed.json 2>/dev/null || true
           git pull --rebase --autostash origin main
 
           # Stage generated content

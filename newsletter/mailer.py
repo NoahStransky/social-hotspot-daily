@@ -10,7 +10,7 @@ from .db import get_verified_subscribers, log_send
 
 RESEND_API_KEY = os.environ.get("RESEND_API_KEY", "")
 FROM_EMAIL = os.environ.get("NEWSLETTER_FROM_EMAIL", "newsletter@yourdomain.com")
-BASE_URL = os.environ.get("BLOG_BASE_URL", "https://yourdomain.github.io/social-hotspot-daily")
+BASE_URL = os.environ.get("BLOG_BASE_URL", "https://edgesoft.org")
 
 # Setup Jinja2 for email templates
 template_dir = Path(__file__).parent.parent / "templates"

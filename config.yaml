@@ -81,7 +81,7 @@ output:
     title: "Tech Hotspot Daily"
     description: "每日全球科技热点聚合"
     author: "Social Hotspot Bot"
-    base_url: "https://YOUR_USERNAME.github.io/social-hotspot-daily"
+    base_url: "https://edgesoft.org"
     
   # Telegram 推送
   telegram:

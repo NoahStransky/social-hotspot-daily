@@ -4,24 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Unsubscribe — Tech Hotspot Daily</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg: #0a0a0f;
             --surface: #12121a;
-            --surface-2: #1a1a25;
             --border: #252535;
             --text: #e2e2f0;
             --text-secondary: #8b8ba7;
             --accent: #6366f1;
-            --success: #10b981;
-            --error: #ef4444;
-            --warning: #f59e0b;
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             background: var(--bg);
             color: var(--text);
             min-height: 100vh;
@@ -42,97 +36,21 @@
         .icon { font-size: 48px; margin-bottom: 16px; }
         h1 { font-size: 22px; font-weight: 700; margin-bottom: 12px; }
         p { color: var(--text-secondary); font-size: 15px; line-height: 1.6; }
-        .btn {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 12px 28px;
-            background: var(--accent);
-            color: white;
-            border: none;
-            border-radius: 10px;
-            font-size: 14px;
-            font-weight: 600;
-            font-family: inherit;
-            text-decoration: none;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-        .btn:hover { background: #5558e0; transform: translateY(-1px); }
         .back-link {
             display: inline-block;
             margin-top: 24px;
-            color: var(--text-secondary);
+            color: var(--accent);
             text-decoration: none;
             font-size: 14px;
         }
-        .back-link:hover { color: var(--accent); }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="icon" id="icon">👋</div>
-        <h1 id="title">Unsubscribe</h1>
-        <p id="message">Processing your request...</p>
+        <div class="icon">👋</div>
+        <h1>Unsubscribe</h1>
+        <p>You have been successfully unsubscribed from Tech Hotspot Daily.<br><br>We're sorry to see you go. If you change your mind, you can always <a href="subscribe.html" style="color: var(--accent);">subscribe again</a>.</p>
         <a href="index.html" class="back-link">← Back to Daily Report</a>
     </div>
-
-    <script>
-      (function() {
-        const params = new URLSearchParams(window.location.search);
-        const status = params.get('status');
-
-        const icon = document.getElementById('icon');
-        const title = document.getElementById('title');
-        const message = document.getElementById('message');
-        const backLink = document.querySelector('.back-link');
-
-        const STATUS_MAP = {
-          success: {
-            icon: '💔',
-            title: 'Successfully Unsubscribed',
-            message: 'You have been unsubscribed from <strong>Tech Hotspot Daily</strong>.<br><br>We\'re sorry to see you go! If you change your mind, you can subscribe again at any time.',
-            btn: { text: 'Subscribe again', href: 'subscribe.html' }
-          },
-          notfound: {
-            icon: '🔍',
-            title: 'Email Not Found',
-            message: 'This email address was not found in our subscription list.<br><br>It may have been already removed, or the link may be incorrect.',
-            btn: { text: 'Subscribe instead', href: 'subscribe.html' }
-          },
-          invalid: {
-            icon: '❌',
-            title: 'Invalid Request',
-            message: 'The unsubscribe link is invalid. Please check that the email address is correct.',
-            btn: { text: 'Go to Home', href: 'index.html' }
-          },
-          error: {
-            icon: '⚠️',
-            title: 'Something Went Wrong',
-            message: 'We encountered an error processing your request. Please try again or contact support.',
-            btn: { text: 'Try again', href: 'index.html' }
-          },
-        };
-
-        if (status && STATUS_MAP[status]) {
-          const s = STATUS_MAP[status];
-          icon.textContent = s.icon;
-          title.textContent = s.title;
-          message.innerHTML = s.message;
-
-          if (s.btn) {
-            const btn = document.createElement('a');
-            btn.href = s.btn.href;
-            btn.className = 'btn';
-            btn.textContent = s.btn.text;
-            backLink.parentNode.insertBefore(btn, backLink);
-          }
-        } else {
-          // No status — redirect page or direct access
-          icon.textContent = '👋';
-          title.textContent = 'Unsubscribe';
-          message.innerHTML = 'This page is used to process unsubscribe requests from Tech Hotspot Daily emails.';
-        }
-      })();
-    </script>
 </body>
 </html>

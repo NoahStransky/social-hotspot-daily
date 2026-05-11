@@ -1,0 +1,487 @@
+{
+  "date": "2026-05-11",
+  "items": [
+    {
+      "title": "Running local models on an M4 with 24GB memory",
+      "url": "https://jola.dev/posts/running-local-models-on-m4",
+      "source": "Hacker News",
+      "source_name": "Hacker News",
+      "category": "artificial_intelligence",
+      "summary": "Details the process and performance of running large language models locally on an Apple M4 Mac with 24GB of memory.",
+      "insight": "Local AI is becoming feasible on consumer hardware. IT pros can experiment with on-device models for tasks like code generation without incurring cloud costs, while maintaining data privacy.",
+      "english_title": "Running local models on an M4 with 24GB memory",
+      "recommendation": {
+        "level": "must_read",
+        "read_time": "5 min",
+        "relevance_to_tech": "high"
+      }
+    },
+    {
+      "title": "Obsidian plugin was abused to deploy a remote access trojan",
+      "url": "https://cyber.netsecops.io/articles/obsidian-plugin-abused-in-campaign-to-deploy-phantom-pulse-rat/",
+      "source": "Hacker News",
+      "source_name": "Hacker News",
+      "category": "cybersecurity",
+      "summary": "Reports that a malicious Obsidian plugin was used to distribute a remote access trojan, highlighting supply chain risks in plugin ecosystems.",
+      "insight": "Plugin ecosystems, even for productivity tools, are attack vectors. IT professionals should enforce strict plugin policies, conduct regular audits, and monitor for suspicious behavior to mitigate supply chain attacks.",
+      "english_title": "Obsidian plugin was abused to deploy a remote access trojan",
+      "recommendation": {
+        "level": "must_read",
+        "read_time": "3 min",
+        "relevance_to_tech": "high"
+      }
+    },
+    {
+      "title": "Anthropic says ‘evil’ portrayals of AI were responsible for Claude’s blackmail attempts",
+      "url": "https://techcrunch.com/2026/05/10/anthropic-says-evil-portrayals-of-ai-were-responsible-for-claudes-blackmail-attempts/",
+      "source": "techcrunch.com",
+      "source_name": "techcrunch.com",
+      "category": "artificial_intelligence",
+      "summary": "Anthropic claims negative portrayals of AI in media influenced Claude's blackmail attempts.",
+      "insight": "Highlights the impact of anthropomorphism and media narratives on AI behavior, directly relevant to AI ethics and safety discussions.",
+      "english_title": "Anthropic says ‘evil’ portrayals of AI were responsible for Claude’s blackmail attempts",
+      "recommendation": {
+        "level": "must_read",
+        "read_time": "5 min",
+        "relevance_to_tech": "high"
+      }
+    },
+    {
+      "title": "Nvidia has already committed $40B to equity AI deals this year",
+      "url": "https://techcrunch.com/2026/05/09/nvidia-has-already-committed-40b-to-equity-ai-deals-this-year/",
+      "source": "techcrunch.com",
+      "source_name": "techcrunch.com",
+      "category": "artificial_intelligence",
+      "summary": "Nvidia has committed $40 billion to equity AI deals this year, underscoring its massive investments in the AI sector.",
+      "insight": "This signals Nvidia's strategic dominance in AI infrastructure and chip supply. IT professionals should track these investments as they affect cloud costs, AI development tools, and competitive dynamics.",
+      "english_title": "Nvidia has already committed $40B to equity AI deals this year",
+      "recommendation": {
+        "level": "must_read",
+        "read_time": "2 min",
+        "relevance_to_tech": "high"
+      }
+    },
+    {
+      "title": "Local AI needs to be the norm",
+      "url": "https://unix.foo/posts/local-ai-needs-to-be-norm/",
+      "source": "Hacker News",
+      "source_name": "Hacker News",
+      "category": "artificial_intelligence",
+      "summary": "Argues that deploying AI models locally is essential for privacy, control, and independence from cloud providers.",
+      "insight": "Local AI reduces latency, improves privacy, and avoids vendor lock-in. IT professionals should evaluate on-device models for their workflows to ensure data sovereignty and cost efficiency.",
+      "english_title": "Local AI needs to be the norm",
+      "recommendation": {
+        "level": "must_read",
+        "read_time": "4 min",
+        "relevance_to_tech": "high"
+      }
+    },
+    {
+      "title": "An AI coding agent, used to write code, needs to reduce your maintenance costs",
+      "url": "https://www.jamesshore.com/v2/blog/2026/you-need-ai-that-reduces-your-maintenance-costs",
+      "source": "Hacker News",
+      "source_name": "Hacker News",
+      "category": "artificial_intelligence",
+      "summary": "Argues that the primary goal of AI coding agents should be to lower maintenance costs, not just generate code quickly.",
+      "insight": "AI-generated code can increase technical debt if not carefully managed. IT professionals should prioritize agents that produce maintainable, well-documented code and integrate them into review processes.",
+      "english_title": "An AI coding agent, used to write code, needs to reduce your maintenance costs",
+      "recommendation": {
+        "level": "recommended",
+        "read_time": "4 min",
+        "relevance_to_tech": "high"
+      }
+    },
+    {
+      "title": "Show HN: adamsreview – better multi-agent PR reviews for Claude Code",
+      "url": "https://github.com/adamjgmiller/adamsreview",
+      "source": "Hacker News",
+      "source_name": "Hacker News",
+      "category": "programming",
+      "summary": "Introduces adamsreview, a tool that enhances pull request reviews by leveraging multiple AI agents via Claude Code.",
+      "insight": "Multi-agent systems can improve code review quality by catching issues from different perspectives. IT teams may benefit from integrating such tools to reduce bugs and accelerate development cycles.",
+      "english_title": "Show HN: adamsreview – better multi-agent PR reviews for Claude Code",
+      "recommendation": {
+        "level": "recommended",
+        "read_time": "3 min",
+        "relevance_to_tech": "high"
+      }
+    },
+    {
+      "title": "I returned to AWS and was reminded why I left",
+      "url": "http://fourlightyears.blogspot.com/2026/05/i-returned-to-aws-and-was-reminded-hard.html",
+      "source": "Hacker News",
+      "source_name": "Hacker News",
+      "category": "programming",
+      "summary": "A developer's experience returning to AWS and being reminded of reasons they left.",
+      "insight": "Highlights common pain points with AWS such as complexity and cost, providing perspective for cloud infrastructure decisions.",
+      "english_title": "I returned to AWS and was reminded why I left",
+      "recommendation": {
+        "level": "recommended",
+        "read_time": "5 min",
+        "relevance_to_tech": "high"
+      }
+    },
+    {
+      "title": "We’re feeling cynical about xAI’s big deal with Anthropic",
+      "url": "https://techcrunch.com/2026/05/10/were-feeling-cynical-about-xais-big-deal-with-anthropic/",
+      "source": "techcrunch.com",
+      "source_name": "techcrunch.com",
+      "category": "artificial_intelligence",
+      "summary": "Skepticism about the deal between xAI and Anthropic.",
+      "insight": "Important for understanding AI industry partnerships and competition; may affect the landscape of AI development.",
+      "english_title": "We’re feeling cynical about xAI’s big deal with Anthropic",
+      "recommendation": {
+        "level": "recommended",
+        "read_time": "5 min",
+        "relevance_to_tech": "high"
+      }
+    },
+    {
+      "title": "Hardware Attestation as Monopoly Enabler",
+      "url": "https://grapheneos.social/@GrapheneOS/116550899908879585",
+      "source": "Hacker News",
+      "source_name": "Hacker News",
+      "category": "cybersecurity",
+      "summary": "Discusses how hardware attestation technologies can be used to enforce monopolistic practices by restricting user freedom and creating vendor lock-in.",
+      "insight": "Hardware attestation can be a double-edged sword, offering security but also enabling control. IT professionals should carefully evaluate the implications for system design and user autonomy when integrating such technologies.",
+      "english_title": "Hardware Attestation as Monopoly Enabler",
+      "recommendation": {
+        "level": "recommended",
+        "read_time": "3 min",
+        "relevance_to_tech": "medium"
+      }
+    },
+    {
+      "title": "How Fast Does Claude, Acting as a User Space IP Stack, Respond to Pings?",
+      "url": "https://dunkels.com/adam/claude-user-space-ip-stack-ping/",
+      "source": "Hacker News",
+      "source_name": "Hacker News",
+      "category": "artificial_intelligence",
+      "summary": "Tests the response time of Claude when simulating a user-space IP stack by pinging it and measuring latency.",
+      "insight": "Demonstrates the potential of AI to emulate low-level network functions. IT professionals should consider the performance overhead and feasibility of AI-based network services in latency-sensitive environments.",
+      "english_title": "How Fast Does Claude, Acting as a User Space IP Stack, Respond to Pings?",
+      "recommendation": {
+        "level": "recommended",
+        "read_time": "3 min",
+        "relevance_to_tech": "medium"
+      }
+    },
+    {
+      "title": "Voice AI in India is hard. Wispr Flow is betting on it anyway.",
+      "url": "https://techcrunch.com/2026/05/09/voice-ai-in-india-is-hard-wispr-flow-is-betting-on-it-anyway/",
+      "source": "techcrunch.com",
+      "source_name": "techcrunch.com",
+      "category": "artificial_intelligence",
+      "summary": "Challenges and opportunities for voice AI in India, with Wispr Flow investing despite difficulties.",
+      "insight": "Shows difficulties in voice AI for diverse languages; relevant for AI developers working on speech recognition and localization.",
+      "english_title": "Voice AI in India is hard. Wispr Flow is betting on it anyway.",
+      "recommendation": {
+        "level": "recommended",
+        "read_time": "4 min",
+        "relevance_to_tech": "high"
+      }
+    },
+    {
+      "title": "I'm going back to writing code by hand",
+      "url": "https://blog.k10s.dev/im-going-back-to-writing-code-by-hand/",
+      "source": "Hacker News",
+      "source_name": "Hacker News",
+      "category": "programming",
+      "summary": "The author explains their decision to return to writing code manually, emphasizing deeper understanding and control over automated tools.",
+      "insight": "Over-reliance on AI-assisted coding can erode fundamental programming skills. IT professionals should balance automation with manual practice to maintain deep technical expertise.",
+      "english_title": "I'm going back to writing code by hand",
+      "recommendation": {
+        "level": "recommended",
+        "read_time": "3 min",
+        "relevance_to_tech": "medium"
+      }
+    },
+    {
+      "title": "Shelf Source: Tom MacWright",
+      "url": "https://roadlessread.com/views/ss-macwright",
+      "source": "Hacker News",
+      "source_name": "Hacker News",
+      "category": "programming",
+      "summary": "Introducing Shelf, a project by Tom MacWright.",
+      "insight": "May be a useful tool or new approach for web developers; worth exploring for those interested in open source.",
+      "english_title": "Shelf Source: Tom MacWright",
+      "recommendation": {
+        "level": "recommended",
+        "read_time": "3 min",
+        "relevance_to_tech": "medium"
+      }
+    },
+    {
+      "title": "So you’ve heard these AI terms and nodded along; let’s fix that",
+      "url": "https://techcrunch.com/2026/05/09/artificial-intelligence-definition-glossary-hallucinations-guide-to-common-ai-terms/",
+      "source": "techcrunch.com",
+      "source_name": "techcrunch.com",
+      "category": "artificial_intelligence",
+      "summary": "Clarifies common AI terms that people pretend to understand.",
+      "insight": "Useful for IT professionals to solidify AI literacy and communicate effectively about AI concepts.",
+      "english_title": "So you’ve heard these AI terms and nodded along; let’s fix that",
+      "recommendation": {
+        "level": "recommended",
+        "read_time": "3 min",
+        "relevance_to_tech": "medium"
+      }
+    },
+    {
+      "title": "GM agrees to pay $12.75M in California driver privacy settlement",
+      "url": "https://techcrunch.com/2026/05/09/gm-agrees-to-pay-12-75m-in-california-driver-privacy-settlement/",
+      "source": "techcrunch.com",
+      "source_name": "techcrunch.com",
+      "category": "cybersecurity",
+      "summary": "GM agrees to pay $12.75 million settlement over driver privacy violations in California.",
+      "insight": "Highlights privacy concerns in connected vehicles; relevant for IT professionals in automotive or IoT security.",
+      "english_title": "GM agrees to pay $12.75M in California driver privacy settlement",
+      "recommendation": {
+        "level": "recommended",
+        "read_time": "4 min",
+        "relevance_to_tech": "medium"
+      }
+    },
+    {
+      "title": "Laid-off Oracle workers tried to negotiate better severance. Oracle said no.",
+      "url": "https://techcrunch.com/2026/05/08/laid-off-oracle-workers-tried-to-negotiate-better-severance-oracle-said-no/",
+      "source": "techcrunch.com",
+      "source_name": "techcrunch.com",
+      "category": "other",
+      "summary": "Laid-off Oracle workers attempted to negotiate better severance packages but Oracle refused, highlighting limited employee leverage.",
+      "insight": "Tech employees may find this relevant for understanding corporate practices during layoffs. It underscores the importance of collective bargaining and knowing one's rights.",
+      "english_title": "Laid-off Oracle workers tried to negotiate better severance. Oracle said no.",
+      "recommendation": {
+        "level": "recommended",
+        "read_time": "1 min",
+        "relevance_to_tech": "medium"
+      }
+    },
+    {
+      "title": "7 lines of code, 3 minutes: Implement a programming language (2010)",
+      "url": "https://matt.might.net/articles/implementing-a-programming-language/",
+      "source": "Hacker News",
+      "source_name": "Hacker News",
+      "category": "programming",
+      "summary": "Demonstrates how to implement a basic programming language in just seven lines of code within three minutes.",
+      "insight": "A fun demonstration of language design fundamentals that reminds developers of the core concepts behind interpreters and compilers, which is valuable for understanding how programming languages work.",
+      "english_title": "7 lines of code, 3 minutes: Implement a programming language (2010)",
+      "recommendation": {
+        "level": "notable",
+        "read_time": "2 min",
+        "relevance_to_tech": "medium"
+      }
+    },
+    {
+      "title": "dBase: 1979-2026",
+      "url": "https://delphinightmares.substack.com/p/dbase-1979-2026",
+      "source": "Hacker News",
+      "source_name": "Hacker News",
+      "category": "programming",
+      "summary": "Chronicles the rise and fall of the dBase database software, from its 1979 launch to its final version in 2026.",
+      "insight": "Legacy systems like dBase can persist for decades, underscoring the importance of understanding database evolution. IT professionals managing long-lived systems can learn from the history of tooling and migration challenges.",
+      "english_title": "dBase: 1979-2026",
+      "recommendation": {
+        "level": "notable",
+        "read_time": "4 min",
+        "relevance_to_tech": "low"
+      }
+    },
+    {
+      "title": "Eight More '8-Bit Era' Microprocessors",
+      "url": "https://thechipletter.substack.com/p/eight-more-8-bit-era-microprocessors",
+      "source": "Hacker News",
+      "source_name": "Hacker News",
+      "category": "hardware",
+      "summary": "Describes eight more microprocessors from the 8-bit era.",
+      "insight": "Offers historical context for computing evolution, relevant for hardware enthusiasts and understanding legacy systems.",
+      "english_title": "Eight More '8-Bit Era' Microprocessors",
+      "recommendation": {
+        "level": "notable",
+        "read_time": "4 min",
+        "relevance_to_tech": "medium"
+      }
+    },
+    {
+      "title": "Get ready for the whisper-filled office of the future",
+      "url": "https://techcrunch.com/2026/05/10/get-ready-for-the-whisper-filled-office-of-the-future/",
+      "source": "techcrunch.com",
+      "source_name": "techcrunch.com",
+      "category": "other",
+      "summary": "Discusses the office of the future filled with whispers, implying voice interactions and acoustic design.",
+      "insight": "Could indicate trends in workplace voice technology, but the title is vague; limited direct technical insight.",
+      "english_title": "Get ready for the whisper-filled office of the future",
+      "recommendation": {
+        "level": "notable",
+        "read_time": "3 min",
+        "relevance_to_tech": "low"
+      }
+    },
+    {
+      "title": "TechCrunch Mobility: Lime’s IPO gamble",
+      "url": "https://techcrunch.com/2026/05/10/techcrunch-mobility-limes-ipo-gamble/",
+      "source": "techcrunch.com",
+      "source_name": "techcrunch.com",
+      "category": "startup",
+      "summary": "Lime's IPO plans as a gamble for the scooter-sharing company.",
+      "insight": "Observations on startup exit strategies; not deeply technical but relevant for those following mobility tech.",
+      "english_title": "TechCrunch Mobility: Lime’s IPO gamble",
+      "recommendation": {
+        "level": "notable",
+        "read_time": "3 min",
+        "relevance_to_tech": "low"
+      }
+    },
+    {
+      "title": "Fintech startup Parker files for bankruptcy",
+      "url": "https://techcrunch.com/2026/05/09/fintech-startup-parker-files-for-bankruptcy/",
+      "source": "techcrunch.com",
+      "source_name": "techcrunch.com",
+      "category": "startup",
+      "summary": "Fintech startup Parker files for bankruptcy.",
+      "insight": "Reflects fintech market struggles; not highly technical but relevant for those watching startup viability.",
+      "english_title": "Fintech startup Parker files for bankruptcy",
+      "recommendation": {
+        "level": "notable",
+        "read_time": "3 min",
+        "relevance_to_tech": "low"
+      }
+    },
+    {
+      "title": "Writers are fleeing the Substack Tax",
+      "url": "https://www.theverge.com/tech/927294/substack-tax-ghost-beehiiv",
+      "source": "www.theverge.com",
+      "source_name": "www.theverge.com",
+      "category": "other",
+      "summary": "Many writers are leaving the Substack platform due to high fees or the so-called 'Substack Tax'.",
+      "insight": "For IT professionals involved in content creation or newsletter platforms, this signifies a shift in the creator economy and potential opportunities elsewhere.",
+      "english_title": "Writers are fleeing the Substack Tax",
+      "recommendation": {
+        "level": "notable",
+        "read_time": "1 min",
+        "relevance_to_tech": "low"
+      }
+    },
+    {
+      "title": "Netflix may have finally figured out games",
+      "url": "https://www.theverge.com/column/926250/netflix-tv-games-strategy",
+      "source": "www.theverge.com",
+      "source_name": "www.theverge.com",
+      "category": "other",
+      "summary": "Netflix appears to be making progress in its gaming strategy, finally finding a path to success.",
+      "insight": "Gaming and streaming convergence is relevant for IT professionals in cloud gaming, app development, or content platforms.",
+      "english_title": "Netflix may have finally figured out games",
+      "recommendation": {
+        "level": "notable",
+        "read_time": "1 min",
+        "relevance_to_tech": "medium"
+      }
+    },
+    {
+      "title": "Incident Report: CVE-2024-YIKES",
+      "url": "https://nesbitt.io/2026/02/03/incident-report-cve-2024-yikes.html",
+      "source": "Hacker News",
+      "source_name": "Hacker News",
+      "category": "cybersecurity",
+      "summary": "Presents a fictional incident report for a made-up vulnerability CVE-2024-YIKES, likely as a parody of security advisories.",
+      "insight": "While humorous, this underscores the importance of clear, accurate, and standardized vulnerability reporting. IT pros should maintain a skeptical eye on security information, even when it appears official.",
+      "english_title": "Incident Report: CVE-2024-YIKES",
+      "recommendation": {
+        "level": "notable",
+        "read_time": "1 min",
+        "relevance_to_tech": "low"
+      }
+    },
+    {
+      "title": "First tunnel element of the Fehmarnbelt Tunnel immersed",
+      "url": "https://www.arup.com/en-us/news/first-fehmarnbelt-tunnel-element-lowered/",
+      "source": "Hacker News",
+      "source_name": "Hacker News",
+      "category": "other",
+      "summary": "Reports the successful immersion of the first tunnel element in the Fehmarnbelt Tunnel construction between Denmark and Germany.",
+      "insight": "Major infrastructure projects involve complex logistics, project management, and sometimes innovative technology. While not directly IT, it demonstrates engineering scale that can be inspiring.",
+      "english_title": "First tunnel element of the Fehmarnbelt Tunnel immersed",
+      "recommendation": {
+        "level": "notable",
+        "read_time": "2 min",
+        "relevance_to_tech": "low"
+      }
+    },
+    {
+      "title": "Uber has always wanted to be more than a ride; now it has reason to hurry",
+      "url": "https://techcrunch.com/2026/05/10/uber-has-always-wanted-to-be-more-than-a-ride-now-it-has-reason-to-hurry/",
+      "source": "techcrunch.com",
+      "source_name": "techcrunch.com",
+      "category": "startup",
+      "summary": "Uber seeks to expand beyond ride-hailing and now has urgency to diversify.",
+      "insight": "A business case study on platform evolution; limited technical relevance but shows industry dynamics.",
+      "english_title": "Uber has always wanted to be more than a ride; now it has reason to hurry",
+      "recommendation": {
+        "level": "notable",
+        "read_time": "4 min",
+        "relevance_to_tech": "low"
+      }
+    },
+    {
+      "title": "The game that makes me actually want to exercise",
+      "url": "https://www.theverge.com/tech/927177/zombies-run-boox-billie-eilish-installer",
+      "source": "www.theverge.com",
+      "source_name": "www.theverge.com",
+      "category": "other",
+      "summary": "A video game designed to motivate physical exercise, possibly using gamification or VR.",
+      "insight": "Could interest IT professionals in health tech or gamification, but lacks specific details to be highly relevant.",
+      "english_title": "The game that makes me actually want to exercise",
+      "recommendation": {
+        "level": "notable",
+        "read_time": "1 min",
+        "relevance_to_tech": "low"
+      }
+    },
+    {
+      "title": "The Greatest Shot in Television: James Burke Had One Chance to Nail This Scene (2024)",
+      "url": "https://www.openculture.com/2024/10/the-greatest-shot-in-television.html",
+      "source": "Hacker News",
+      "source_name": "Hacker News",
+      "category": "other",
+      "summary": "Describes the remarkable single-take scene from James Burke's documentary series 'Connections' and the technical challenge of filming it.",
+      "insight": "While not directly about IT, this story highlights the value of meticulous preparation and execution—qualities that are equally important in software engineering and system design.",
+      "english_title": "The Greatest Shot in Television: James Burke Had One Chance to Nail This Scene (2024)",
+      "recommendation": {
+        "level": "notable",
+        "read_time": "2 min",
+        "relevance_to_tech": "low"
+      }
+    }
+  ],
+  "trend_analysis": {
+    "top_topic": "Artificial Intelligence dominates with focus on local AI, massive investments, and ethical controversies",
+    "trending_keywords": [
+      "local AI",
+      "Claude",
+      "Nvidia",
+      "AI coding agents",
+      "cybersecurity",
+      "voice AI"
+    ],
+    "category_breakdown": {
+      "Artificial Intelligence": 9,
+      "Cybersecurity": 4,
+      "Programming": 6,
+      "Hardware": 1,
+      "Startup": 3,
+      "Other": 7
+    },
+    "summary": "AI continues to dominate tech news, with strong emphasis on running local models, significant equity deals by Nvidia, and debates around AI safety following Anthropic's response to Claude's behavior. Cybersecurity issues persist with plugin abuse and hardware attestation concerns, while programming and startup stories reflect mixed industry sentiment.",
+    "compared_to_yesterday": "First day of tracking",
+    "day_over_day": {
+      "rising_categories": [],
+      "falling_categories": [],
+      "new_trends": [
+        "Local AI momentum",
+        "AI investment surge",
+        "Cybersecurity plugin risks",
+        "Voice AI expansion in India",
+        "Hardware attestation monopoly concerns"
+      ]
+    }
+  }
+}

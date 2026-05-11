@@ -1,0 +1,25 @@
+name = "social-hotspot-subscribe"
+main = "src/index.ts"
+compatibility_date = "2025-04-01"
+compatibility_flags = ["nodejs_compat"]
+
+# D1 Database Binding
+# After creating your D1 database with:
+#   wrangler d1 create social-hotspot-subscribe-db
+# Paste the database_id below and run:
+#   wrangler d1 execute social-hotspot-subscribe-db --file=schema.sql
+[[d1_databases]]
+binding = "DB"
+database_name = "social-hotspot-subscribe-db"
+database_id = "c1711a3c-ba14-4a04-b961-1c4c1cedba36"
+
+# Secrets (set via `wrangler secret put` or Cloudflare Dashboard):
+# RESEND_API_KEY     — your Resend.com API key
+#
+# Vars:
+# BLOG_BASE_URL      — e.g. https://noahstransky.github.io/social-hotspot-daily
+# FROM_EMAIL          — sender email, e.g. newsletter@yourdomain.com
+
+[vars]
+BLOG_BASE_URL = "https://noahstransky.github.io/social-hotspot-daily"
+FROM_EMAIL = "onboarding@resend.dev"

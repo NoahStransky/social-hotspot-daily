@@ -158,6 +158,8 @@ class BlogGenerator:
                 repo_name = match.group(1)
 
         # Render index.html (today's page)
+        # Analytics & Ads config
+        analytics_config = self.config.get("analytics", {})
         data = {
             "title": self.config.get("title", "Tech Hotspot Daily"),
             "description": self.config.get("description", ""),
@@ -174,6 +176,8 @@ class BlogGenerator:
             "next_date": next_date,
             "has_content": len(items) > 0,
             "trend_analysis": trend_analysis,
+            "ga_measurement_id": analytics_config.get("google_analytics_id", ""),
+            "adsense_client_id": analytics_config.get("google_adsense_id", ""),
         }
         template = self.env.get_template("blog.html")
         html = template.render(**data)
@@ -197,7 +201,7 @@ class BlogGenerator:
 
         # Copy static pages
         template_dir = Path(__file__).parent.parent / "templates"
-        for page in ["subscribe.html", "verify.html", "unsubscribe.html"]:
+        for page in ["subscribe.html", "verify.html", "unsubscribe.html", "privacy-policy.html"]:
             src = template_dir / page
             if src.exists():
                 dst = self.output_dir / page

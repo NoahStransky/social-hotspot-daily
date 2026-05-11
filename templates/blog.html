@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ title }} — {{ date }}</title>
+    <!-- Google tag (gtag.js) - Loaded only after cookie consent -->
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
@@ -939,6 +944,90 @@
                 }
             });
         });
+    </script>
+
+    <!-- Cookie Consent Banner & GA4/AdSense Dynamic Loader -->
+    <div id="cookieConsentBanner" style="position:fixed;bottom:0;left:0;right:0;background:#12121a;border-top:1px solid #252535;padding:16px 24px;z-index:10000;display:none;font-family:'Inter',-apple-system,sans-serif;">
+        <div style="max-width:1200px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;">
+            <p style="color:#8b8ba7;font-size:14px;margin:0;flex:1;min-width:200px;">
+                We use cookies to improve your experience and show relevant ads.
+                <a href="/privacy-policy.html" style="color:#6366f1;text-decoration:underline;">Learn more</a>
+            </p>
+            <div style="display:flex;gap:8px;">
+                <button id="cookieDecline" style="background:#1a1a25;color:#8b8ba7;border:1px solid #252535;padding:8px 20px;border-radius:6px;cursor:pointer;font-size:14px;transition:all .2s;">Decline</button>
+                <button id="cookieAccept" style="background:#6366f1;color:#fff;border:none;padding:8px 20px;border-radius:6px;cursor:pointer;font-size:14px;transition:all .2s;">Accept</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    (function(){
+        var gaId = '{{ ga_measurement_id }}';
+        var adClient = '{{ adsense_client_id }}';
+        var CONSENT_KEY = 'cookie_consent';
+        var banner = document.getElementById('cookieConsentBanner');
+
+        function getConsent() {
+            try { return localStorage.getItem(CONSENT_KEY); } catch(e) { return null; }
+        }
+
+        function setConsent(val) {
+            try { localStorage.setItem(CONSENT_KEY, val); } catch(e) {}
+        }
+
+        function loadGA4() {
+            if (!gaId) return;
+            var s = document.createElement('script');
+            s.src = 'https://www.googletagmanager.com/gtag/js?id=' + gaId;
+            s.async = true;
+            document.head.appendChild(s);
+            gtag('js', new Date());
+            gtag('config', gaId, { 'anonymize_ip': true });
+        }
+
+        function loadAdSense() {
+            if (!adClient) return;
+            var s = document.createElement('script');
+            s.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=' + adClient;
+            s.async = true;
+            s.crossOrigin = 'anonymous';
+            document.head.appendChild(s);
+        }
+
+        function removeAdSense() {
+            var scripts = document.querySelectorAll('script[src*="adsbygoogle.js"]');
+            scripts.forEach(function(s) { s.remove(); });
+        }
+
+        function onAccept() {
+            setConsent('accepted');
+            banner.style.display = 'none';
+            loadGA4();
+            loadAdSense();
+        }
+
+        function onDecline() {
+            setConsent('declined');
+            banner.style.display = 'none';
+            removeAdSense();
+        }
+
+        function init() {
+            var consent = getConsent();
+            if (consent === 'accepted') {
+                loadGA4();
+                loadAdSense();
+            } else if (consent === 'declined') {
+                // do nothing
+            } else {
+                banner.style.display = 'block';
+            }
+        }
+
+        document.getElementById('cookieAccept').addEventListener('click', onAccept);
+        document.getElementById('cookieDecline').addEventListener('click', onDecline);
+        init();
+    })();
     </script>
 </body>
 </html>

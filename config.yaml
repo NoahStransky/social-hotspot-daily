@@ -93,3 +93,10 @@ output:
   local:
     enabled: false
     path: "./output"
+    
+# =============================================================================
+# Analytics & Ads Configuration
+# =============================================================================
+analytics:
+  google_analytics_id: "G-XXXXXXXXXX"  # Placeholder — user fills in
+  google_adsense_id: "ca-pub-XXXXXXXXXXXXXXXX"  # Placeholder — user fills in

@@ -75,9 +75,11 @@ jobs:
           git config user.email "bot@social-hotspot-daily"
 
           # Pull latest main to avoid push rejection
-          # Clean ALL generated files that would conflict with remote
-          git clean -fd docs/ 2>/dev/null || true
-          rm -rf docs/archive/ docs/date/ docs/index.html 2>/dev/null || true
+          # Only remove today's generated files (to avoid conflicts with pull)
+          Y=$(date -u +"%Y")
+          M=$(date -u +"%m")
+          D=$(date -u +"%d")
+          rm -rf "docs/archive/${Y}/${M}/${D}" "docs/date/${TODAY}" docs/index.html 2>/dev/null || true
           git pull --rebase --autostash origin main
 
           # Stage generated content

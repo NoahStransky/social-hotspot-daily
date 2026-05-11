@@ -3,9 +3,9 @@ main = "src/index.ts"
 compatibility_date = "2025-04-01"
 compatibility_flags = ["nodejs_compat"]
 
-# Route: api.hotspot.edgesoft.org/* → this Worker
+# Route: hotspot.edgesoft.org/api/* → this Worker
 routes = [
-  { pattern = "api.hotspot.edgesoft.org/*", zone_id = "52278002c242bfc6de2d3360f20a8c77" }
+  { pattern = "hotspot.edgesoft.org/api/*", zone_id = "52278002c242bfc6de2d3360f20a8c77" }
 ]
 
 # D1 Database Binding

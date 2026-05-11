@@ -21,7 +21,6 @@ export interface Env {
 
 const ALLOWED_ORIGINS = [
   'https://hotspot.edgesoft.org',
-  'https://api.hotspot.edgesoft.org',
   'https://noahstransky.github.io',
   'http://localhost:8787',
   'http://localhost:8788',
@@ -82,7 +81,7 @@ async function sendVerificationEmail(
 ): Promise<boolean> {
   // The verification link points to the Worker's /verify endpoint,
   // which validates the token and redirects to verify.html with a status param.
-  const workerBase = 'https://api.hotspot.edgesoft.org';
+  const workerBase = blogBaseUrl + '/api';
   const verifyUrl = `${workerBase}/verify?token=${token}`;
 
   const htmlContent = `<!DOCTYPE html>

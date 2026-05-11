@@ -20,6 +20,9 @@ database_id = "c1711a3c-ba14-4a04-b961-1c4c1cedba36"
 # BLOG_BASE_URL      — e.g. https://noahstransky.github.io/social-hotspot-daily
 # FROM_EMAIL          — sender email, e.g. newsletter@yourdomain.com
 
+[observability]
+logs = { enabled = true, invocation_logs = true }
+
 [vars]
 BLOG_BASE_URL = "https://noahstransky.github.io/social-hotspot-daily"
 FROM_EMAIL = "onboarding@resend.dev"

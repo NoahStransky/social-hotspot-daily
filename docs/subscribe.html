@@ -40,15 +40,8 @@
             padding: 40px 32px;
             text-align: center;
         }
-        .logo {
-            font-size: 32px;
-            margin-bottom: 8px;
-        }
-        h1 {
-            font-size: 22px;
-            font-weight: 700;
-            margin-bottom: 8px;
-        }
+        .logo { font-size: 32px; margin-bottom: 8px; }
+        h1 { font-size: 22px; font-weight: 700; margin-bottom: 8px; }
         .subtitle {
             color: var(--text-secondary);
             font-size: 15px;
@@ -68,22 +61,14 @@
             color: var(--text-secondary);
             margin-bottom: 12px;
         }
-        .features ul {
-            list-style: none;
-        }
+        .features ul { list-style: none; }
         .features li {
             padding: 6px 0;
             font-size: 14px;
             color: var(--text);
         }
-        .features li::before {
-            content: "✓ ";
-            color: var(--accent);
-            font-weight: 600;
-        }
-        .form-group {
-            margin-bottom: 16px;
-        }
+        .features li::before { content: "✓ "; color: var(--accent); font-weight: 600; }
+        .form-group { margin-bottom: 16px; }
         input[type="email"] {
             width: 100%;
             padding: 14px 16px;
@@ -96,12 +81,8 @@
             outline: none;
             transition: border-color 0.2s;
         }
-        input[type="email"]:focus {
-            border-color: var(--accent);
-        }
-        input[type="email"]::placeholder {
-            color: var(--text-secondary);
-        }
+        input[type="email"]:focus { border-color: var(--accent); }
+        input[type="email"]::placeholder { color: var(--text-secondary); }
         button {
             width: 100%;
             padding: 14px;
@@ -115,15 +96,15 @@
             cursor: pointer;
             transition: all 0.2s;
         }
-        button:hover {
-            background: #5558e0;
-            transform: translateY(-1px);
+        button:hover { background: #5558e0; transform: translateY(-1px); }
+        button:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+        .btn-secondary {
+            background: transparent;
+            border: 1px solid var(--border);
+            font-weight: 500;
+            margin-top: 8px;
         }
-        button:disabled {
-            opacity: 0.6;
-            cursor: not-allowed;
-            transform: none;
-        }
+        .btn-secondary:hover { background: var(--surface-2); }
         .message {
             margin-top: 16px;
             padding: 12px;
@@ -143,6 +124,12 @@
             border: 1px solid var(--error);
             color: var(--error);
         }
+        .info-text {
+            font-size: 13px;
+            color: var(--text-secondary);
+            margin-top: 12px;
+            line-height: 1.5;
+        }
         .privacy {
             margin-top: 20px;
             font-size: 12px;
@@ -155,12 +142,20 @@
             text-decoration: none;
             font-size: 14px;
         }
-        .back-link:hover {
-            color: var(--accent);
+        .back-link:hover { color: var(--accent); }
+        .spinner {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            border: 2px solid rgba(255,255,255,0.3);
+            border-top-color: white;
+            border-radius: 50%;
+            animation: spin 0.6s linear infinite;
+            vertical-align: middle;
+            margin-right: 6px;
         }
-        @media (max-width: 480px) {
-            .container { padding: 32px 20px; }
-        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+        @media (max-width: 480px) { .container { padding: 32px 20px; } }
     </style>
 </head>
 <body>
@@ -182,7 +177,7 @@
 
         <form id="subscribeForm">
             <div class="form-group">
-                <input type="email" id="email" name="email" placeholder="your@email.com" required>
+                <input type="email" id="email" name="email" placeholder="your@email.com" required autocomplete="email">
             </div>
             <button type="submit" id="submitBtn">Subscribe</button>
         </form>
@@ -194,44 +189,128 @@
     </div>
 
     <script>
-        // Since this is a static site on GitHub Pages, we'll use a simple approach:
-        // Store subscriptions locally and provide instructions for manual processing
-        // In production, this would POST to a backend API
+      (function() {
+        // ─── Configuration ──────────────────────────────────────────────────
+        const API_BASE = 'https://social-hotspot-subscribe.qqaachxb001.workers.dev';
 
-        document.getElementById('subscribeForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const email = document.getElementById('email').value;
-            const btn = document.getElementById('submitBtn');
-            const msg = document.getElementById('message');
+        // ─── DOM refs ───────────────────────────────────────────────────────
+        const form = document.getElementById('subscribeForm');
+        const emailInput = document.getElementById('email');
+        const submitBtn = document.getElementById('submitBtn');
+        const msg = document.getElementById('message');
 
-            btn.disabled = true;
-            btn.textContent = 'Processing...';
+        // ─── Helpers ────────────────────────────────────────────────────────
+        function showMessage(text, type) {
+          msg.className = 'message ' + type;
+          msg.innerHTML = text;
+        }
 
-            // Simple email validation
-            if (!email || !email.includes('@')) {
-                msg.className = 'message error';
-                msg.textContent = 'Please enter a valid email address.';
-                btn.disabled = false;
-                btn.textContent = 'Subscribe';
-                return;
+        function setLoading(loading) {
+          submitBtn.disabled = loading;
+          if (loading) {
+            submitBtn.innerHTML = '<span class="spinner"></span>Sending…';
+          } else {
+            submitBtn.textContent = 'Subscribe';
+          }
+        }
+
+        function isValidEmail(email) {
+          return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim());
+        }
+
+        // ─── API call ───────────────────────────────────────────────────────
+        async function subscribe(email) {
+          const resp = await fetch(API_BASE + '/subscribe', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email: email.trim() }),
+          });
+          return { ok: resp.ok, data: await resp.json() };
+        }
+
+        // ─── Resend verification ────────────────────────────────────────────
+        async function resendVerify(email) {
+          const resp = await fetch(API_BASE + '/resend-verify', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email: email.trim() }),
+          });
+          return { ok: resp.ok, data: await resp.json() };
+        }
+
+        // ─── Show email-sent state with resend button ───────────────────────
+        function showEmailSent(email, resendFn) {
+          showMessage(
+            '<strong>📬 Check your inbox!</strong><br><br>' +
+            'We sent a verification email to <strong>' + escapeHtml(email) + '</strong>.<br>' +
+            'Please click the link in the email to confirm your subscription.' +
+            '<br><br>' +
+            '<button id="resendBtn" class="btn-secondary" style="padding:10px 20px;width:auto;font-size:13px;">Resend verification</button>' +
+            '<div class="info-text">Didn\'t receive it? Check spam folder or click the button above.</div>',
+            'success'
+          );
+
+          const resendBtn = document.getElementById('resendBtn');
+          if (resendBtn) {
+            resendBtn.addEventListener('click', async function() {
+              resendBtn.disabled = true;
+              resendBtn.textContent = 'Sending…';
+              const result = await resendFn(email);
+              if (result.ok) {
+                resendBtn.textContent = 'Sent! ✓';
+                setTimeout(() => { resendBtn.textContent = 'Resend verification'; resendBtn.disabled = false; }, 3000);
+              } else {
+                showMessage('❌ ' + (result.data?.error || 'Failed to resend. Please try again.'), 'error');
+                resendBtn.textContent = 'Resend verification';
+                resendBtn.disabled = false;
+              }
+            });
+          }
+        }
+
+        function escapeHtml(str) {
+          const div = document.createElement('div');
+          div.textContent = str;
+          return div.innerHTML;
+        }
+
+        // ─── Form submission ────────────────────────────────────────────────
+        form.addEventListener('submit', async function(e) {
+          e.preventDefault();
+
+          const email = emailInput.value.trim();
+
+          // Client-side validation
+          if (!isValidEmail(email)) {
+            showMessage('Please enter a valid email address.', 'error');
+            return;
+          }
+
+          // Save email for resend
+          const currentEmail = email;
+
+          setLoading(true);
+          showMessage('', 'success'); // clear
+
+          try {
+            const result = await subscribe(currentEmail);
+
+            if (result.ok) {
+              // Success: show email-sent state with resend button
+              form.style.display = 'none';
+              showEmailSent(currentEmail, resendVerify);
+            } else {
+              // Error from API
+              const errMsg = result.data?.error || 'Something went wrong. Please try again.';
+              showMessage('❌ ' + errMsg, 'error');
+              setLoading(false);
             }
-
-            // For GitHub Pages static site, show instructions
-            // In a real deployment with backend, this would be an API call
-            setTimeout(() => {
-                msg.className = 'message success';
-                msg.innerHTML = `
-                    <strong>Thanks for subscribing!</strong><br><br>
-                    We've received your email: <code>${email}</code><br><br>
-                    <strong>Next step:</strong> Please verify your email by clicking the link we'll send you.<br>
-                    (Note: This is a demo. In production, verification emails are sent automatically.)
-                `;
-                btn.textContent = 'Subscribed ✓';
-
-                // Log for debugging (would be sent to server in production)
-                console.log('New subscription:', email);
-            }, 1000);
+          } catch (err) {
+            showMessage('❌ Network error. Please check your connection and try again.', 'error');
+            setLoading(false);
+          }
         });
+      })();
     </script>
 </body>
 </html>

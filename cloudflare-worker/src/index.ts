@@ -78,8 +78,10 @@ async function sendVerificationEmail(
   token: string,
   blogBaseUrl: string,
 ): Promise<boolean> {
-  // The verification link now points to the Worker endpoint which will redirect
-  const verifyUrl = `${blogBaseUrl}/verify.html?token=${token}`;
+  // The verification link points to the Worker's /verify endpoint,
+  // which validates the token and redirects to verify.html with a status param.
+  const workerBase = 'https://social-hotspot-subscribe.qqaachxb001.workers.dev';
+  const verifyUrl = `${workerBase}/verify?token=${token}`;
 
   const htmlContent = `<!DOCTYPE html>
 <html>

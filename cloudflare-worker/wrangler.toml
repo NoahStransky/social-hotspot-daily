@@ -3,9 +3,9 @@ main = "src/index.ts"
 compatibility_date = "2025-04-01"
 compatibility_flags = ["nodejs_compat"]
 
-# Route: api.edgesoft.org/* → this Worker
+# Route: api.hotspot.edgesoft.org/* → this Worker
 routes = [
-  { pattern = "api.edgesoft.org/*", zone_id = "52278002c242bfc6de2d3360f20a8c77" }
+  { pattern = "api.hotspot.edgesoft.org/*", zone_id = "52278002c242bfc6de2d3360f20a8c77" }
 ]
 
 # D1 Database Binding
@@ -21,5 +21,5 @@ database_id = "c1711a3c-ba14-4a04-b961-1c4c1cedba36"
 logs = { enabled = true, invocation_logs = true }
 
 [vars]
-BLOG_BASE_URL = "https://edgesoft.org"
+BLOG_BASE_URL = "https://hotspot.edgesoft.org"
 FROM_EMAIL = "newsletter@edgesoft.org"

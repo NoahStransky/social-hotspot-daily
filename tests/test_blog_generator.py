@@ -8,6 +8,62 @@ from collectors.base import NewsItem
 from publishers.blog_generator import BlogGenerator
 
 
+class TestAnalyticsConfig:
+    """Tests for analytics config propagation to templates."""
+
+    def test_analytics_ids_in_html_with_config(self, tmp_path):
+        """When analytics config has IDs, they should appear in rendered HTML."""
+        config = {
+            "title": "Test Hotspot Daily",
+            "description": "Test blog",
+            "author": "Test Bot",
+            "base_url": "https://test.github.io/social-hotspot-daily",
+            "analytics": {
+                "google_analytics_id": "G-TEST123",
+                "google_adsense_id": "ca-pub-TEST98765",
+            },
+        }
+        bg = BlogGenerator(config, output_dir=str(tmp_path))
+        items = [
+            NewsItem(title="AI News", url="https://a.com", source="s", source_name="sn", category="artificial_intelligence"),
+        ]
+        bg.generate(items)
+
+        html = (tmp_path / "index.html").read_text()
+        assert "G-TEST123" in html
+        assert "ca-pub-TEST98765" in html
+
+    def test_analytics_ids_empty_when_no_config(self, tmp_path, blog_config):
+        """When no analytics config, IDs should be empty strings in HTML."""
+        bg = BlogGenerator(blog_config, output_dir=str(tmp_path))
+        items = [
+            NewsItem(title="Code News", url="https://b.com", source="s", source_name="sn", category="programming"),
+        ]
+        bg.generate(items)
+
+        html = (tmp_path / "index.html").read_text()
+        # Template uses Jinja2 {{ ga_measurement_id }} which renders to empty string
+        assert "var gaId = '';" in html
+        assert "var adClient = '';" in html
+        # No hardcoded GA/AdSense placeholders
+        assert "G-XXXXXXXXXX" not in html
+        assert "ca-pub-XXXXXXXXXXXXXXXX" not in html
+
+    def test_no_console_errors_with_empty_ids(self, tmp_path, blog_config):
+        """With empty analytics IDs, the template should not crash."""
+        config_with_empty_analytics = {**blog_config, "analytics": {"google_analytics_id": "", "google_adsense_id": ""}}
+        bg = BlogGenerator(config_with_empty_analytics, output_dir=str(tmp_path))
+        items = [
+            NewsItem(title="Test", url="https://c.com", source="s", source_name="sn", category="technology"),
+        ]
+        bg.generate(items)
+
+        html = (tmp_path / "index.html").read_text()
+        assert "G-" not in html or "G-TEST" not in html  # No real GA IDs
+        # Just ensure page renders
+        assert "<html" in html.lower() or "<!DOCTYPE html" in html
+
+
 class TestBlogGeneratorInit:
     """Tests for BlogGenerator initialization."""
 

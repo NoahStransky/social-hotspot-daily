@@ -76,11 +76,12 @@ jobs:
 
           # Pull latest main to avoid push rejection
           # Remove untracked generated files that would conflict with pulled changes
-          rm -rf docs/archive/2026 docs/date docs/index.html docs/feed.json 2>/dev/null || true
+          rm -rf docs/archive/2026 docs/date docs/index.html 2>/dev/null || true
           git pull --rebase --autostash origin main
 
-          # Stage generated content
-          git add docs/index.html docs/feed.json docs/archive/ docs/subscribe.html docs/verify.html docs/unsubscribe.html docs/date/
+          # Stage generated content (ignore missing feed.json - might not be generated)
+          git add docs/index.html docs/archive/ docs/subscribe.html docs/verify.html docs/unsubscribe.html docs/date/
+          git add docs/feed.json 2>/dev/null || true
 
           # Commit if there are changes
           if git diff --cached --quiet; then

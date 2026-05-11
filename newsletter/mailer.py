@@ -17,6 +17,43 @@ template_dir = Path(__file__).parent.parent / "templates"
 env = Environment(loader=FileSystemLoader(str(template_dir)))
 
 
+def generate_newsletter_html(items: list, date_str: str) -> str:
+    """Generate HTML newsletter from items list."""
+    items_html = ""
+    for item in items[:15]:
+        items_html += f"""
+    <div style="background:#1a1a25;border-radius:8px;padding:16px;margin-bottom:12px;border:1px solid #252535;">
+        <h3 style="margin:0 0 8px;font-size:16px;"><a href="{item["url"]}" style="color:#6366f1;text-decoration:none;">{item["title"]}</a></h3>
+        <p style="margin:0 0 4px;color:#8b8ba7;font-size:13px;">{item["source"]} · <strong>{item["category"]}</strong></p>
+        <p style="margin:0;color:#e2e2f0;font-size:14px;line-height:1.5;">{item["summary"]}</p>
+        <p style="margin:8px 0 0;color:#10b981;font-size:13px;font-style:italic;">{item.get("insight", "")}</p>
+    </div>"""
+
+    return f"""<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tech Hotspot Daily - {date_str}</title>
+  <style>
+    body {{ font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0a0a0f; color: #e2e2f0; padding: 20px; }}
+    .container {{ max-width: 600px; margin: 0 auto; }}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 style="color:#6366f1;font-size:24px;">📰 Tech Hotspot Daily</h1>
+    <p style="color:#8b8ba7;font-size:14px;margin-bottom:24px;">{date_str}</p>
+    {items_html}
+    <div style="margin-top:24px;padding-top:16px;border-top:1px solid #252535;color:#8b8ba7;font-size:12px;">
+      <p>You received this because you subscribed to Tech Hotspot Daily.</p>
+      <p><a href="{os.environ.get("BLOG_BASE_URL", "https://hotspot.edgesoft.org")}/unsubscribe.html" style="color:#6366f1;">Unsubscribe</a></p>
+    </div>
+  </div>
+</body>
+</html>"""
+
+
 def send_verification_email(email: str, token: str) -> bool:
     """Send verification email to a new subscriber."""
     if not RESEND_API_KEY:

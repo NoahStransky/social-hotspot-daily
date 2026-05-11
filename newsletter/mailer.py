@@ -25,41 +25,34 @@ def send_verification_email(email: str, token: str) -> bool:
 
     verify_url = f"{BASE_URL}/verify.html?token={token}"
 
-    html_content = f"""
-    <!DOCTYPE html>
-    <html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Verify Your Subscription</title>
-        <style>
-            body {{ font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-                   background: #0a0a0f; color: #e2e2f0; padding: 40px 20px; }}
-            .container {{ max-width: 600px; margin: 0 auto; background: #12121a;
-                         border: 1px solid #252535; border-radius: 12px; padding: 40px; }}
-            h1 {{ color: #6366f1; font-size: 24px; margin-bottom: 20px; }}
-            .button {{ display: inline-block; background: #6366f1; color: white;
-                      padding: 14px 32px; border-radius: 8px; text-decoration: none;
-                      font-weight: 600; margin: 20px 0; }}
-            .footer {{ margin-top: 30px; padding-top: 20px; border-top: 1px solid #252535;
-                      color: #8b8ba7; font-size: 12px; }}
-        </style>
-    </head>
-    <body>
-        <div class="container">
-            <h1>📧 Verify Your Subscription</h1>
-            <p>Thank you for subscribing to <strong>Tech Hotspot Daily</strong>!</p>
-            <p>Click the button below to verify your email and start receiving daily tech news.</p>
-            <a href="{verify_url}" class="button">Verify Email</a>
-            <p style="font-size: 13px; color: #8b8ba7;">Or copy this link: {verify_url}</p>
-            <div class="footer">
-                <p>If you didn't request this, you can safely ignore this email.</p>
-                <p>Tech Hotspot Daily — Curated for IT professionals</p>
-            </div>
-        </div>
-    </body>
-    </html>
-    """
+    html_content = f"""<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Verify Your Subscription</title>
+  <style>
+    body {{ font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0a0a0f; color: #e2e2f0; padding: 40px 20px; }}
+    .container {{ max-width: 600px; margin: 0 auto; background: #12121a; border: 1px solid #252535; border-radius: 12px; padding: 40px; }}
+    h1 {{ color: #6366f1; font-size: 24px; margin-bottom: 20px; }}
+    .button {{ display: inline-block; background: #6366f1; color: white; padding: 14px 32px; border-radius: 8px; text-decoration: none; font-weight: 600; margin: 20px 0; }}
+    .footer {{ margin-top: 30px; padding-top: 20px; border-top: 1px solid #252535; color: #8b8ba7; font-size: 12px; }}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>📧 Verify Your Subscription</h1>
+    <p>Thank you for subscribing to <strong>Tech Hotspot Daily</strong>!</p>
+    <p>Click the button below to verify your email and start receiving daily tech news.</p>
+    <a href="{verify_url}" class="button">Verify Email</a>
+    <p style="font-size: 13px; color: #8b8ba7;">Or copy this link: {verify_url}</p>
+    <div class="footer">
+      <p>If you didn't request this, you can safely ignore this email.</p>
+      <p>Tech Hotspot Daily — Curated for IT professionals</p>
+    </div>
+  </div>
+</body>
+</html>"""
 
     try:
         resp = requests.post(
@@ -74,24 +67,18 @@ def send_verification_email(email: str, token: str) -> bool:
                 "subject": "Verify your subscription to Tech Hotspot Daily",
                 "html": html_content,
             },
-            timeout=30,
         )
-        resp.raise_for_status()
+
+        if resp.status_code != 200:
+            print(f"[Mailer] Resend API error ({resp.status_code}): {resp.text}")
+            return False
+
         print(f"[Mailer] Verification email sent to {email}")
         return True
+
     except Exception as e:
-        print(f"[Mailer] Failed to send verification to {email}: {e}")
+        print(f"[Mailer] Failed to send verification email: {e}")
         return False
-
-
-def generate_newsletter_html(items: List[Dict], date_str: str) -> str:
-    """Generate newsletter HTML from news items."""
-    template = env.get_template("email.html")
-    return template.render(
-        date=date_str,
-        items=items,
-        base_url=BASE_URL,
-    )
 
 
 def send_newsletter(subject: str, html_content: str, test_mode: bool = False) -> Dict:
@@ -100,27 +87,18 @@ def send_newsletter(subject: str, html_content: str, test_mode: bool = False) ->
         print("[Mailer] RESEND_API_KEY not configured")
         return {"sent": 0, "failed": 0, "errors": []}
 
+    # Get subscribers
     subscribers = get_verified_subscribers()
-
     if test_mode:
-        # Only send to first subscriber for testing
-        subscribers = subscribers[:1]
-        print(f"[Mailer] TEST MODE: Sending to {subscribers[0]['email'] if subscribers else 'no one'}")
+        subscribers = subscribers[:1]  # Only send to first subscriber in test mode
+        print(f"[Mailer] Test mode: sending to 1 subscriber ({subscribers[0]['email']})")
+    else:
+        print(f"[Mailer] Sending newsletter to {len(subscribers)} subscribers")
 
-    sent = 0
-    failed = 0
-    errors = []
+    results = {"sent": 0, "failed": 0, "errors": []}
 
     for sub in subscribers:
         email = sub["email"]
-
-        # Add unsubscribe link
-        unsubscribe_url = f"{BASE_URL}/unsubscribe.html?email={email}"
-        personalized_html = html_content.replace(
-            "{{UNSUBSCRIBE_URL}}",
-            unsubscribe_url
-        )
-
         try:
             resp = requests.post(
                 "https://api.resend.com/emails",
@@ -132,25 +110,27 @@ def send_newsletter(subject: str, html_content: str, test_mode: bool = False) ->
                     "from": f"Tech Hotspot Daily <{FROM_EMAIL}>",
                     "to": [email],
                     "subject": subject,
-                    "html": personalized_html,
+                    "html": html_content,
                 },
-                timeout=30,
             )
-            resp.raise_for_status()
-            log_send(email, "sent")
-            sent += 1
-            print(f"[Mailer] Sent to {email}")
+
+            if resp.status_code == 200:
+                results["sent"] += 1
+                log_send(email, "newsletter", subject, "sent")
+                print(f"[Mailer] Sent to {email}")
+            else:
+                results["failed"] += 1
+                error_msg = f"Resend API error ({resp.status_code}): {resp.text}"
+                results["errors"].append({"email": email, "error": error_msg})
+                log_send(email, "newsletter", subject, "failed", error_msg)
+                print(f"[Mailer] Failed to send to {email}: {error_msg}")
 
         except Exception as e:
+            results["failed"] += 1
             error_msg = str(e)
-            log_send(email, "failed", error_msg)
-            errors.append({"email": email, "error": error_msg})
-            failed += 1
-            print(f"[Mailer] Failed to send to {email}: {error_msg}")
+            results["errors"].append({"email": email, "error": error_msg})
+            log_send(email, "newsletter", subject, "failed", error_msg)
+            print(f"[Mailer] Exception sending to {email}: {error_msg}")
 
-    return {
-        "sent": sent,
-        "failed": failed,
-        "total": len(subscribers),
-        "errors": errors,
-    }
+    print(f"[Mailer] Newsletter complete: {results['sent']} sent, {results['failed']} failed")
+    return results

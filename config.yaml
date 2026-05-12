@@ -98,5 +98,5 @@ output:
 # Analytics & Ads Configuration
 # =============================================================================
 analytics:
-  google_analytics_id: "G-XXXXXXXXXX"  # Placeholder — user fills in
+  google_analytics_id: "G-ZFSLMLKW0X"  # GA4 Measurement ID
   google_adsense_id: "ca-pub-XXXXXXXXXXXXXXXX"  # Placeholder — user fills in

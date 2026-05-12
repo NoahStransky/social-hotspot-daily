@@ -58,12 +58,14 @@ export async function POST(request: NextRequest) {
     }
 
     const token = generateToken();
+    const sent = await sendVerificationEmail(email, token);
+    if (!sent) {
+      return NextResponse.json({ error: "Failed to send verification email." }, { status: 500 });
+    }
     await db.execute({
       sql: "INSERT INTO subscribers (email, verification_token) VALUES (?, ?)",
       args: [email, token],
     });
-    const sent = await sendVerificationEmail(email, token);
-    if (!sent) return NextResponse.json({ error: "Failed to send verification email." }, { status: 500 });
     return NextResponse.json({ message: "Subscription successful! Please check your email to verify.", email }, { status: 201 });
   } catch (err) {
     console.error(`[Subscribe] Error: ${err}`);

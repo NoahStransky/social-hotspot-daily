@@ -1,12 +1,29 @@
 {
+  "name": "social-hotspot-daily",
+  "version": "0.1.0",
   "private": true,
-  "name": "social-hotspot-daily-api",
-  "description": "Vercel Serverless API for Social Hotspot Daily subscription system",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "collect": "tsx scripts/collect.ts"
+  },
   "dependencies": {
-    "@libsql/client": "^0.14.0"
+    "@libsql/client": "^0.14.0",
+    "cheerio": "^1.2.0",
+    "next": "^15.3.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "rss-parser": "^3.13.0",
+    "snoowrap": "^1.23.0"
   },
   "devDependencies": {
     "@types/node": "^22.0.0",
+    "@types/react": "^19.1.0",
+    "@types/react-dom": "^19.1.0",
+    "@types/snoowrap": "^1.19.0",
+    "tsx": "^4.19.0",
     "typescript": "^5.7.0"
   }
 }

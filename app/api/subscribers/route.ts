@@ -4,7 +4,7 @@ import { getDb } from "@/lib/db";
 export async function GET(request: NextRequest) {
   try {
     const authHeader = request.headers.get("Authorization");
-    const apiKey = process.env.SUBSCRIBERS_API_KEY;
+    const apiKey = process.env.INTERNAL_API_KEY;
 
     if (!authHeader || !apiKey || authHeader !== `Bearer ${apiKey}`) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });

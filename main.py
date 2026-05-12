@@ -91,6 +91,7 @@ def main():
 
     # 4. Generate blog
     blog_config = config.get("output", {}).get("blog", {})
+    blog_config["analytics"] = config.get("analytics", {})
     generator = BlogGenerator(blog_config, output_dir="docs")
     page_path = generator.generate(filtered_items, trend_analysis=trend_analysis)
     blog_url = generator.get_page_url()

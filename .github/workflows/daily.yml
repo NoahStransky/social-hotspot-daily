@@ -28,5 +28,5 @@ jobs:
           YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-          SUBMIT_API_KEY: ${{ secrets.SUBMIT_API_KEY }}
+          INTERNAL_API_KEY: ${{ secrets.INTERNAL_API_KEY }}
           SUBMIT_API_URL: "https://hotspot.edgesoft.org/api/submit-items"

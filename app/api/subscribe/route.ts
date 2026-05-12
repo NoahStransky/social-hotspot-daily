@@ -25,7 +25,7 @@ export async function POST(request: NextRequest) {
     });
 
     if (existing.rows.length > 0) {
-      const row = existing.rows[0] as {
+      const row = existing.rows[0] as unknown as {
         id: number; verified: number; unsubscribed: number; verification_token: string;
       };
 

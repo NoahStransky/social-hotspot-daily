@@ -20,7 +20,7 @@ export async function GET(request: NextRequest) {
       return NextResponse.redirect(new URL("/verify?status=invalid", request.url));
     }
 
-    const row = result.rows[0] as { id: number; verified: number };
+    const row = result.rows[0] as unknown as { id: number; verified: number };
 
     if (row.verified) {
       return NextResponse.redirect(new URL("/verify?status=already", request.url));

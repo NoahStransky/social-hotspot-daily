@@ -21,7 +21,7 @@ export async function GET(request: NextRequest) {
       return NextResponse.json({ status: "not_found", email }, { status: 404 });
     }
 
-    const row = result.rows[0] as {
+    const row = result.rows[0] as unknown as {
       email: string;
       verified: number;
       unsubscribed: number;

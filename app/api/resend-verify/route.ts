@@ -22,7 +22,7 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: "Email not found. Please subscribe first.", email }, { status: 404 });
     }
 
-    const row = result.rows[0] as { id: number; verified: number; verification_token: string | null };
+    const row = result.rows[0] as unknown as { id: number; verified: number; verification_token: string | null };
 
     if (row.verified) {
       return NextResponse.json({ error: "Email is already verified.", email }, { status: 409 });

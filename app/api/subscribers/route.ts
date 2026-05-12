@@ -17,7 +17,7 @@ export async function GET(request: NextRequest) {
     });
 
     const subscribers = result.rows.map((row) => {
-      const r = row as {
+      const r = row as unknown as {
         email: string;
         verified: number;
         unsubscribed: number;

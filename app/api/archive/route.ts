@@ -28,7 +28,7 @@ export async function GET(request: NextRequest) {
     });
 
     const items = itemsResult.rows as unknown as DailyItemRow[];
-    const analysis = (analysisResult.rows[0] as DailyAnalysisRow | undefined) || null;
+    const analysis = (analysisResult.rows[0] as unknown as DailyAnalysisRow | undefined) || null;
 
     return NextResponse.json({ date, items, analysis });
   } catch (err) {

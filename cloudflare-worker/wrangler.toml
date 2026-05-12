@@ -4,15 +4,17 @@ compatibility_date = "2025-04-01"
 compatibility_flags = ["nodejs_compat"]
 
 # Route: hotspot.edgesoft.org/api/* → this Worker
+# CLOUDFLARE_ZONE_ID from environment
 routes = [
-  { pattern = "hotspot.edgesoft.org/api/*", zone_id = "52278002c242bfc6de2d3360f20a8c77" }
+  { pattern = "${CLOUDFLARE_ROUTE}", zone_id = "${CLOUDFLARE_ZONE_ID}" }
 ]
 
 # D1 Database Binding
+# CLOUDFLARE_DATABASE_ID from environment
 [[d1_databases]]
 binding = "DB"
 database_name = "social-hotspot-subscribe-db"
-database_id = "c1711a3c-ba14-4a04-b961-1c4c1cedba36"
+database_id = "${CLOUDFLARE_DATABASE_ID}"
 
 # Secrets (set via `wrangler secret put` or Cloudflare Dashboard):
 # RESEND_API_KEY     — your Resend.com API key
@@ -21,5 +23,5 @@ database_id = "c1711a3c-ba14-4a04-b961-1c4c1cedba36"
 logs = { enabled = true, invocation_logs = true }
 
 [vars]
-BLOG_BASE_URL = "https://hotspot.edgesoft.org"
-FROM_EMAIL = "newsletter@edgesoft.org"
+BLOG_BASE_URL = "${BLOG_BASE_URL}"
+FROM_EMAIL = "${NEWSLETTER_FROM_EMAIL}"

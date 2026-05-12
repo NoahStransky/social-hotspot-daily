@@ -1,12 +1,13 @@
 # Social Hotspot Daily - Configuration
 # 复制为 config.yaml 并填入你的 API keys
+# 也可以在 .env 文件中设置环境变量，config.yaml 会自动读取
 
 # =============================================================================
 # LLM Provider (DeepSeek) - 用于 AI 分类和摘要
 # =============================================================================
 deepseek:
   api_key: "${DEEPSEEK_API_KEY}"
-  model: "deepseek-v4-flash"
+  model: "${DEEPSEEK_MODEL:-deepseek-v4-flash}"
 
 # =============================================================================
 # Data Sources - 开关和配置
@@ -16,7 +17,6 @@ sources:
     enabled: true
     bearer_token: "${TWITTER_BEARER_TOKEN}"
     max_results: 20
-    # 抓取 IT/AI 相关的热门账号推文
     target_accounts:
       - "ylecun"
       - "karpathy"
@@ -76,27 +76,24 @@ ai_filter:
 # Output Settings
 # =============================================================================
 output:
-  # GitHub Pages 博客设置
   blog:
-    title: "Tech Hotspot Daily"
-    description: "每日全球科技热点聚合"
-    author: "Social Hotspot Bot"
-    base_url: "https://edgesoft.org"
+    title: "${BLOG_TITLE:-Tech Hotspot Daily}"
+    description: "${BLOG_DESCRIPTION:-每日全球科技热点聚合}"
+    author: "${BLOG_AUTHOR:-Social Hotspot Bot}"
+    base_url: "${BLOG_BASE_URL}"
     
-  # Telegram 推送
   telegram:
     enabled: true
     bot_token: "${TELEGRAM_BOT_TOKEN}"
     chat_id: "${TELEGRAM_CHAT_ID}"
     
-  # 本地保存（GitHub Actions 中不需要）
   local:
     enabled: false
     path: "./output"
-    
+
 # =============================================================================
 # Analytics & Ads Configuration
 # =============================================================================
 analytics:
-  google_analytics_id: "G-ZFSLMLKW0X"  # GA4 Measurement ID
-  google_adsense_id: "ca-pub-XXXXXXXXXXXXXXXX"  # Placeholder — user fills in
+  google_analytics_id: "${GA_MEASUREMENT_ID}"
+  google_adsense_id: "${ADSENSE_CLIENT_ID}"

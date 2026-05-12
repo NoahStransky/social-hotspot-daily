@@ -25,9 +25,13 @@ def load_config():
     raw = config_path.read_text()
     
     # Simple env var substitution: ${VAR} -> value
+    # Supports ${VAR:-default} for optional vars with defaults
     import re
     def replace_env(match):
         var = match.group(1)
+        if ":-" in var:
+            name, default = var.split(":-", 1)
+            return os.environ.get(name, default)
         return os.environ.get(var, "")
     
     raw = re.sub(r'\$\{([^}]+)\}', replace_env, raw)

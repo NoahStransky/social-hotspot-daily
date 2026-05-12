@@ -14,4 +14,5 @@ build/
 htmlcov/
 data/*.db
 .env
+.env.prod
 .solo/

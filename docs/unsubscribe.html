@@ -12,6 +12,8 @@
             --text: #e2e2f0;
             --text-secondary: #8b8ba7;
             --accent: #6366f1;
+            --success: #10b981;
+            --error: #ef4444;
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
@@ -43,14 +45,49 @@
             text-decoration: none;
             font-size: 14px;
         }
+        .back-link:hover { text-decoration: underline; }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="icon">👋</div>
-        <h1>Unsubscribe</h1>
-        <p>You have been successfully unsubscribed from Tech Hotspot Daily.<br><br>We're sorry to see you go. If you change your mind, you can always <a href="subscribe.html" style="color: var(--accent);">subscribe again</a>.</p>
+        <div class="icon" id="icon">👋</div>
+        <h1 id="title">Unsubscribe</h1>
+        <p id="message">Processing your request...</p>
         <a href="index.html" class="back-link">← Back to Daily Report</a>
     </div>
+
+    <script>
+        const status = new URLSearchParams(window.location.search).get('status');
+        const icon = document.getElementById('icon');
+        const title = document.getElementById('title');
+        const message = document.getElementById('message');
+
+        switch (status) {
+            case 'success':
+                icon.textContent = '✅';
+                title.textContent = 'Unsubscribed';
+                message.innerHTML = 'You have been successfully unsubscribed from Tech Hotspot Daily.<br><br>We\'re sorry to see you go. If you change your mind, you can always <a href="subscribe.html" style="color: var(--accent);">subscribe again</a>.';
+                break;
+            case 'invalid':
+                icon.textContent = '❌';
+                title.textContent = 'Invalid Email';
+                message.textContent = 'The email address provided is not valid.';
+                break;
+            case 'notfound':
+                icon.textContent = '🔍';
+                title.textContent = 'Email Not Found';
+                message.textContent = 'This email was not found in our subscriber list.';
+                break;
+            case 'error':
+                icon.textContent = '⚠️';
+                title.textContent = 'Something Went Wrong';
+                message.innerHTML = 'An error occurred. Please try again or <a href="subscribe.html" style="color: var(--accent);">subscribe again</a>.';
+                break;
+            default:
+                icon.textContent = '👋';
+                title.textContent = 'Unsubscribed';
+                message.innerHTML = 'You have been successfully unsubscribed from Tech Hotspot Daily.<br><br>If you change your mind, you can always <a href="subscribe.html" style="color: var(--accent);">subscribe again</a>.';
+        }
+    </script>
 </body>
 </html>

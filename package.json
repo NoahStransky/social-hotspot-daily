@@ -1,0 +1,12 @@
+{
+  "private": true,
+  "name": "social-hotspot-daily-api",
+  "description": "Vercel Serverless API for Social Hotspot Daily subscription system",
+  "dependencies": {
+    "@libsql/client": "^0.14.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "typescript": "^5.7.0"
+  }
+}

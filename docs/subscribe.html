@@ -6,6 +6,7 @@
     <title>Subscribe — Tech Hotspot Daily</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
     <style>
         :root {
             --bg: #0a0a0f;
@@ -102,6 +103,11 @@
         input[type="email"]::placeholder {
             color: var(--text-secondary);
         }
+        .cf-turnstile {
+            margin-bottom: 16px;
+            display: flex;
+            justify-content: center;
+        }
         button {
             width: 100%;
             padding: 14px;
@@ -184,6 +190,7 @@
             <div class="form-group">
                 <input type="email" id="email" name="email" placeholder="your@email.com" required>
             </div>
+            <div class="cf-turnstile" data-sitekey="0x4AAAAAADNpNH0Lt6fj8DKd" data-theme="dark" data-callback="onTurnstileSuccess"></div>
             <button type="submit" id="submitBtn">Subscribe</button>
         </form>
 
@@ -194,43 +201,59 @@
     </div>
 
     <script>
-        // Since this is a static site on GitHub Pages, we'll use a simple approach:
-        // Store subscriptions locally and provide instructions for manual processing
-        // In production, this would POST to a backend API
+        const API_BASE = 'https://hotspot.edgesoft.org/api';
 
-        document.getElementById('subscribeForm').addEventListener('submit', function(e) {
+        let turnstileToken = '';
+
+        function onTurnstileSuccess(token) {
+            turnstileToken = token;
+        }
+
+        document.getElementById('subscribeForm').addEventListener('submit', async function(e) {
             e.preventDefault();
             const email = document.getElementById('email').value;
             const btn = document.getElementById('submitBtn');
             const msg = document.getElementById('message');
 
-            btn.disabled = true;
-            btn.textContent = 'Processing...';
-
-            // Simple email validation
-            if (!email || !email.includes('@')) {
+            if (!turnstileToken) {
                 msg.className = 'message error';
-                msg.textContent = 'Please enter a valid email address.';
-                btn.disabled = false;
-                btn.textContent = 'Subscribe';
+                msg.textContent = 'Please complete the bot verification.';
                 return;
             }
 
-            // For GitHub Pages static site, show instructions
-            // In a real deployment with backend, this would be an API call
-            setTimeout(() => {
-                msg.className = 'message success';
-                msg.innerHTML = `
-                    <strong>Thanks for subscribing!</strong><br><br>
-                    We've received your email: <code>${email}</code><br><br>
-                    <strong>Next step:</strong> Please verify your email by clicking the link we'll send you.<br>
-                    (Note: This is a demo. In production, verification emails are sent automatically.)
-                `;
-                btn.textContent = 'Subscribed ✓';
+            btn.disabled = true;
+            btn.textContent = 'Processing...';
+            msg.style.display = 'none';
 
-                // Log for debugging (would be sent to server in production)
-                console.log('New subscription:', email);
-            }, 1000);
+            try {
+                const resp = await fetch(API_BASE + '/subscribe', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email, turnstile_token: turnstileToken }),
+                });
+                const data = await resp.json();
+
+                if (resp.ok) {
+                    msg.className = 'message success';
+                    msg.innerHTML = `<strong>${data.message}</strong>`;
+                    btn.textContent = 'Subscribed ✓';
+                } else {
+                    msg.className = 'message error';
+                    msg.textContent = data.error || 'Something went wrong.';
+                    btn.disabled = false;
+                    btn.textContent = 'Subscribe';
+                    // Reset Turnstile widget
+                    if (window.turnstile) {
+                        turnstile.reset();
+                    }
+                    turnstileToken = '';
+                }
+            } catch (err) {
+                msg.className = 'message error';
+                msg.textContent = 'Network error. Please try again.';
+                btn.disabled = false;
+                btn.textContent = 'Subscribe';
+            }
         });
     </script>
 </body>

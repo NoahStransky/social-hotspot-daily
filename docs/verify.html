@@ -48,6 +48,7 @@
             text-decoration: none;
             font-size: 14px;
         }
+        .back-link:hover { text-decoration: underline; }
     </style>
 </head>
 <body>
@@ -59,30 +60,36 @@
     </div>
 
     <script>
-        const params = new URLSearchParams(window.location.search);
-        const token = params.get('token');
-        const email = params.get('email');
-
+        const status = new URLSearchParams(window.location.search).get('status');
         const icon = document.getElementById('icon');
         const title = document.getElementById('title');
         const message = document.getElementById('message');
 
-        if (token) {
-            // In production, this would verify the token with the backend
-            // For static demo, show success message
-            setTimeout(() => {
+        switch (status) {
+            case 'success':
                 icon.textContent = '✅';
                 title.textContent = 'Subscription Verified!';
-                message.innerHTML = 'Thank you! You will now receive daily tech news in your inbox.<br><br>First email coming tomorrow morning.';
-            }, 1500);
-        } else if (email) {
-            icon.textContent = '✅';
-            title.textContent = 'Unsubscribed';
-            message.textContent = 'You have been successfully unsubscribed. Sorry to see you go!';
-        } else {
-            icon.textContent = '❌';
-            title.textContent = 'Invalid Link';
-            message.textContent = 'This verification link is invalid or has expired.';
+                message.innerHTML = 'Thank you! You will now receive daily tech news in your inbox.<br><br>Your first email is coming tomorrow morning.';
+                break;
+            case 'already':
+                icon.textContent = '👍';
+                title.textContent = 'Already Verified';
+                message.textContent = 'This email was already verified. You\'re all set!';
+                break;
+            case 'invalid':
+                icon.textContent = '❌';
+                title.textContent = 'Invalid Link';
+                message.textContent = 'This verification link is invalid or has expired. Please try subscribing again.';
+                break;
+            case 'error':
+                icon.textContent = '⚠️';
+                title.textContent = 'Something Went Wrong';
+                message.innerHTML = 'An error occurred. Please try again or <a href="subscribe.html" style="color: var(--accent);">subscribe again</a>.';
+                break;
+            default:
+                icon.textContent = '❌';
+                title.textContent = 'Invalid Link';
+                message.textContent = 'This verification link is invalid or has expired.';
         }
     </script>
 </body>

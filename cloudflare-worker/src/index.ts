@@ -15,6 +15,7 @@ export interface Env {
   RESEND_API_KEY: string;
   BLOG_BASE_URL: string;
   FROM_EMAIL: string;
+  SUBSCRIBERS_API_KEY: string;
 }
 
 // ─── CORS ────────────────────────────────────────────────────────────────────
@@ -378,6 +379,18 @@ async function handleHealth(_request: Request, env: Env, cors: HeadersInit): Pro
   }
 }
 
+async function handleApiSubscribers(_request: Request, env: Env, cors: HeadersInit): Promise<Response> {
+  try {
+    const { results } = await env.DB.prepare(
+      'SELECT email, verified, unsubscribed, created_at, verified_at FROM subscribers WHERE verified = 1 AND unsubscribed = 0 ORDER BY created_at DESC'
+    ).all<{ email: string; verified: number; unsubscribed: number; created_at: string; verified_at: string | null }>();
+    return jsonResponse({ subscribers: results, count: results.length }, 200, cors);
+  } catch (err) {
+    console.error(`[Worker] API subscribers error: ${err}`);
+    return jsonResponse({ error: 'Internal server error.' }, 500, cors);
+  }
+}
+
 // ─── Router ──────────────────────────────────────────────────────────────────
 
 export default {
@@ -420,6 +433,18 @@ export default {
 
       if (method === 'GET' && path === '/health') {
         return await handleHealth(request, env, cors);
+      }
+
+      // ─── Authenticated endpoints ──────────────────────────────────────────
+      // Protected by SUBSCRIBERS_API_KEY env var for GitHub Actions access
+
+      if (method === 'GET' && path === '/api/subscribers') {
+        const authHeader = request.headers.get('Authorization') || '';
+        const apiKey = env.SUBSCRIBERS_API_KEY;
+        if (!apiKey || authHeader !== `Bearer ${apiKey}`) {
+          return jsonResponse({ error: 'Unauthorized' }, 401, cors);
+        }
+        return await handleApiSubscribers(request, env, cors);
       }
 
       // 404 for everything else

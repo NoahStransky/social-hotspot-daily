@@ -150,7 +150,7 @@ def get_stats() -> Dict:
     }
 
 
-def log_send(email: str, status: str, error: Optional[str] = None) -> None:
+def log_send(email: str, type_: str, subject: str = "", status: str = "", error: Optional[str] = None) -> None:
     """Log an email send attempt."""
     conn = sqlite3.connect(str(DB_PATH))
     cursor = conn.cursor()

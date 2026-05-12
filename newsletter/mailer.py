@@ -10,7 +10,33 @@ from .db import get_verified_subscribers, log_send
 
 RESEND_API_KEY = os.environ.get("RESEND_API_KEY", "")
 FROM_EMAIL = os.environ.get("NEWSLETTER_FROM_EMAIL", "newsletter@yourdomain.com")
-BASE_URL = os.environ.get("BLOG_BASE_URL", "https://edgesoft.org")
+BASE_URL = os.environ.get("BLOG_BASE_URL", "https://hotspot.edgesoft.org")
+
+# --- Subscriber source ---
+# Subscribers are stored in the Cloudflare Worker's D1 database.
+# GitHub Actions fetches them via the Worker's API endpoint.
+WORKER_SUBSCRIBERS_API = os.environ.get("WORKER_SUBSCRIBERS_API", "")
+WORKER_API_KEY = os.environ.get("WORKER_API_KEY", "")
+
+def _fetch_subscribers_from_worker() -> List[Dict]:
+    """Fetch verified subscribers from the Cloudflare Worker API."""
+    if not WORKER_SUBSCRIBERS_API or not WORKER_API_KEY:
+        return []  # Fall back to local DB if not configured
+    try:
+        resp = requests.get(
+            WORKER_SUBSCRIBERS_API,
+            headers={"Authorization": f"Bearer {WORKER_API_KEY}"},
+            timeout=15,
+        )
+        if resp.status_code == 200:
+            data = resp.json()
+            return data.get("subscribers", [])
+        else:
+            print(f"[Mailer] Worker API error ({resp.status_code}): {resp.text}")
+            return []
+    except Exception as e:
+        print(f"[Mailer] Failed to fetch subscribers from Worker: {e}")
+        return []
 
 # Setup Jinja2 for email templates
 template_dir = Path(__file__).parent.parent / "templates"
@@ -124,8 +150,14 @@ def send_newsletter(subject: str, html_content: str, test_mode: bool = False) ->
         print("[Mailer] RESEND_API_KEY not configured")
         return {"sent": 0, "failed": 0, "errors": []}
 
-    # Get subscribers
-    subscribers = get_verified_subscribers()
+    # Get subscribers — prefer Worker API, fall back to local SQLite
+    subscribers = _fetch_subscribers_from_worker()
+    if not subscribers:
+        subscribers = get_verified_subscribers()
+    if not subscribers:
+        print("[Mailer] No verified subscribers found. Skipping newsletter.")
+        return {"sent": 0, "failed": 0, "errors": []}
+
     if test_mode:
         subscribers = subscribers[:1]  # Only send to first subscriber in test mode
         print(f"[Mailer] Test mode: sending to 1 subscriber ({subscribers[0]['email']})")

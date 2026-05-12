@@ -102,30 +102,27 @@ def main():
     print("-" * 30)
     init_db()
     stats = get_stats()
-    print(f"📊 Subscribers: {stats['active']} active, {stats['pending_verification']} pending")
-    
-    if stats['active'] > 0:
-        from datetime import datetime, timezone
-        date_str = datetime.now(timezone.utc).strftime("%B %d, %Y")
-        subject = f"📰 Tech Hotspot Daily — {date_str}"
-        
-        # Prepare email items
-        email_items = []
-        for item in filtered_items[:15]:  # Top 15 for email
-            email_items.append({
-                "title": item.raw_data.get("english_title", item.title),
-                "url": item.url,
-                "summary": item.summary,
-                "insight": item.raw_data.get("insight", ""),
-                "source": item.source_name,
-                "category": item.category.replace("_", " ").title(),
-            })
-        
-        html = generate_newsletter_html(email_items, date_str)
-        result = send_newsletter(subject, html, test_mode=False)
-        print(f"📧 Newsletter sent: {result['sent']} success, {result['failed']} failed")
-    else:
-        print("📧 No active subscribers yet. Skipping newsletter.")
+    print(f"📊 Local subscribers: {stats['active']} active, {stats['pending_verification']} pending")
+
+    from datetime import datetime, timezone
+    date_str = datetime.now(timezone.utc).strftime("%B %d, %Y")
+    subject = f"📰 Tech Hotspot Daily — {date_str}"
+
+    # Prepare email items
+    email_items = []
+    for item in filtered_items[:15]:  # Top 15 for email
+        email_items.append({
+            "title": item.raw_data.get("english_title", item.title),
+            "url": item.url,
+            "summary": item.summary,
+            "insight": item.raw_data.get("insight", ""),
+            "source": item.source_name,
+            "category": item.category.replace("_", " ").title(),
+        })
+
+    html = generate_newsletter_html(email_items, date_str)
+    result = send_newsletter(subject, html, test_mode=False)
+    print(f"📧 Newsletter: {result['sent']} sent, {result['failed']} failed")
     
     # 6. Send Telegram notification
     tg_config = config.get("output", {}).get("telegram", {})

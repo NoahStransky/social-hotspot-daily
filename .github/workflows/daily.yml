@@ -49,6 +49,8 @@ jobs:
           BLOG_BASE_URL: ${{ vars.BLOG_BASE_URL }}
           GA_MEASUREMENT_ID: ${{ vars.GA_MEASUREMENT_ID }}
           ADSENSE_CLIENT_ID: ${{ vars.ADSENSE_CLIENT_ID }}
+          WORKER_SUBSCRIBERS_API: ${{ vars.WORKER_SUBSCRIBERS_API }}
+          WORKER_API_KEY: ${{ secrets.WORKER_API_KEY }}
         run: |
           python main.py
 

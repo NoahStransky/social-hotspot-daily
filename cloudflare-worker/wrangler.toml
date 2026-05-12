@@ -17,7 +17,8 @@ database_name = "social-hotspot-subscribe-db"
 database_id = "${CLOUDFLARE_DATABASE_ID}"
 
 # Secrets (set via `wrangler secret put` or Cloudflare Dashboard):
-# RESEND_API_KEY     — your Resend.com API key
+# RESEND_API_KEY        — your Resend.com API key
+# SUBSCRIBERS_API_KEY   — API key for GitHub Actions to fetch subscriber list
 
 [observability]
 logs = { enabled = true, invocation_logs = true }

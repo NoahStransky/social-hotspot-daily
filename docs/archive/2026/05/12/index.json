@@ -1,0 +1,455 @@
+{
+  "date": "2026-05-12",
+  "items": [
+    {
+      "title": "Postmortem: TanStack npm supply-chain compromise",
+      "url": "https://tanstack.com/blog/npm-supply-chain-compromise-postmortem",
+      "source": "Hacker News",
+      "source_name": "Hacker News",
+      "category": "cybersecurity",
+      "summary": "An analysis of the recent supply-chain attack on TanStack npm packages, detailing the compromise and postmortem findings.",
+      "insight": "Supply-chain attacks are a critical threat in the open-source ecosystem. Understanding how TanStack responded helps IT professionals strengthen their own security practices and dependency management.",
+      "english_title": "Postmortem: TanStack npm supply-chain compromise",
+      "recommendation": {
+        "level": "must_read",
+        "read_time": "5 min",
+        "relevance_to_tech": "high"
+      }
+    },
+    {
+      "title": "Google says criminal hackers used AI to find a major software flaw",
+      "url": "https://www.nytimes.com/2026/05/11/us/politics/google-hackers-attack-ai.html",
+      "source": "Hacker News",
+      "source_name": "Hacker News",
+      "category": "cybersecurity",
+      "summary": "Google reports that criminal hackers used AI to discover a significant software vulnerability, marking a new frontier in cyber threats.",
+      "insight": "This demonstrates the offensive use of AI in cybersecurity, forcing defenses to evolve. IT professionals must understand that AI-powered attacks are now a reality and adjust their security strategies accordingly.",
+      "english_title": "Google says criminal hackers used AI to find a major software flaw",
+      "recommendation": {
+        "level": "must_read",
+        "read_time": "4 min",
+        "relevance_to_tech": "high"
+      }
+    },
+    {
+      "title": "Training an LLM in Swift, Part 1: Taking matrix mult from Gflop/s to Tflop/s",
+      "url": "https://www.cocoawithlove.com/blog/matrix-multiplications-swift.html",
+      "source": "Hacker News",
+      "source_name": "Hacker News",
+      "category": "artificial_intelligence",
+      "summary": "Part 1 of a series on training an LLM in Swift, focusing on optimizing matrix multiplication from Gflop/s to Tflop/s.",
+      "insight": "This series is highly relevant for AI engineers and performance enthusiasts, showcasing how Swift can be used for high-performance machine learning. It provides deep technical insights into optimization techniques.",
+      "english_title": "Training an LLM in Swift, Part 1: Taking matrix mult from Gflop/s to Tflop/s",
+      "recommendation": {
+        "level": "must_read",
+        "read_time": "6 min",
+        "relevance_to_tech": "high"
+      }
+    },
+    {
+      "title": "GM just laid off hundreds of IT workers to hire those with stronger AI skills",
+      "url": "https://techcrunch.com/2026/05/11/gm-just-laid-off-hundreds-of-it-workers-to-hire-those-with-stronger-ai-skills/",
+      "source": "techcrunch.com",
+      "source_name": "techcrunch.com",
+      "category": "artificial_intelligence",
+      "summary": "General Motors laid off hundreds of IT workers and plans to hire employees with stronger AI skills, reflecting a major corporate shift toward AI.",
+      "insight": "This highlights the critical importance of AI skills in the IT workforce. IT professionals should consider upskilling in AI to remain competitive as companies restructure their tech teams.",
+      "english_title": "GM just laid off hundreds of IT workers to hire those with stronger AI skills",
+      "recommendation": {
+        "level": "must_read",
+        "read_time": "2 min",
+        "relevance_to_tech": "high"
+      }
+    },
+    {
+      "title": "Gmail registration now requires scanning a QR code and sending a text message",
+      "url": "https://discuss.privacyguides.net/t/google-account-registration-now-requires-sending-an-sms-via-phone-instead-of-receiving-an-sms/36082",
+      "source": "Hacker News",
+      "source_name": "Hacker News",
+      "category": "cybersecurity",
+      "summary": "Google announces that new Gmail registrations now require scanning a QR code and sending a text message as an additional verification step.",
+      "insight": "This change impacts user onboarding and security. IT admins should be aware of this extra friction for users and consider how it affects account management and support.",
+      "english_title": "Gmail registration now requires scanning a QR code and sending a text message",
+      "recommendation": {
+        "level": "must_read",
+        "read_time": "2 min",
+        "relevance_to_tech": "high"
+      }
+    },
+    {
+      "title": "Interfaze: A new model architecture built for high accuracy at scale",
+      "url": "https://interfaze.ai/blog/interfaze-a-new-model-architecture-built-for-high-accuracy-at-scale",
+      "source": "Hacker News",
+      "source_name": "Hacker News",
+      "category": "artificial_intelligence",
+      "summary": "Interfaze is a new model architecture designed for high accuracy at scale, relevant for large-scale machine learning tasks.",
+      "insight": "IT professionals in AI/ML should explore this architecture as it may offer improvements in accuracy and scalability over existing models, potentially influencing future model design and deployment strategies.",
+      "english_title": "Interfaze: A new model architecture built for high accuracy at scale",
+      "recommendation": {
+        "level": "must_read",
+        "read_time": "2 min",
+        "relevance_to_tech": "high"
+      }
+    },
+    {
+      "title": "Apple brings encrypted RCS chats to iPhone",
+      "url": "https://www.theverge.com/tech/928141/apple-ios-26-5-rcs-messages-iphone-google-android",
+      "source": "www.theverge.com",
+      "source_name": "www.theverge.com",
+      "category": "cybersecurity",
+      "summary": "Apple adds end-to-end encryption to RCS messages on iPhone, improving cross-platform chat security.",
+      "insight": "This is a major advancement in messaging security, making cross-platform communication more private. IT professionals should update internal policies and educate users about the new encryption status.",
+      "english_title": "Apple brings encrypted RCS chats to iPhone",
+      "recommendation": {
+        "level": "must_read",
+        "read_time": "3 min",
+        "relevance_to_tech": "high"
+      }
+    },
+    {
+      "title": "Google stopped a zero-day hack that it says was developed with AI",
+      "url": "https://www.theverge.com/tech/928007/google-ai-zero-day-exploit-stopped",
+      "source": "www.theverge.com",
+      "source_name": "www.theverge.com",
+      "category": "cybersecurity",
+      "summary": "Google prevented a zero-day exploit that was allegedly developed using artificial intelligence.",
+      "insight": "This demonstrates the double-edged nature of AI in cybersecurity. IT professionals must prepare for AI-assisted attacks and invest in AI-driven defensive measures.",
+      "english_title": "Google stopped a zero-day hack that it says was developed with AI",
+      "recommendation": {
+        "level": "must_read",
+        "read_time": "3 min",
+        "relevance_to_tech": "high"
+      }
+    },
+    {
+      "title": "A million baby monitors and security cameras were easily viewable by hackers",
+      "url": "https://www.theverge.com/tech/926487/meari-technology-hack-baby-monitor-security-camera",
+      "source": "www.theverge.com",
+      "source_name": "www.theverge.com",
+      "category": "cybersecurity",
+      "summary": "A vulnerability exposed over a million baby monitors and security cameras, allowing hackers easy access.",
+      "insight": "This massive IoT security failure is a stark reminder of the risks in connected devices. IT professionals must ensure all networked cameras and IoT devices are properly secured with updated firmware and strong passwords.",
+      "english_title": "A million baby monitors and security cameras were easily viewable by hackers",
+      "recommendation": {
+        "level": "must_read",
+        "read_time": "3 min",
+        "relevance_to_tech": "high"
+      }
+    },
+    {
+      "title": "Anthropic says ‘evil’ portrayals of AI were responsible for Claude’s blackmail attempts",
+      "url": "https://techcrunch.com/2026/05/10/anthropic-says-evil-portrayals-of-ai-were-responsible-for-claudes-blackmail-attempts/",
+      "source": "techcrunch.com",
+      "source_name": "techcrunch.com",
+      "category": "artificial_intelligence",
+      "summary": "Anthropic claims that 'evil' portrayals of AI in training data led to Claude generating blackmail-like responses.",
+      "insight": "This underscores critical AI safety and alignment challenges. IT professionals building or deploying AI systems must prioritize data curation and red-teaming to prevent harmful outputs.",
+      "english_title": "Anthropic says ‘evil’ portrayals of AI were responsible for Claude’s blackmail attempts",
+      "recommendation": {
+        "level": "must_read",
+        "read_time": "3 min",
+        "relevance_to_tech": "high"
+      }
+    },
+    {
+      "title": "If AI writes your code, why use Python?",
+      "url": "https://medium.com/@NMitchem/if-ai-writes-your-code-why-use-python-bf8c4ba1a055",
+      "source": "Hacker News",
+      "source_name": "Hacker News",
+      "category": "artificial_intelligence",
+      "summary": "Explores the argument that if AI can generate code in any language, the choice of Python may become less important for developers.",
+      "insight": "This piece challenges assumptions about language relevance in an AI-driven development world. IT pros should consider how AI tools might reshape language preferences and skill requirements.",
+      "english_title": "If AI writes your code, why use Python?",
+      "recommendation": {
+        "level": "recommended",
+        "read_time": "4 min",
+        "relevance_to_tech": "high"
+      }
+    },
+    {
+      "title": "Finally, texts between Android and iPhone users can be end-to-end encrypted",
+      "url": "https://techcrunch.com/2026/05/11/finally-texts-between-android-and-iphone-users-can-be-end-to-end-encrypted/",
+      "source": "techcrunch.com",
+      "source_name": "techcrunch.com",
+      "category": "cybersecurity",
+      "summary": "End-to-end encryption is now available for texts between Android and iPhone users, likely through RCS or a similar protocol.",
+      "insight": "This development improves cross-platform communication security. IT professionals should understand the implications for enterprise messaging policies and user privacy.",
+      "english_title": "Finally, texts between Android and iPhone users can be end-to-end encrypted",
+      "recommendation": {
+        "level": "recommended",
+        "read_time": "2 min",
+        "relevance_to_tech": "high"
+      }
+    },
+    {
+      "title": "OpenAI just released its answer to Claude Mythos",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/928342/openai-daybreak-security-ai",
+      "source": "www.theverge.com",
+      "source_name": "www.theverge.com",
+      "category": "artificial_intelligence",
+      "summary": "OpenAI releases its own version competing with Anthropic's Claude Mythos, a specialized AI model.",
+      "insight": "This intensifies competition in the AI model space. IT professionals evaluating AI assistants should compare capabilities and costs of these new offerings.",
+      "english_title": "OpenAI just released its answer to Claude Mythos",
+      "recommendation": {
+        "level": "recommended",
+        "read_time": "2 min",
+        "relevance_to_tech": "high"
+      }
+    },
+    {
+      "title": "Yarbo says it will remove the intentional backdoor from its robot lawn mower",
+      "url": "https://www.theverge.com/tech/928289/yarbo-remove-robot-lawn-mower-backdoor",
+      "source": "www.theverge.com",
+      "source_name": "www.theverge.com",
+      "category": "cybersecurity",
+      "summary": "Yarbo states it will remove the intentional backdoor from its robot lawn mower after security concerns.",
+      "insight": "This incident highlights security risks in IoT devices with intentional backdoors. IT professionals managing connected devices should enforce strict security reviews and firmware updates.",
+      "english_title": "Yarbo says it will remove the intentional backdoor from its robot lawn mower",
+      "recommendation": {
+        "level": "recommended",
+        "read_time": "2 min",
+        "relevance_to_tech": "high"
+      }
+    },
+    {
+      "title": "Here&#8217;s what Mira Murati&#8217;s AI company is up to",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/928309/mira-murati-thinking-machines-ai-interaction-model",
+      "source": "www.theverge.com",
+      "source_name": "www.theverge.com",
+      "category": "artificial_intelligence",
+      "summary": "An update on the new AI company founded by former OpenAI CTO Mira Murati.",
+      "insight": "Mira Murati's new venture could signal new directions in AI research and product development. IT professionals should watch for potential innovative tools or frameworks emerging from this team.",
+      "english_title": "Here’s what Mira Murati’s AI company is up to",
+      "recommendation": {
+        "level": "recommended",
+        "read_time": "2 min",
+        "relevance_to_tech": "high"
+      }
+    },
+    {
+      "title": "Texas sues Netflix for advertising &#8216;bait and switch&#8217; and spying",
+      "url": "https://www.theverge.com/streaming/928071/texas-netflix-lawsuit-privacy",
+      "source": "www.theverge.com",
+      "source_name": "www.theverge.com",
+      "category": "cybersecurity",
+      "summary": "Texas files a lawsuit against Netflix alleging deceptive advertising and unauthorized data collection.",
+      "insight": "This legal action raises concerns about data privacy practices in streaming services. IT professionals should review their own data handling compliance and monitor regulatory trends.",
+      "english_title": "Texas sues Netflix for advertising ‘bait and switch’ and spying",
+      "recommendation": {
+        "level": "recommended",
+        "read_time": "2 min",
+        "relevance_to_tech": "high"
+      }
+    },
+    {
+      "title": "Ratty – A terminal emulator with inline 3D graphics",
+      "url": "https://ratty-term.org/",
+      "source": "Hacker News",
+      "source_name": "Hacker News",
+      "category": "programming",
+      "summary": "Ratty is a novel terminal emulator that can render inline 3D graphics, blending terminal and graphical output.",
+      "insight": "This tool pushes the boundaries of what a terminal can do. It may be of interest to developers working on rich CLI tools or those who want to experiment with new terminal capabilities.",
+      "english_title": "Ratty – A terminal emulator with inline 3D graphics",
+      "recommendation": {
+        "level": "recommended",
+        "read_time": "3 min",
+        "relevance_to_tech": "medium"
+      }
+    },
+    {
+      "title": "There aren’t enough rockets for space data centers — Cowboy Space raised $275M to build them",
+      "url": "https://techcrunch.com/2026/05/11/there-arent-enough-rockets-for-space-data-centers-cowboy-space-raised-275-million-to-build-them/",
+      "source": "techcrunch.com",
+      "source_name": "techcrunch.com",
+      "category": "hardware",
+      "summary": "Cowboy Space raised $275 million to build rockets for deploying space data centers, addressing a shortage of launch capacity.",
+      "insight": "Space-based computing is an emerging trend that could impact cloud and data center architecture. IT professionals in infrastructure should monitor this development for future opportunities and challenges.",
+      "english_title": "There aren't enough rockets for space data centers — Cowboy Space raised $275M to build them",
+      "recommendation": {
+        "level": "recommended",
+        "read_time": "2 min",
+        "relevance_to_tech": "medium"
+      }
+    },
+    {
+      "title": "Korea’s biggest manufacturers back Config, the TSMC of robot data",
+      "url": "https://techcrunch.com/2026/05/11/koreas-biggest-manufacturers-back-config-the-tsmc-of-robot-data/",
+      "source": "techcrunch.com",
+      "source_name": "techcrunch.com",
+      "category": "artificial_intelligence",
+      "summary": "Major Korean manufacturers are backing Config, a startup positioning itself as the TSMC of robot data infrastructure.",
+      "insight": "This investment highlights the growing importance of specialized data pipelines for robotics. IT professionals working in AI and IoT should note the trend toward dedicated data infrastructure for autonomous systems.",
+      "english_title": "Korea’s biggest manufacturers back Config, the TSMC of robot data",
+      "recommendation": {
+        "level": "recommended",
+        "read_time": "2 min",
+        "relevance_to_tech": "high"
+      }
+    },
+    {
+      "title": "Digg tries again, this time as an AI news aggregator",
+      "url": "https://techcrunch.com/2026/05/11/digg-tries-again-this-time-as-an-ai-news-aggregator/",
+      "source": "techcrunch.com",
+      "source_name": "techcrunch.com",
+      "category": "artificial_intelligence",
+      "summary": "Digg is relaunching as an AI-powered news aggregator, aiming to use artificial intelligence for content curation.",
+      "insight": "This demonstrates a practical application of AI in content aggregation. IT professionals may be interested in the algorithms and user experience design behind such platforms.",
+      "english_title": "Digg tries again, this time as an AI news aggregator",
+      "recommendation": {
+        "level": "recommended",
+        "read_time": "2 min",
+        "relevance_to_tech": "medium"
+      }
+    },
+    {
+      "title": "Library for fast mapping of Java records to native memory",
+      "url": "https://github.com/mamba-studio/TypedMemory",
+      "source": "Hacker News",
+      "source_name": "Hacker News",
+      "category": "programming",
+      "summary": "A new Java library that enables fast mapping of Java records to native memory, improving performance for low-level data handling.",
+      "insight": "For Java developers working with high-performance or systems-level code, this library could reduce overhead. It's a niche but valuable tool for optimizing memory access patterns.",
+      "english_title": "Library for fast mapping of Java records to native memory",
+      "recommendation": {
+        "level": "notable",
+        "read_time": "2 min",
+        "relevance_to_tech": "medium"
+      }
+    },
+    {
+      "title": "I let AI build a tool to help me figure out what was waking me up at night",
+      "url": "https://martin.sh/i-let-ai-build-a-tool-to-help-me-figure-out-what-was-waking-me-up-at-night/",
+      "source": "Hacker News",
+      "source_name": "Hacker News",
+      "category": "artificial_intelligence",
+      "summary": "A personal story of using AI to build a custom tool that analyzes sleep patterns to identify what wakes the user at night.",
+      "insight": "Demonstrates the power of AI for rapid prototyping and personal problem-solving. IT professionals can gain insights into practical AI application development and the iterative process.",
+      "english_title": "I let AI build a tool to help me figure out what was waking me up at night",
+      "recommendation": {
+        "level": "notable",
+        "read_time": "3 min",
+        "relevance_to_tech": "medium"
+      }
+    },
+    {
+      "title": "GitLab announces workforce reduction and end of their CREDIT values",
+      "url": "https://about.gitlab.com/blog/gitlab-act-2/",
+      "source": "Hacker News",
+      "source_name": "Hacker News",
+      "category": "startup",
+      "summary": "GitLab announces workforce reductions and the discontinuation of their CREDIT values system, signaling strategic shifts.",
+      "insight": "Changes at a major DevOps platform can affect enterprise tooling and pricing. IT professionals relying on GitLab should monitor these developments for potential impacts on their workflows.",
+      "english_title": "GitLab announces workforce reduction and end of their CREDIT values",
+      "recommendation": {
+        "level": "notable",
+        "read_time": "3 min",
+        "relevance_to_tech": "medium"
+      }
+    },
+    {
+      "title": "Daniel Ek-backed defense tech Helsing to raise $1.2B at $18B valuation",
+      "url": "https://techcrunch.com/2026/05/11/daniel-ek-backed-defense-tech-helsing-to-raise-1-2b-at-18b-valuation/",
+      "source": "techcrunch.com",
+      "source_name": "techcrunch.com",
+      "category": "startup",
+      "summary": "Helsing, a defense tech company backed by Daniel Ek, is raising $1.2 billion at an $18 billion valuation, signaling major investment in defense AI.",
+      "insight": "The funding round underscores the rapid growth of defense technology. IT professionals in AI, robotics, or security sectors may find new opportunities in this space.",
+      "english_title": "Daniel Ek-backed defense tech Helsing to raise $1.2B at $18B valuation",
+      "recommendation": {
+        "level": "notable",
+        "read_time": "2 min",
+        "relevance_to_tech": "medium"
+      }
+    },
+    {
+      "title": "Abstract Machines for Logic Programs",
+      "url": "https://chrisistyping.bearblog.dev/abstract-machines-for-logic-programs/",
+      "source": "Hacker News",
+      "source_name": "Hacker News",
+      "category": "programming",
+      "summary": "Discusses abstract machines used in logic programming, relevant to compiler design and language implementation.",
+      "insight": "For developers interested in programming language implementation or logic programming, this provides foundational knowledge. It may not be broadly applicable to most IT roles.",
+      "english_title": "Abstract Machines for Logic Programs",
+      "recommendation": {
+        "level": "notable",
+        "read_time": "3 min",
+        "relevance_to_tech": "medium"
+      }
+    },
+    {
+      "title": "Bild AI (YC W25) Is Hiring Founding Product Engineers",
+      "url": "https://bild.ai/jobs",
+      "source": "Hacker News",
+      "source_name": "Hacker News",
+      "category": "startup",
+      "summary": "Bild AI, a YC-backed AI startup, is hiring founding product engineers, indicating growth in the AI startup ecosystem.",
+      "insight": "This job posting reflects ongoing demand for AI engineering talent. IT professionals interested in startup culture or AI product development may find it relevant.",
+      "english_title": "Bild AI (YC W25) Is Hiring Founding Product Engineers",
+      "recommendation": {
+        "level": "notable",
+        "read_time": "1 min",
+        "relevance_to_tech": "medium"
+      }
+    },
+    {
+      "title": "UCLA discovers first stroke rehabilitation drug to repair brain damage (2025)",
+      "url": "https://stemcell.ucla.edu/news/ucla-discovers-first-stroke-rehabilitation-drug-repair-brain-damage",
+      "source": "Hacker News",
+      "source_name": "Hacker News",
+      "category": "science",
+      "summary": "UCLA researchers announce the first drug that can repair brain damage caused by stroke, a major breakthrough in rehabilitation medicine.",
+      "insight": "While not directly tech-related, this medical breakthrough could eventually intersect with health IT and AI-driven diagnostics. It's good for tech professionals to stay aware of cross-domain innovations.",
+      "english_title": "UCLA discovers first stroke rehabilitation drug to repair brain damage (2025)",
+      "recommendation": {
+        "level": "notable",
+        "read_time": "3 min",
+        "relevance_to_tech": "low"
+      }
+    },
+    {
+      "title": "Griffin PowerMate driver for modern macOS",
+      "url": "https://github.com/jameslockman/Griffin-PowerMate-Driver",
+      "source": "Hacker News",
+      "source_name": "Hacker News",
+      "category": "hardware",
+      "summary": "A new driver enables the classic Griffin PowerMate USB knob to work on modern macOS versions.",
+      "insight": "Useful for the niche community that still uses this legacy device, but not broadly relevant to most IT professionals.",
+      "english_title": "Griffin PowerMate driver for modern macOS",
+      "recommendation": {
+        "level": "notable",
+        "read_time": "1 min",
+        "relevance_to_tech": "low"
+      }
+    },
+    {
+      "title": "Interaction Models",
+      "url": "https://thinkingmachines.ai/blog/interaction-models/",
+      "source": "Hacker News",
+      "source_name": "Hacker News",
+      "category": "other",
+      "summary": "The article discusses models for human-computer interaction or system interactions, likely covering design patterns or frameworks.",
+      "insight": "Interaction models are important for UX and system design, but the topic is generic. IT professionals may find it useful if they work in front-end or user experience design.",
+      "english_title": "Interaction Models",
+      "recommendation": {
+        "level": "notable",
+        "read_time": "2 min",
+        "relevance_to_tech": "medium"
+      }
+    },
+    {
+      "title": "Can we code our way out of gentrification?",
+      "url": "https://www.freerange.city/p/can-we-code-our-way-out-of-gentrification",
+      "source": "Hacker News",
+      "source_name": "Hacker News",
+      "category": "other",
+      "summary": "Examines whether software and technology can effectively address the complex social issue of gentrification.",
+      "insight": "Though it touches on the role of tech in society, this article is more about urban planning and social justice. IT professionals may find it thought-provoking but not directly applicable.",
+      "english_title": "Can we code our way out of gentrification?",
+      "recommendation": {
+        "level": "notable",
+        "read_time": "5 min",
+        "relevance_to_tech": "low"
+      }
+    }
+  ]
+}

@@ -14,7 +14,7 @@
  *   YOUTUBE_API_KEY         — optional
  *   TELEGRAM_BOT_TOKEN      — optional (for notifications)
  *   TELEGRAM_CHAT_ID        — optional
- *   SUBMIT_API_KEY          — required (shared with Vercel)
+ *   SUBSCRIBERS_API_KEY     — required (shared with Vercel)
  *   SUBMIT_API_URL          — required (e.g. https://hotspot.edgesoft.org/api/submit-items)
  */
 
@@ -51,12 +51,12 @@ async function main() {
     },
   };
 
-  const apiKey = process.env.SUBMIT_API_KEY;
+  const apiKey = process.env.SUBSCRIBERS_API_KEY;
   const apiUrl = process.env.SUBMIT_API_URL || "https://hotspot.edgesoft.org/api/submit-items";
   const deepseekKey = process.env.DEEPSEEK_API_KEY;
 
   if (!apiKey) {
-    console.error("❌ SUBMIT_API_KEY not set");
+    console.error("❌ SUBSCRIBERS_API_KEY not set");
     process.exit(1);
   }
 

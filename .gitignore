@@ -16,3 +16,4 @@ data/*.db
 .env
 .env.prod
 .solo/
+public/

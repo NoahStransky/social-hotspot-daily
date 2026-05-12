@@ -6,5 +6,7 @@
     "api/index.ts": {
       "maxDuration": 10
     }
-  }
+  },
+  "cleanUrls": true,
+  "buildCommand": "cp -r docs/* . 2>/dev/null || true"
 }

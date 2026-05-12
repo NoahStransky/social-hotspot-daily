@@ -13,6 +13,9 @@ export async function sendVerificationEmail(
 
   const verifyUrl = `${blogBaseUrl}/api/verify?token=${token}`;
 
+  console.log(`[Email] Sending to ${toEmail}, from=${fromEmail}, baseUrl=${blogBaseUrl}`);
+  console.log(`[Email] Verify URL: ${verifyUrl}`);
+
   const htmlContent = `<!DOCTYPE html>
 <html>
 <head>

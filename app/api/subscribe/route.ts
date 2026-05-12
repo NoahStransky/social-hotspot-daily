@@ -58,7 +58,14 @@ export async function POST(request: NextRequest) {
     }
 
     const token = generateToken();
+    console.log(`[Subscribe] Email: ${email}, Token: ${token}`);
+    console.log(`[Subscribe] RESEND_API_KEY: ${process.env.RESEND_API_KEY ? 'YES (len=' + process.env.RESEND_API_KEY.length + ')' : 'NO'}`);
+    console.log(`[Subscribe] FROM_EMAIL: ${process.env.FROM_EMAIL || 'NOT SET'}`);
+    console.log(`[Subscribe] BLOG_BASE_URL: ${process.env.BLOG_BASE_URL || 'NOT SET'}`);
+
     const sent = await sendVerificationEmail(email, token);
+    console.log(`[Subscribe] sendVerificationEmail result: ${sent}`);
+
     if (!sent) {
       return NextResponse.json({ error: "Failed to send verification email." }, { status: 500 });
     }
@@ -66,6 +73,7 @@ export async function POST(request: NextRequest) {
       sql: "INSERT INTO subscribers (email, verification_token) VALUES (?, ?)",
       args: [email, token],
     });
+    console.log(`[Subscribe] DB insert done for ${email}`);
     return NextResponse.json({ message: "Subscription successful! Please check your email to verify.", email }, { status: 201 });
   } catch (err) {
     console.error(`[Subscribe] Error: ${err}`);

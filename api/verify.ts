@@ -1,1 +1,1 @@
-export { GET } from "../controllers/verify.js";
+export { GET } from "./controllers/verify.js";

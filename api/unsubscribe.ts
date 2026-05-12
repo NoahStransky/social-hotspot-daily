@@ -1,1 +1,1 @@
-export { GET } from "../controllers/unsubscribe.js";
+export { GET } from "./controllers/unsubscribe.js";

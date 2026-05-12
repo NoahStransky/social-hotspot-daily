@@ -1,1 +1,1 @@
-export { POST } from "../controllers/subscribe.js";
+export { POST } from "./controllers/subscribe.js";

@@ -1,1 +1,1 @@
-export { GET } from "../controllers/health.js";
+export { GET } from "./controllers/health.js";

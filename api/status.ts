@@ -1,1 +1,1 @@
-export { GET } from "../controllers/status.js";
+export { GET } from "./controllers/status.js";

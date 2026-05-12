@@ -1,1 +1,1 @@
-export { GET } from "../controllers/subscribers.js";
+export { GET } from "./controllers/subscribers.js";

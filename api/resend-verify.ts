@@ -1,1 +1,1 @@
-export { POST } from "../controllers/resend-verify.js";
+export { POST } from "./controllers/resend-verify.js";

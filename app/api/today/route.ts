@@ -41,7 +41,20 @@ export async function GET(request: NextRequest) {
     });
 
     const items = itemsResult.rows as unknown as DailyItemRow[];
-    const analysis = (analysisResult.rows[0] as unknown as DailyAnalysisRow | undefined) || null;
+    const rawAnalysis = (analysisResult.rows[0] as unknown as DailyAnalysisRow | undefined) || null;
+
+    // Parse JSON string fields from DB into objects
+    const analysis = rawAnalysis
+      ? {
+          ...rawAnalysis,
+          top_stories: rawAnalysis.top_stories
+            ? (JSON.parse(rawAnalysis.top_stories) as string[])
+            : null,
+          trend_data: rawAnalysis.trend_data
+            ? (JSON.parse(rawAnalysis.trend_data) as Record<string, number>)
+            : null,
+        }
+      : null;
 
     return NextResponse.json({ date: targetDate, items, analysis });
   } catch (err) {

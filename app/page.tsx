@@ -124,6 +124,49 @@ export default function HomePage() {
         )}
       </header>
 
+      {/* AI Summary: Top Stories & Trend Data */}
+      {data?.analysis && !loading && (
+        <div className="analysis-summary">
+          {data.analysis.top_stories &&
+            Array.isArray(data.analysis.top_stories) &&
+            data.analysis.top_stories.length > 0 && (
+              <div className="top-stories">
+                <h3>🔥 Top Stories</h3>
+                <ol>
+                  {data.analysis.top_stories.map((story: string, i: number) => (
+                    <li key={i}>{story}</li>
+                  ))}
+                </ol>
+              </div>
+            )}
+          {data.analysis.trend_data &&
+            typeof data.analysis.trend_data === "object" && (
+              <div className="trend-data">
+                <h3>📊 By Category</h3>
+                <div className="trend-bars">
+                  {Object.entries(data.analysis.trend_data as Record<string, number>)
+                    .filter(([, count]) => count > 0)
+                    .sort(([, a], [, b]) => b - a)
+                    .map(([cat, count]) => (
+                      <div key={cat} className="trend-bar-row">
+                        <span className="trend-label">
+                          {categoryLabels[cat] || cat}
+                        </span>
+                        <div className="trend-bar-track">
+                          <div
+                            className="trend-bar-fill"
+                            style={{ width: `${Math.max((count / Math.max(...Object.values(data.analysis!.trend_data as Record<string, number>))) * 100, 10)}%` }}
+                          />
+                        </div>
+                        <span className="trend-count">{count}</span>
+                      </div>
+                    ))}
+                </div>
+              </div>
+            )}
+        </div>
+      )}
+
       {/* Navigation */}
       <nav className="nav">
         <button

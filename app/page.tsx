@@ -140,11 +140,14 @@ export default function HomePage() {
               </div>
             )}
           {data.analysis.trend_data &&
-            typeof data.analysis.trend_data === "object" && (
+            typeof data.analysis.trend_data === "object" && (() => {
+              const trendData = data.analysis!.trend_data as Record<string, number>;
+              const maxVal = Math.max(...Object.values(trendData));
+              return (
               <div className="trend-data">
                 <h3>📊 By Category</h3>
                 <div className="trend-bars">
-                  {Object.entries(data.analysis.trend_data as Record<string, number>)
+                  {Object.entries(trendData)
                     .filter(([, count]) => count > 0)
                     .sort(([, a], [, b]) => b - a)
                     .map(([cat, count]) => (
@@ -155,7 +158,7 @@ export default function HomePage() {
                         <div className="trend-bar-track">
                           <div
                             className="trend-bar-fill"
-                            style={{ width: `${Math.max((count / Math.max(...Object.values(data.analysis!.trend_data as Record<string, number>))) * 100, 10)}%` }}
+                            style={{ width: `${Math.max((count / maxVal) * 100, 10)}%` }}
                           />
                         </div>
                         <span className="trend-count">{count}</span>
@@ -163,7 +166,8 @@ export default function HomePage() {
                     ))}
                 </div>
               </div>
-            )}
+              );
+            })()}
         </div>
       )}
 

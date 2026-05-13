@@ -31,6 +31,6 @@ jobs:
             PAYLOAD="{\"date\":\"$DATE\"}"
           fi
           curl -s -X POST "${{ vars.SEND_NEWSLETTER_URL }}" \
-            -H "Authorization: Bearer ${{ secrets.INTERNAL_API_KEY }}" \
+          -H "Authorization: Bearer ${{ secrets.INTERNAL_API_KEY }}" \
             -H "Content-Type: application/json" \
             -d "$PAYLOAD"

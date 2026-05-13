@@ -95,14 +95,14 @@ export default function HomePage() {
   const categoryLabels: Record<string, string> = {
     ai: "🤖 AI & Machine Learning",
     programming: "💻 Programming",
-    tech: "🔧 Technology",
+    technology: "🔧 Technology",
     security: "🔒 Security",
     science: "🔬 Science",
     business: "💼 Business",
     general: "📌 General",
   };
 
-  const categoryOrder = ["ai", "programming", "tech", "security", "science", "business", "general"];
+  const categoryOrder = ["ai", "programming", "technology", "security", "science", "business", "general"];
 
   return (
     <div className="container">

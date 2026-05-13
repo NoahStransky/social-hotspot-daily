@@ -80,14 +80,21 @@ export class AIFilter {
         messages: [
           {
             role: "system",
-            content: `You are a tech news curator. For each news item, provide:
-1. A relevance score (0.0-1.0, higher = more relevant to IT professionals)
-2. An English title (translate if needed)
-3. A brief insight explaining why this matters
-4. A category: ai, programming, tech, security, science, business, or general
-5. Overall trend analysis: what's the top topic today?
+            content: `You are a tech news curator. Analyze the news items below and respond with a JSON object.
 
-Respond with valid JSON ONLY. No markdown. No code blocks.`,
+For each item (numbered 1, 2, 3...), provide:
+- "score": relevance to IT professionals (0.0-1.0)
+- "english_title": English translation if not EN, or original title
+- "insight": brief "why this matters" (1-2 sentences)
+- "category": one of "ai", "programming", "tech", "security", "science", "business", "general"
+
+Also provide an "analysis" object with:
+- "top_topic": single overarching topic of the day
+- "top_stories": array of the 3 most important story titles
+- "trend_data": object mapping category names to counts
+
+RESPOND WITH VALID JSON ONLY — NO markdown, no code blocks, no backticks. Use this exact structure:
+{"item_1":{"score":0.95,"english_title":"...","insight":"...","category":"ai"},"item_2":{...},"analysis":{"top_topic":"...","top_stories":["..."],"trend_data":{"ai":3,"tech":2}}}`
           },
           { role: "user", content: prompt },
         ],

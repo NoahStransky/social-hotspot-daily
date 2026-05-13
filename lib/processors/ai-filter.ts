@@ -86,7 +86,7 @@ For each item (numbered 1, 2, 3...), provide:
 - "score": relevance to IT professionals (0.0-1.0)
 - "english_title": English translation if not EN, or original title
 - "insight": brief "why this matters" (1-2 sentences)
-- "category": one of "ai", "programming", "tech", "security", "science", "business", "general"
+- "category": one of "ai", "programming", "technology", "security", "science", "business", "general"
 
 Also provide an "analysis" object with:
 - "top_topic": single overarching topic of the day
